@@ -18,6 +18,5 @@ fi
 # Put your fun stuff here.
 
 alias ll="ls -alF"
-alias nano='nano -w'
 
 alias vim='vim -p'
