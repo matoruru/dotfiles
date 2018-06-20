@@ -10,4 +10,4 @@ my dotfiles repository, on gentoo linux
   - Text and Background Color -> Solarized dark
 ## main editor
 - vim
-  - Color scheme -> Solarized dark
+  - Color scheme              -> Solarized dark
