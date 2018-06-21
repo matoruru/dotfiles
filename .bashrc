@@ -18,19 +18,21 @@ fi
 # Put your fun stuff here.
 
 alias ll="ls -alF"
-alias vim='vim -p'
-alias chrome="( google-chrome-stable > /dev/null 2>&1 ) &"
-alias edittodo="vim ~/todolist.txt"
 
+alias vim='vim -p'
+
+alias chrome="( google-chrome-stable > /dev/null 2>&1 ) &"
+
+alias edittodo="vim ~/todolist.txt"
 # show todolist
 # if you want this, please make "~/todolist.txt"!
 echo
-echo "==================================================="
-echo "===================  My TODO  ====================="
-echo "==================================================="
+echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
+echo "=-=-=-=-=-=-=-=-=-=-=  My TODO  =-=-=-=-=-=-=-=-=-=-="
+echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
 echo
 cat  ~/todolist.txt
 echo
-echo "==================================================="
+echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
 echo
 
