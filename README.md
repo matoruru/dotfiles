@@ -6,7 +6,7 @@ my dotfiles repository, on gentoo linux
 ## terminal emulator
 - GNOME Terminal
   - Custom font(Monaco for Powerline Regular 11)
-  - Pallete                   -> Solarized dark
+  - Pallete                   -> Solarized
   - Text and Background Color -> Solarized dark
 ## main editor
 - vim
