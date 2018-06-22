@@ -9,6 +9,7 @@ my dotfiles repository, on gentoo linux
   - ~~Pallete                   -> Solarized~~
   - ~~Text and Background Color -> Solarized dark~~
 - rxvt-unicode
+  - Color scheme              -> Solarized dark
 ## main editor
 - vim
   - Color scheme              -> Solarized dark
