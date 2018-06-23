@@ -82,13 +82,6 @@ function installer_xmonad {
    cat  .xinitrc                > ~/.xinitrc
    mkdir           ~/.xmonad
    cp    xmonad.hs ~/.xmonad/
-}
-installer_xmonad
-
-
-function installer_urxvtc {
-   # install urxvtc (rxvt-unicode as a daemon)
-   echo "[ install urxvtc ]"
    cp .Xresources ~/
 }
-installer_urxvtc
+installer_xmonad
