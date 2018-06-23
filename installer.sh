@@ -1,70 +1,94 @@
 #!/bin/bash
 
-# if you want to execute this installer as a root too,
-# please remove this statements.
-if [ "$EUID" = 0 ]; then
-   echo '     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-   echo '     !!    you are executing as root!     !!'
-   echo '     !!  do not use sudo, and try again!  !!'
-   echo '     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-   exit
-fi
-
-
-# check whether necessary files are exist or not.
-# if files you need to execute this installer,
-# plsease add into NECESSARY_FILES array.
-NECESSARY_FILES=()
-NECESSARY_FILES+=( "/etc/X11/xinit/xinitrc" )
-for file in ${NECESSARY_FILES[@]}
-do
-   if [ ! -f $file ]; then
-      echo "     !! $file is not exist..."
-      echo "     !! please solve this probrem, and try again"
+function check_who_execute {
+   # if you want to execute this installer as a root too,
+   # please remove this function.
+   if [ "$EUID" = 0 ]; then
+      echo '     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+      echo '     !!    you are executing as root!     !!'
+      echo '     !!  do not use sudo, and try again!  !!'
+      echo '     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
       exit
    fi
-done
+}
+check_who_execute
+
+
+function check_files_existance {
+   # check whether necessary files are exist or not.
+   # if files you need to execute this installer,
+   # plsease add into NECESSARY_FILES array.
+   NECESSARY_FILES=()
+   NECESSARY_FILES+=( "/etc/X11/xinit/xinitrc" )
+   for file in ${NECESSARY_FILES[@]}
+   do
+      if [ ! -f $file ]; then
+         echo "     !! $file is not exist..."
+         echo "     !! please solve this probrem, and try again"
+         exit
+      fi
+   done
+}
+check_files_existance
 
 
 function create_oldfile {
    mv $1 $1.old
 }
 
-# install rc files
-if [ -f $HOME/.bash_profile ]; then
-   create_oldfile $HOME/.bash_profile
-fi
-ln -sr .bash_profile ~/
 
-if [ -f $HOME/.bashrc ]; then
-   create_oldfile $HOME/.bashrc
-fi
-ln -sr .bashrc ~/
-
-FISHDIR="$HOME/.config/fish"
-if [ -d $FISHDIR ]; then
-   if [ -f $FISHDIR/config.fish ]; then
-      create_oldfile $FISHDIR/config.fish
+function installer_rc_files {
+   # install rc files
+   echo "[ install rc files ]"
+   if [ -f $HOME/.bash_profile ]; then
+      create_oldfile $HOME/.bash_profile
    fi
-else
-   mkdir -p $FISHDIR
-fi
-ln -sr .fishrc $FISHDIR/config.fish
-ln -sr         $FISHDIR/config.fish ~/.fishrc
+   ln -sr .bash_profile ~/
 
-# install vimrc
-echo "[ install vimrc ]"
-if [ -f $HOME/.vimrc ]; then
-   create_oldfile $HOME/.vimrc
-fi
-ln -sr .vimrc ~/
+   if [ -f $HOME/.bashrc ]; then
+      create_oldfile $HOME/.bashrc
+   fi
+   ln -sr .bashrc ~/
+
+   FISHDIR="$HOME/.config/fish"
+   if [ -d $FISHDIR ]; then
+      if [ -f $FISHDIR/config.fish ]; then
+         create_oldfile $FISHDIR/config.fish
+      fi
+   else
+      mkdir -p $FISHDIR
+   fi
+   ln -sr .fishrc $FISHDIR/config.fish
+   ln -sr         $FISHDIR/config.fish ~/.fishrc
+}
+installer_rc_files
 
 
-# install xmonad
-cp    /etc/X11/xinit/xinitrc   ~/.xinitrc
-cat  .xinitrc                > ~/.xinitrc
-mkdir           ~/.xmonad
-cp    xmonad.hs ~/.xmonad/
+function installer_vimrc {
+   # install vimrc
+   echo "[ install vimrc ]"
+   if [ -f $HOME/.vimrc ]; then
+      create_oldfile $HOME/.vimrc
+   fi
+   ln -sr .vimrc ~/
+}
+installer_vimrc
 
-# install urxvtc (rxvt-unicode as a daemon)
-cp .Xresources ~/
+
+function installer_xmonad {
+   # install xmonad
+   echo "[ install xmonad ]"
+   cp    /etc/X11/xinit/xinitrc   ~/.xinitrc
+   cat  .xinitrc                > ~/.xinitrc
+   mkdir           ~/.xmonad
+   cp    xmonad.hs ~/.xmonad/
+}
+installer_xmonad
+
+
+function installer_urxvtc {
+   # install urxvtc (rxvt-unicode as a daemon)
+   echo "[ install urxvtc ]"
+   cp .Xresources ~/
+}
+installer_urxvtc
