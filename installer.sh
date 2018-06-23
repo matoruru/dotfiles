@@ -78,10 +78,23 @@ installer_vimrc
 function installer_xmonad {
    # install xmonad
    echo "[ install xmonad ]"
-   cp    /etc/X11/xinit/xinitrc   ~/.xinitrc
-   cat  .xinitrc                > ~/.xinitrc
-   mkdir           ~/.xmonad
-   cp    xmonad.hs ~/.xmonad/
-   cp .Xresources ~/
+   if [ -f $HOME/.xinitrc ]; then
+      create_oldfile $HOME/.xinitrc
+   fi
+   ln -sr .xinitrc ~/
+
+   if [ -d $HOME/.xmonad ]; then
+      if [ -f $HOME/.xmonad/xmonad.hs ]; then
+         create_oldfile $HOME/.xmonad/xmonad.hs
+      fi
+   else
+      mkdir ~/.xmonad
+   fi
+   ln -sr xmonad.hs ~/.xmonad/
+
+   if [ -f $HOME/.Xresources ]; then
+      create_oldfile $HOME/.Xresources
+   fi
+   ln -sr .Xresources ~/
 }
 installer_xmonad
