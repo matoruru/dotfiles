@@ -1,0 +1,43 @@
+# required by gnome-base/gnome-control-center-3.24.4::gentoo[cups]
+# required by net-libs/gnome-online-accounts-3.24.4::gentoo[gnome]
+# required by gnome-extra/evolution-data-server-3.24.7::gentoo[gnome-online-accounts]
+# required by gnome-base/gnome-shell-3.24.3::gentoo
+# required by gnome-base/gdm-3.24.3::gentoo
+>=net-fs/samba-4.5.16 client
+# required by sys-libs/ldb-1.1.29-r1::gentoo
+# required by net-fs/samba-4.5.16::gentoo
+# required by gnome-base/gnome-control-center-3.24.4::gentoo[cups]
+# required by net-libs/gnome-online-accounts-3.24.4::gentoo[gnome]
+# required by gnome-extra/evolution-data-server-3.24.7::gentoo[gnome-online-accounts]
+# required by gnome-base/gnome-shell-3.24.3::gentoo
+# required by gnome-base/gdm-3.24.3::gentoo
+>=sys-libs/tevent-0.9.31-r1 python
+# required by sys-libs/ldb-1.1.29-r1::gentoo
+# required by net-fs/samba-4.5.16::gentoo
+# required by gnome-base/gnome-control-center-3.24.4::gentoo[cups]
+# required by net-libs/gnome-online-accounts-3.24.4::gentoo[gnome]
+# required by gnome-extra/evolution-data-server-3.24.7::gentoo[gnome-online-accounts]
+# required by gnome-base/gnome-shell-3.24.3::gentoo
+# required by gnome-base/gdm-3.24.3::gentoo
+>=sys-libs/tdb-1.3.13 python
+# required by gnome-base/gnome-shell-3.24.3::gentoo
+# required by gnome-base/gdm-3.24.3::gentoo
+>=gnome-base/gnome-control-center-3.24.4 networkmanager
+# required by dev-python/cryptography-2.1.4-r1::gentoo[-libressl]
+# required by dev-python/pyopenssl-17.5.0::gentoo
+# required by dev-python/requests-2.18.4::gentoo[ssl]
+# required by gnome-extra/chrome-gnome-shell-10::gentoo
+# required by gnome-base/gnome-shell-3.24.3::gentoo[browser-extension]
+# required by gnome-base/gdm-3.24.3::gentoo
+sys-libs/pam -filecaps
+
+# required by dev-python/cryptography-2.1.4-r1::gentoo[-libressl]
+# required by dev-python/pyopenssl-17.5.0::gentoo
+# required by dev-python/requests-2.18.4::gentoo[ssl]
+# required by gnome-extra/chrome-gnome-shell-10::gentoo
+# required by gnome-base/gnome-shell-3.24.3::gentoo[browser-extension]
+# required by gnome-base/gdm-3.24.3::gentoo
+>=dev-libs/openssl-1.0.2o-r3 -bindist
+# required by app-shells/fish-2.7.1::gentoo
+# required by app-shells/fish (argument)
+>=dev-libs/libpcre2-10.30 pcre32
