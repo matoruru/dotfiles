@@ -14,25 +14,34 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
+function showtodo {
+   # if you want do, please make "~/todolist.txt"!
+   echo
+   echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
+   echo "=-=-=-=-=-=-=-=-=-=-=  My TODO  =-=-=-=-=-=-=-=-=-=-="
+   echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
+   echo
+   if [ -f ~/todolist.txt ]; then
+      cat  ~/todolist.txt
+   else
+      echo "  - create ~/todolist.txt to show todolist"
+   fi
+   echo
+   echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
+   echo
+}
 
 # Put your fun stuff here.
 
 alias ll="ls -alF"
-
 alias vim='vim -p'
-
 alias chrome="( google-chrome-stable > /dev/null 2>&1 ) &"
-
 alias edittodo="vim ~/todolist.txt"
-# show todolist
-# if you want this, please make "~/todolist.txt"!
-echo
-echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
-echo "=-=-=-=-=-=-=-=-=-=-=  My TODO  =-=-=-=-=-=-=-=-=-=-="
-echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
-echo
-cat  ~/todolist.txt
-echo
-echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
-echo
+
+# do not showtodo at CLI login
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+   :
+else
+   showtodo
+fi
 
