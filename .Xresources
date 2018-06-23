@@ -10,7 +10,7 @@ Xft.lcdfilter:  lcddefault
 URxvt.scrollBar:   false
 URxvt.scrollstyle: rxvt
 
-URxvt*font:        xft:Monaco\ for\ Powerline:pixelsize=13,xft:Hack:pixelsize=13
+URxvt*font:        xft:Monaco:pixelsize=13,xft:Hack:pixelsize=13
 URxvt*letterSpace: -1
 
 
