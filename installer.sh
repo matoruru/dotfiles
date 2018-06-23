@@ -1,8 +1,12 @@
 #!/bin/bash
 
+# if you want to execute this installer as a root too,
+# please remove this statements.
 if [[ "$EUID" = 0 ]]; then
-   echo you are executing as root!
-   echo do not use sudo, and try again
+   echo '     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+   echo '     !!    you are executing as root!     !!'
+   echo '     !!  do not use sudo, and try again!  !!'
+   echo '     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
    exit
 fi
 
