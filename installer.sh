@@ -53,7 +53,12 @@ ln -sr .fishrc $FISHDIR/config.fish
 ln -sr         $FISHDIR/config.fish ~/.fishrc
 
 # install vimrc
-cp .vimrc ~/
+echo "[ install vimrc ]"
+if [ -f $HOME/.vimrc ]; then
+   create_oldfile $HOME/.vimrc
+fi
+ln -sr .vimrc ~/
+
 
 # install xmonad
 cp    /etc/X11/xinit/xinitrc   ~/.xinitrc
