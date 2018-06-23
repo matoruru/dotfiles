@@ -14,24 +14,6 @@ function check_who_execute {
 check_who_execute
 
 
-function check_files_existance {
-   # check whether necessary files are exist or not.
-   # if files you need to execute this installer,
-   # plsease add into NECESSARY_FILES array.
-   NECESSARY_FILES=()
-   NECESSARY_FILES+=( "/etc/X11/xinit/xinitrc" )
-   for file in ${NECESSARY_FILES[@]}
-   do
-      if [ ! -f $file ]; then
-         echo "     !! $file is not exist..."
-         echo "     !! please solve this probrem, and try again"
-         exit
-      fi
-   done
-}
-check_files_existance
-
-
 function create_oldfile {
    mv $1 $1.old
 }
