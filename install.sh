@@ -29,7 +29,21 @@ function create_oldfile {
 }
 
 
-function installer_rc_files {
+function installer_portage_files {
+   # install portage files,
+   # include make.conf, package.use
+   echo "[ install portage files ]"
+   sudo rm     /etc/portage/make.conf
+   sudo rm -rf /etc/portage/package.use
+   sudo ln -sr portage/make.conf   /etc/portage/
+   sudo ln -sr portage/package.use /etc/portage/
+   sudo emerge-webrsync
+   sudo emerge --sync && sudo emerge -uDN @world
+}
+installer_portage_files
+
+
+function installer_shell_files {
    # install rc files
    echo "[ install rc files ]"
    if [ -f $HOME/.bash_profile ]; then
@@ -50,10 +64,13 @@ function installer_rc_files {
    else
       mkdir -p $FISHDIR
    fi
+   if [ -f $HOME/.fishrc ]; then
+      rm ~/.fishrc
+   fi
    ln -sr .fishrc $FISHDIR/config.fish
    ln -sr         $FISHDIR/config.fish ~/.fishrc
 }
-installer_rc_files
+installer_shell_files
 
 
 function installer_vimrc {
