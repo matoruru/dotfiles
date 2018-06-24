@@ -1,17 +1,27 @@
 #!/bin/bash
 
-function check_who_execute {
-   # if you want to execute this installer as a root too,
-   # please remove this function.
-   if [ "$EUID" = 0 ]; then
-      echo '     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-      echo '     !!    you are executing as root!     !!'
-      echo '     !!  do not use sudo, and try again!  !!'
-      echo '     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-      exit
-   fi
-}
-check_who_execute
+sudo echo "  Authentication succeeded"
+
+# if you want to execute this installer as a root too,
+# please remove this function.
+if [ "$EUID" = 0 ]; then
+   echo '     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+   echo '     !!    you are executing as root!     !!'
+   echo '     !!  do not use sudo, and try again!  !!'
+   echo '     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+   echo 'exit at [1]'
+   exit
+fi
+
+# check location of dotfiles repository
+if [[ $(pwd) = $HOME/repositories/matoruru/dotfiles ]]; then
+   echo "location of this repository is correct!"
+else
+   echo "location of this repository is not correct..."
+   echo "move this repository, to ~/repositories/matoruru/"
+   echo 'exit at [2]'
+   exit
+fi
 
 
 function create_oldfile {
