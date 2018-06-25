@@ -18,6 +18,13 @@ function create_oldfile {
    mv $1 $1.old
 }
 
+function check_files_existance {
+   # if the file is exist already, create _old file
+   if [ -f $HOME/$1 ]; then
+      create_oldfile $HOME/$1
+   fi
+}
+
 
 function installer_rc_files {
    # install rc files
