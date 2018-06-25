@@ -30,8 +30,8 @@ function create_oldfile {
 
 function check_files_existance {
    # if the file is exist already, create _old file
-   if [ -f $HOME/$1 ]; then
-      create_oldfile $HOME/$1
+   if [ -f $1 ]; then
+      create_oldfile $1
    fi
 }
 
