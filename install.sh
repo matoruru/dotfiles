@@ -50,7 +50,7 @@ function installer_shell_files {
    # install rc files
    echo "[ install rc files ]"
    check_files_existance $HOME/.bash_profile
-   ln -sr .bash_profile ~/
+   ln -sr                      .bash_profile ~/
 
    check_files_existance $HOME/.bashrc
    ln -sr .bashrc ~/
@@ -74,7 +74,7 @@ function installer_vimrc {
    # install vimrc
    echo "[ install vimrc ]"
    check_files_existance $HOME/.vimrc
-   ln -sr .vimrc ~/
+   ln -sr                      .vimrc ~/
 }
 installer_vimrc
 
@@ -93,6 +93,6 @@ function installer_xmonad {
    ln -sr xmonad.hs ~/.xmonad/
 
    check_files_existance $HOME/.Xresources
-   ln -sr .Xresources ~/
+   ln -sr                      .Xresources ~/
 }
 installer_xmonad
