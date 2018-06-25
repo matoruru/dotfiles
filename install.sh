@@ -49,21 +49,15 @@ installer_portage_files
 function installer_shell_files {
    # install rc files
    echo "[ install rc files ]"
-   if [ -f $HOME/.bash_profile ]; then
-      create_oldfile $HOME/.bash_profile
-   fi
+   check_files_existance $HOME/.bash_profile
    ln -sr .bash_profile ~/
 
-   if [ -f $HOME/.bashrc ]; then
-      create_oldfile $HOME/.bashrc
-   fi
+   check_files_existance $HOME/.bashrc
    ln -sr .bashrc ~/
 
    FISHDIR="$HOME/.config/fish"
    if [ -d $FISHDIR ]; then
-      if [ -f $FISHDIR/config.fish ]; then
-         create_oldfile $FISHDIR/config.fish
-      fi
+      check_files_existance $FISHDIR/config.fish
    else
       mkdir -p $FISHDIR
    fi
@@ -79,9 +73,7 @@ installer_shell_files
 function installer_vimrc {
    # install vimrc
    echo "[ install vimrc ]"
-   if [ -f $HOME/.vimrc ]; then
-      create_oldfile $HOME/.vimrc
-   fi
+   check_files_existance $HOME/.vimrc
    ln -sr .vimrc ~/
 }
 installer_vimrc
@@ -90,23 +82,17 @@ installer_vimrc
 function installer_xmonad {
    # install xmonad
    echo "[ install xmonad ]"
-   if [ -f $HOME/.xinitrc ]; then
-      create_oldfile $HOME/.xinitrc
-   fi
+   check_files_existance $HOME/.xinitrc
    ln -sr .xinitrc ~/
 
    if [ -d $HOME/.xmonad ]; then
-      if [ -f $HOME/.xmonad/xmonad.hs ]; then
-         create_oldfile $HOME/.xmonad/xmonad.hs
-      fi
+      check_files_existance $HOME/.xmonad/xmonad.hs
    else
       mkdir ~/.xmonad
    fi
    ln -sr xmonad.hs ~/.xmonad/
 
-   if [ -f $HOME/.Xresources ]; then
-      create_oldfile $HOME/.Xresources
-   fi
+   check_files_existance $HOME/.Xresources
    ln -sr .Xresources ~/
 }
 installer_xmonad
