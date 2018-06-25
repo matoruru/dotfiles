@@ -24,14 +24,10 @@ else
 fi
 
 
-function create_oldfile {
-   mv $1 $1.old
-}
-
 function check_files_existance {
    # if the file is exist already, create _old file
    if [ -f $1 ]; then
-      create_oldfile $1
+      mv $1 $1.old
    fi
 }
 
