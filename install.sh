@@ -31,15 +31,24 @@ function check_files_existance {
    fi
 }
 
+function create_link {
+   # create symbolic link like $2 -> $1
+   sudo ln -sr $1 $2
+}
+function create_link_sudo {
+   # create symbolic link like $2 -> $1
+   sudo ln -sr $1 $2
+}
+
 
 function installer_portage_files {
    # install portage files,
    # include make.conf, package.use
    echo "[ install portage files ]"
-   sudo rm     /etc/portage/make.conf
-   sudo rm -rf /etc/portage/package.use
-   sudo ln -sr portage/make.conf   /etc/portage/
-   sudo ln -sr portage/package.use /etc/portage/
+   sudo rm                              /etc/portage/make.conf
+   sudo rm -rf                          /etc/portage/package.use
+   create_link_sudo portage/make.conf   /etc/portage/
+   create_link_sudo portage/package.use /etc/portage/
    sudo emerge-webrsync
    sudo emerge --sync && sudo emerge -uDN @world
 }
@@ -50,10 +59,10 @@ function installer_shell_files {
    # install rc files
    echo "[ install rc files ]"
    check_files_existance $HOME/.bash_profile
-   ln -sr                      .bash_profile ~/
+   create_link                 .bash_profile ~/
 
    check_files_existance $HOME/.bashrc
-   ln -sr .bashrc ~/
+   create_link                 .bashrc ~/
 
    FISHDIR="$HOME/.config/fish"
    if [ -d $FISHDIR ]; then
@@ -64,8 +73,8 @@ function installer_shell_files {
    if [ -f $HOME/.fishrc ]; then
       rm ~/.fishrc
    fi
-   ln -sr .fishrc $FISHDIR/config.fish
-   ln -sr         $FISHDIR/config.fish ~/.fishrc
+   create_link .fishrc $FISHDIR/config.fish
+   create_link         $FISHDIR/config.fish ~/.fishrc
 }
 installer_shell_files
 
@@ -74,7 +83,7 @@ function installer_vimrc {
    # install vimrc
    echo "[ install vimrc ]"
    check_files_existance $HOME/.vimrc
-   ln -sr                      .vimrc ~/
+   create_link                 .vimrc ~/
 }
 installer_vimrc
 
@@ -83,16 +92,16 @@ function installer_xmonad {
    # install xmonad
    echo "[ install xmonad ]"
    check_files_existance $HOME/.xinitrc
-   ln -sr .xinitrc ~/
+   create_link                 .xinitrc ~/
 
    if [ -d $HOME/.xmonad ]; then
       check_files_existance $HOME/.xmonad/xmonad.hs
    else
-      mkdir ~/.xmonad
+      mkdir              ~/.xmonad
    fi
-   ln -sr xmonad.hs ~/.xmonad/
+   create_link xmonad.hs ~/.xmonad/
 
    check_files_existance $HOME/.Xresources
-   ln -sr                      .Xresources ~/
+   create_link                 .Xresources ~/
 }
 installer_xmonad
