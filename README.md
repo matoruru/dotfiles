@@ -5,6 +5,8 @@ my dotfiles repository, on gentoo linux
 - fish
 ## window manager
 - xmonad
+  - dmenu (press mod + p to call)
+  - xmobar (i have no idea yet so need to search)
 ## terminal emulator
 - rxvt-unicode (default)
   - Color scheme              -> Solarized
