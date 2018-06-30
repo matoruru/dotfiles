@@ -35,7 +35,6 @@ function showtodo {
 
 alias ll="ls -alF"
 alias vim='vim -p'
-alias chrome="( google-chrome-stable > /dev/null 2>&1 ) &"
 alias edittodo="vim ~/todolist.txt"
 
 # do not showtodo at CLI login
