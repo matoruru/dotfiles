@@ -4,3 +4,6 @@ alias udn='sudo emerge-webrsync;sudo emerge -auDN @world'
 
 alias vim='vim -p'
 alias edittodo="vim ~/todolist.txt"
+
+# Set yimmy theme
+. ~/repositories/theme-yimmy/fish_prompt.fish
