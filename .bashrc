@@ -33,6 +33,8 @@ function showtodo {
 
 # Put your fun stuff here.
 
+tabs 3
+
 alias ll="ls -alF"
 alias vim='vim -p'
 alias edittodo="vim ~/todolist.txt"
