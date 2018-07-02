@@ -4,7 +4,7 @@ sudo echo "  Authentication succeeded"
 
 # if you want to execute this installer as a root too,
 # please remove this function.
-if [ "$EUID" = 0 ]; then
+if [[ "$EUID" = 0 ]]; then
    echo '     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
    echo '     !!    you are executing as root!     !!'
    echo '     !!  do not use sudo, and try again!  !!'
@@ -26,7 +26,7 @@ fi
 
 function check_files_existance {
    # if the file is exist already, create _old file
-   if [ -f $1 ]; then
+   if [[ -f $1 ]]; then
       mv $1 $1.old
    fi
 }
@@ -65,12 +65,12 @@ function installer_shell_files {
    create_link                 .bashrc ~/
 
    FISHDIR="$HOME/.config/fish"
-   if [ -d $FISHDIR ]; then
+   if [[ -d $FISHDIR ]]; then
       check_files_existance $FISHDIR/config.fish
    else
       mkdir -p $FISHDIR
    fi
-   if [ -f $HOME/.fishrc ]; then
+   if [[ -f $HOME/.fishrc ]]; then
       rm ~/.fishrc
    fi
    create_link .fishrc $FISHDIR/config.fish
@@ -94,7 +94,7 @@ function installer_xmonad {
    check_files_existance $HOME/.xinitrc
    create_link                 .xinitrc ~/
 
-   if [ -d $HOME/.xmonad ]; then
+   if [[ -d $HOME/.xmonad ]]; then
       check_files_existance $HOME/.xmonad/xmonad.hs
    else
       mkdir              ~/.xmonad
