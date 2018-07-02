@@ -21,7 +21,7 @@ function showtodo {
    echo "=-=-=-=-=-=-=-=-=-=-=  My TODO  =-=-=-=-=-=-=-=-=-=-="
    echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
    echo
-   if [ -f ~/todolist.txt ]; then
+   if [[ -f ~/todolist.txt ]]; then
       cat  ~/todolist.txt
    else
       echo "  - create ~/todolist.txt to show todolist"
@@ -39,10 +39,13 @@ alias ll="ls -alF"
 alias vim='vim -p'
 alias edittodo="vim ~/todolist.txt"
 
-# do not showtodo at CLI login
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-   :
+# execute this only CUI login 
+  exec startx
 else
+# execute at GUI login every time
    showtodo
 fi
 
+# execute this after loading bash settings
+exec fish
