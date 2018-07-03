@@ -8,7 +8,7 @@ my dotfiles repository, on gentoo linux
   - dmenu (press mod + p to call)
   - xmobar (i have no idea yet so need to search)
 ## terminal emulator
-- rxvt-unicode (default)
+- rxvt-unicode
   - Color scheme              -> Solarized
 ## image viewer
 - feh
