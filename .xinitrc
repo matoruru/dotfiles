@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
