@@ -39,13 +39,7 @@ alias ll="ls -alF"
 alias vim='vim -p'
 alias edittodo="vim ~/todolist.txt"
 
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-# execute this only CUI login 
-  exec startx
-else
-# execute at GUI login every time
-   showtodo
-fi
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then :; else showtodo; fi
 
 # execute this after loading bash settings
 exec fish
