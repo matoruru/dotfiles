@@ -101,6 +101,9 @@ function installer_xmonad {
    fi
    create_link xmonad.hs ~/.xmonad/
 
+   cp .fehbg  ~/
+   chmod 754  ~/.fehbg
+
    check_files_existance $HOME/.Xresources
    create_link                 .Xresources ~/
 }
