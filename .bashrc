@@ -42,4 +42,7 @@ alias edittodo="vim ~/todolist.txt"
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then :; else showtodo; fi
 
 # execute this after loading bash settings
-exec fish
+ISFISHON=true
+if [[ "$ISFISHON" = "true" ]]; then
+   exec fish
+fi

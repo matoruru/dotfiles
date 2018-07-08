@@ -110,18 +110,18 @@ let g:lexima_enable_basic_rules = 1
 
 "=============================Remap keys=============================
 " Disable following keys in order bad habits breaking.
-noremap     <Up>  <nop>
-noremap     <Down>   <nop>
-noremap     <Left>   <nop>
-noremap     <Right>  <nop>
-noremap! <Up>  <nop>
-noremap! <Down>   <nop>
-noremap! <Left>   <nop>
-noremap! <Right>  <nop>
-noremap     <BackSpace> <nop>
-noremap     <Delete> <nop>
+noremap  <Up>        <nop>
+noremap  <Down>      <nop>
+noremap  <Left>      <nop>
+noremap  <Right>     <nop>
+noremap! <Up>        <nop>
+noremap! <Down>      <nop>
+noremap! <Left>      <nop>
+noremap! <Right>     <nop>
+noremap  <BackSpace> <nop>
+noremap  <Delete>    <nop>
 noremap! <BackSpace> <nop>
-noremap! <Delete> <nop>
+noremap! <Delete>    <nop>
 
 " like emacs
 cnoremap <C-p> <Up>
