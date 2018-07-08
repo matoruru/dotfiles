@@ -3,6 +3,8 @@ my dotfiles repository, on gentoo linux
 ## shell
 - bash (default)
 - fish
+## display manager
+- LightDM (not yet but it will be better)
 ## window manager
 - xmonad
   - dmenu (press mod + p to call)
