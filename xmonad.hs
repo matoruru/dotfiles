@@ -7,6 +7,6 @@ main = do
     , borderWidth = myBorderWidth
     }
 
-myTerminal    = "urxvtc"
+myTerminal    = "urxvtc" -- use as a daemon
 myModMask     = mod4Mask -- Win key or Super_L
 myBorderWidth = 1
