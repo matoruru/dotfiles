@@ -81,9 +81,14 @@ installer_shell_files
 
 function installer_vimrc {
    # install vimrc
-   echo "[ install vimrc ]"
+   echo "[ install vimrc  ]"
    check_files_existance $HOME/.vimrc
-   create_link                 .vimrc ~/
+   create_link                 .vimrc  ~/
+
+   # install gvimrc
+   echo "[ install gvimrc ]"
+   check_files_existance $HOME/.gvimrc
+   create_link                 .gvimrc ~/
 }
 installer_vimrc
 
