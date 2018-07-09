@@ -50,7 +50,7 @@ function installer_portage_files {
    create_link_sudo portage/make.conf   /etc/portage/
    create_link_sudo portage/package.use /etc/portage/
    sudo emerge-webrsync
-   sudo emerge --sync && sudo emerge -uDN @world
+   sudo emerge --sync && sudo emerge -avuDN @world
 }
 installer_portage_files
 
