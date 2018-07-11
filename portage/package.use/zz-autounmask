@@ -1,0 +1,6 @@
+# package.use# required by sys-kernel/genkernel-3.5.3.3::gentoo
+# required by genkernel (argument)
+>=sys-apps/util-linux-2.30.2-r1 static-libs
+# required by app-shells/fish-2.7.1::gentoo
+# required by app-shells/fish (argument)
+>=dev-libs/libpcre2-10.30 pcre32
