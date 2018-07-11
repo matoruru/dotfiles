@@ -1,7 +1,7 @@
+# Set alias
 alias nano='nano -w'
 alias ll='ls -alF'
 alias udn='sudo emerge-webrsync;sudo emerge -auDN @world'
-
 alias vim='vim -p'
 alias edittodo="vim ~/todolist.txt"
 
