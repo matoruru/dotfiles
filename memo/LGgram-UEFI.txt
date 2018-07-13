@@ -35,8 +35,6 @@
 - chroot /mnt/gentoo /bin/bash
 - source /etc/profile
 - emerge --sync
-- eselect profile list
-- eselect profile set XX
 - nano -w /etc/fstab
   - /dev/sda1 /boot vat noauto,noatime 1 2
   - /dev/sda2 / ext4 noatime 0 1
@@ -45,8 +43,7 @@
 - eselect locale list
 - eselect locale set YY
 - env-update && source /etc/profile
-- emerge -avuDN @world
-- emerge -avD gentoo-sources genkernel efibootmgr wireless-tools wpa_supplicant linux-firmware sudo
+- emerge -avuDN @world gentoo-sources genkernel efibootmgr wireless-tools wpa_supplicant linux-firmware sudo
 - cd /usr/src/linux
 - genkernel all
 - make install
@@ -70,3 +67,6 @@
 - visudo
 - Ctrl D
 - reboot
+- eselect profile list
+- eselect profile set XX
+- emerge -avuDN @world
