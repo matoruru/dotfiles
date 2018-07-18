@@ -46,6 +46,7 @@
 - emerge -avuDN @world gentoo-sources genkernel efibootmgr wireless-tools wpa_supplicant linux-firmware sudo
 - cd /usr/src/linux
 - genkernel all
+- make modules_install
 - make install
 - cd /boot
 - mkdir -p efi/boot
