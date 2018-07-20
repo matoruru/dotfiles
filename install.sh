@@ -52,7 +52,7 @@ function installer_portage_files {
    sudo emerge-webrsync
    sudo emerge --sync && sudo emerge -avuDN @world
 }
-installer_portage_files
+#installer_portage_files
 
 
 function installer_shell_files {
