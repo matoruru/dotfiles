@@ -55,7 +55,20 @@ endif
 call togglebg#map("<F5>")
 
 set background=dark
+let g:solarized_termtrans=1
 colorscheme solarized
+
+function! SwitchTransparent()
+   if g:solarized_termtrans
+      let g:solarized_termtrans=0
+   else
+      let g:solarized_termtrans=1
+   endif
+   colorscheme solarized
+endfunction
+nnoremap <F5> :call SwitchTransparent()<CR>
+inoremap <F5> :call SwitchTransparent()<CR>
+vnoremap <F5> :call SwitchTransparent()<CR>
 "====================================================================
 
 "=======================Settings of Powerline========================
@@ -68,15 +81,6 @@ else
 
    " Set airline theme to solarized.
    let g:airline_theme='solarized'
-
-   " Refresh powerline fonts(e.g. tabs) when toggle the background.
-   function! ToggleAirlineSolarized()
-      :ToggleBG   " Solarized(mintty theme)'s function.
-      :AirlineRefresh
-   endfunction
-   nnoremap <F5> :call ToggleAirlineSolarized()<CR>
-   inoremap <F5> :call ToggleAirlineSolarized()<CR>
-   vnoremap <F5> :call ToggleAirlineSolarized()<CR>
 endif
 "====================================================================
 

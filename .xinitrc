@@ -50,6 +50,8 @@ if [ -n "$failsafe" ]; then
 # set wallpaper by using feh
  bash ~/.fehbg &
 
+ compton &
+
  exec xmonad
 else
  exec $command
