@@ -65,6 +65,7 @@ function! SwitchTransparent()
       let g:solarized_termtrans=1
    endif
    colorscheme solarized
+   :AirlineRefresh
 endfunction
 nnoremap <F5> :call SwitchTransparent()<CR>
 inoremap <F5> :call SwitchTransparent()<CR>
