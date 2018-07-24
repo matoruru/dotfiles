@@ -1,10 +1,9 @@
 import XMonad
 
-main = do
-  xmonad $ defaultConfig
-    { terminal    = myTerminal
-    , modMask     = myModMask
-    , borderWidth = myBorderWidth
+main = xmonad $ defaultConfig {
+      terminal    = myTerminal
+     ,modMask     = myModMask
+     ,borderWidth = myBorderWidth
     }
 
 myTerminal    = "urxvtc" -- use as a daemon
