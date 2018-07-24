@@ -13,5 +13,4 @@ main = xmonad desktopConfig
 myTerminal    = "urxvtc" -- use as a daemon
 myModMask     = mod4Mask -- Win key or Super_L
 myBorderWidth = 1
-mySpacing     = spacing 2 $ Tall 1 (3/100) (1/2) ||| Full
-
+mySpacing     = smartSpacing 2 $ Tall 1 (3/100) (1/2) ||| Full
