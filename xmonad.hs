@@ -1,8 +1,7 @@
 import XMonad
-import XMonad.Config.Desktop
 import XMonad.Layout.Spacing
 
-main = xmonad desktopConfig
+main = xmonad defaultConfig
    {
     terminal    = myTerminal
    ,modMask     = myModMask
@@ -12,5 +11,5 @@ main = xmonad desktopConfig
 
 myTerminal    = "urxvtc" -- use as a daemon
 myModMask     = mod4Mask -- Win key or Super_L
-myBorderWidth = 1
-mySpacing     = smartSpacing 2 $ Tall 1 (3/100) (1/2) ||| Full
+myBorderWidth = 0
+mySpacing     = spacing 8 $ Tall 1 0.05 0.5 ||| Full -- Tall (num of master) (propotion of move by sizing) (width of master)
