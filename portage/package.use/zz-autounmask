@@ -1,6 +1,23 @@
-# package.use# required by sys-kernel/genkernel-3.5.3.3::gentoo
-# required by genkernel (argument)
->=sys-apps/util-linux-2.30.2-r1 static-libs
+# package.use# required by dev-qt/qtgui-5.9.6::gentoo[xcb]
+# required by app-text/poppler-0.62.0-r1::gentoo[qt5]
+# required by net-print/cups-filters-1.17.9::gentoo
+# required by net-print/cups-2.2.7::gentoo
+# required by www-client/google-chrome-67.0.3396.99::gentoo
+# required by www-client/google-chrome (argument)
+>=x11-libs/libxcb-1.13 xkb
 # required by app-shells/fish-2.7.1::gentoo
 # required by app-shells/fish (argument)
->=dev-libs/libpcre2-10.30 pcre32
+>=dev-libs/libpcre2-10.30 pcre32 pcre16
+# required by x11-misc/xdg-utils-1.1.1-r1::gentoo
+# required by net-print/cups-2.2.7::gentoo[X]
+# required by net-print/cups-filters-1.17.9::gentoo
+>=app-text/xmlto-0.0.26-r1 text
+# required by app-text/qpdfview-0.4.16::gentoo[pdf]
+# required by app-text/qpdfview (argument)
+>=app-text/poppler-0.62.0-r1 qt5
+# required by x11-misc/rofi-1.5.1::gentoo
+# required by x11-misc/rofi (argument)
+>=x11-libs/cairo-1.14.12 xcb
+# required by net-misc/youtube-viewer-3.3.3::gentoo
+# required by net-misc/youtube-viewer (argument)
+>=media-video/ffmpeg-3.3.6 openssl
