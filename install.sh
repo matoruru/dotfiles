@@ -45,14 +45,13 @@ function installer_portage_files {
    # install portage files,
    # include make.conf, package.use
    echo "[ install portage files ]"
-   sudo rm                              /etc/portage/make.conf
-   sudo rm -rf                          /etc/portage/package.use
-   create_link_sudo portage/make.conf   /etc/portage/
-   create_link_sudo portage/package.use /etc/portage/
+   sudo rm                                           /etc/portage/make.conf
+   create_link_sudo portage/make.conf                /etc/portage/
+   create_link_sudo portage/package.use/rxvt-unicode /etc/portage/
    sudo emerge-webrsync
    sudo emerge --sync && sudo emerge -avuDN @world
 }
-#installer_portage_files
+installer_portage_files
 
 
 function installer_shell_files {
