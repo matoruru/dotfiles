@@ -114,3 +114,38 @@ function installer_xmonad {
    create_link                 .Xresources ~/
 }
 installer_xmonad
+
+function installer_compton {
+   # install compton
+   echo "[ install compton  ]"
+   check_files_existance $HOME/.compton.conf
+   create_link                 .compton.conf ~/
+}
+installer_compton
+
+function installer_xmobar {
+   # install xmobar
+   echo "[ install xmobar ]"
+   check_files_existance $HOME/.xmobarrc
+   create_link                 .xmobarrc ~/
+}
+installer_xmobar
+
+function installer_rofi {
+   # install rofi
+   echo "[ install rofi ]"
+   if [[ -d $HOME/.config/rofi ]]; then
+      check_files_existance $HOME/.config/rofi/config
+   else
+      mkdir -p ~/.config/rofi
+   fi
+   create_link config ~/.config/rofi/
+}
+installer_rofi
+
+function clone_my_gentoo_tools {
+   # clone gentoo-tools
+   cd ~/repositories
+   git clone https://github.com/matoruru/gentoo-tools.git
+}
+clone_my_gentoo_tools
