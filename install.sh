@@ -45,11 +45,16 @@ function installer_portage_files {
    # install portage files,
    # include make.conf, package.use
    echo "[ install portage files ]"
-   sudo rm                                           /etc/portage/make.conf
-   create_link_sudo portage/make.conf                /etc/portage/
-   create_link_sudo portage/package.use/rxvt-unicode /etc/portage/
-   sudo emerge-webrsync
-   sudo emerge --sync && sudo emerge -avuDN @world
+   sudo rm                                /etc/portage/make.conf
+   create_link_sudo portage/make.conf     /etc/portage/
+   if [[ -f /etc/portage/package.use/zz-autounmask ]]; then
+      sudo mv /etc/portage/package.use/zz-autounmask /etc/portage/
+   fi
+   sudo rm -rf                            /etc/portage/package.use
+   create_link_sudo portage/package.use   /etc/portage/
+   sudo mv /etc/portage/zz-autounmask     /etc/portage/package.use/
+##   sudo emerge-webrsync
+   ##sudo emerge --sync && sudo emerge -avuDN @world
 }
 installer_portage_files
 
@@ -77,7 +82,7 @@ function installer_shell_files {
    create_link .fishrc $FISHDIR/config.fish
    create_link         $FISHDIR/config.fish ~/.fishrc
 }
-installer_shell_files
+#installer_shell_files
 
 
 function installer_vimrc {
@@ -91,7 +96,7 @@ function installer_vimrc {
    check_files_existance $HOME/.gvimrc
    create_link                 .gvimrc ~/
 }
-installer_vimrc
+#installer_vimrc
 
 
 function installer_xmonad {
@@ -113,7 +118,7 @@ function installer_xmonad {
    check_files_existance $HOME/.Xresources
    create_link                 .Xresources ~/
 }
-installer_xmonad
+#installer_xmonad
 
 function installer_compton {
    # install compton
@@ -121,7 +126,7 @@ function installer_compton {
    check_files_existance $HOME/.compton.conf
    create_link                 .compton.conf ~/
 }
-installer_compton
+#installer_compton
 
 function installer_xmobar {
    # install xmobar
@@ -129,7 +134,7 @@ function installer_xmobar {
    check_files_existance $HOME/.xmobarrc
    create_link                 .xmobarrc ~/
 }
-installer_xmobar
+#installer_xmobar
 
 function installer_rofi {
    # install rofi
@@ -141,11 +146,11 @@ function installer_rofi {
    fi
    create_link config ~/.config/rofi/
 }
-installer_rofi
+#installer_rofi
 
 function clone_my_gentoo_tools {
    # clone gentoo-tools
    cd ~/repositories
    git clone https://github.com/matoruru/gentoo-tools.git
 }
-clone_my_gentoo_tools
+#clone_my_gentoo_tools
