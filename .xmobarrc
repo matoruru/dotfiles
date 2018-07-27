@@ -2,8 +2,8 @@ Config {
 
    -- appearance
      font =         "xft:Monaco:pixelsize=14"
-   , alpha =        217 -- 255*(85/100) = 217
-   , bgColor =      "#002b36"
+   , alpha =        180
+   , bgColor =      "#000000"
    , fgColor =      "#93a1a1"
    , position =     Top
 

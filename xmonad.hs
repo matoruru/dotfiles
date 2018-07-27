@@ -8,7 +8,7 @@ myTerminal    = "urxvtc" -- use as a daemon
 myModMask     = mod4Mask -- Win key or Super_L
 myBorderWidth = 0
 
-gapwidth = 6 
+gapwidth = 6
 gwU      = 6
 gwD      = 6
 gwL      = 6
