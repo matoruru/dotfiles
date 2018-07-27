@@ -14,35 +14,19 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
-function showtodo {
-   # if you want do, please make "~/todolist.txt"!
-   echo
-   echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
-   echo "=-=-=-=-=-=-=-=-=-=-=  My TODO  =-=-=-=-=-=-=-=-=-=-="
-   echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
-   echo
-   if [[ -f ~/todolist.txt ]]; then
-      cat  ~/todolist.txt
-   else
-      echo "  - create ~/todolist.txt to show todolist"
-   fi
-   echo
-   echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
-   echo
-}
-
 # Put your fun stuff here.
 
 tabs 3
 
 alias ll="ls -alF"
 alias vim='vim -p'
-alias edittodo="vim ~/todolist.txt"
+alias showtodo="bash ~/repositories/matoruru/gentoo-tools/showtodo.sh"
+alias edittodo="vim ~/todolist.txt;showtodo"
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then :; else showtodo; fi
 
 # execute this after loading bash settings
 ISFISHON=true
-if [[ "$ISFISHON" = "true" ]]; then
+if [[ "$ISFISHON" = "true" ]]  && [[ -f /bin/fish ]]; then
    exec fish
 fi

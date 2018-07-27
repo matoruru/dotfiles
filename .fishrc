@@ -3,7 +3,8 @@ alias nano='nano -w'
 alias ll='ls -alF'
 alias udn='sudo emerge-webrsync;sudo emerge -auDN @world'
 alias vim='vim -p'
-alias edittodo="vim ~/todolist.txt"
+alias showtodo="bash ~/repositories/matoruru/gentoo-tools/showtodo.sh"
+alias edittodo="vim ~/todolist.txt;showtodo"
 
 # Set yimmy theme
 . ~/repositories/theme-yimmy/fish_prompt.fish
