@@ -9,7 +9,7 @@ myModMask     = mod4Mask -- Win key or Super_L
 myBorderWidth = 0
 
 gapwidth = 6 
-gwU      = 24 -- bacause height of dmenu is 18.
+gwU      = 6
 gwD      = 6
 gwL      = 6
 gwR      = 6
