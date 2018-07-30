@@ -49,6 +49,7 @@ if [ -n "$failsafe" ]; then
  urxvtd --quiet --fork --opendisplay &
 # set wallpaper by using feh
  bash ~/.fehbg &
+ unclutter -root &
  compton -b
  exec xmonad
 else
