@@ -1,7 +1,7 @@
 # /etc/skel/.bash_profile
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-   exec startx -- -nocursor
+   exec startx
 fi
 
 # This file is sourced by bash for login shells.  The following line
