@@ -82,7 +82,7 @@ function installer_shell_files {
    create_link .fishrc $FISHDIR/config.fish
    create_link         $FISHDIR/config.fish ~/.fishrc
 }
-#installer_shell_files
+installer_shell_files
 
 
 function installer_vimrc {
@@ -95,8 +95,10 @@ function installer_vimrc {
    echo "[ install gvimrc ]"
    check_files_existance $HOME/.gvimrc
    create_link                 .gvimrc ~/
+
+   mkdir -p ~/.vim/view
 }
-#installer_vimrc
+installer_vimrc
 
 
 function installer_xmonad {
@@ -118,7 +120,7 @@ function installer_xmonad {
    check_files_existance $HOME/.Xresources
    create_link                 .Xresources ~/
 }
-#installer_xmonad
+installer_xmonad
 
 function installer_compton {
    # install compton
@@ -126,7 +128,7 @@ function installer_compton {
    check_files_existance $HOME/.compton.conf
    create_link                 .compton.conf ~/
 }
-#installer_compton
+installer_compton
 
 function installer_xmobar {
    # install xmobar
@@ -134,7 +136,7 @@ function installer_xmobar {
    check_files_existance $HOME/.xmobarrc
    create_link                 .xmobarrc ~/
 }
-#installer_xmobar
+installer_xmobar
 
 function installer_rofi {
    # install rofi
@@ -146,11 +148,11 @@ function installer_rofi {
    fi
    create_link config ~/.config/rofi/
 }
-#installer_rofi
+installer_rofi
 
 function clone_my_gentoo_tools {
    # clone gentoo-tools
-   cd ~/repositories
+   cd ~/repositories/matoruru
    git clone https://github.com/matoruru/gentoo-tools.git
 }
-#clone_my_gentoo_tools
+clone_my_gentoo_tools
