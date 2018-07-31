@@ -15,17 +15,16 @@ if [[ $- != *i* ]] ; then
 fi
 
 # Put your fun stuff here.
-
-tabs 3
-
-alias nano='nano -w'
 alias ll="ls -alF"
 alias vim='vim -p'
 alias mocp='mocp -T mytheme'
 alias showtodo="bash ~/repositories/matoruru/gentoo-tools/showtodo.sh"
 alias edittodo="vim ~/todolist.txt;showtodo"
 
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then :; else showtodo; fi
+# what want to do when bash is executed
+tabs 3
+showtodo
+rm ~/.serverauth.* 1> /dev/null 2>&1
 
 # execute this after loading bash settings
 ISFISHON=true

@@ -1,5 +1,4 @@
 # Set alias
-alias nano='nano -w'
 alias ll='ls -alF'
 alias vim='vim -p'
 alias mocp='mocp -T mytheme'
