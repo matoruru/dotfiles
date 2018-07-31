@@ -18,8 +18,10 @@ fi
 
 tabs 3
 
+alias nano='nano -w'
 alias ll="ls -alF"
 alias vim='vim -p'
+alias mocp='mocp -T mytheme'
 alias showtodo="bash ~/repositories/matoruru/gentoo-tools/showtodo.sh"
 alias edittodo="vim ~/todolist.txt;showtodo"
 

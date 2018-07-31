@@ -156,3 +156,12 @@ function clone_my_gentoo_tools {
    git clone https://github.com/matoruru/gentoo-tools.git
 }
 clone_my_gentoo_tools
+
+function installer_moc {
+   # install moc
+   echo "[ install moc ]"
+   create_link .moc/themes ~/.moc/
+   chmod 755               ~/.moc/themes/changetheme.sh
+
+}
+installer_moc
