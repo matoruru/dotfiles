@@ -41,60 +41,65 @@ Config {
                              ] 36000
 
         -- network activity monitor (dynamic interface resolution)
-        , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
+        , Run DynNetwork     [ "-m 5"
+                             , "--template" , "<dev>: [<tx>kB/s][<rx>kB/s]"
                              , "--Low"      , "1000"       -- units: B/s
                              , "--High"     , "5000"       -- units: B/s
                              , "--low"      , "#2aa198"
                              , "--normal"   , "#859900"
                              , "--high"     , "#dc322f"
-                             ] 10
+                             ] 1
 
         -- cpu activity monitor
-        , Run MultiCpu       [ "--template" , "CPU: [<total0>%][<total1>%][<total2>%][<total3>%][<total4>%][<total5>%][<total6>%][<total7>%]"
+        , Run MultiCpu       [ "-p 3"
+                             , "--template" , "CPU: [<total0>%][<total1>%][<total2>%][<total3>%][<total4>%][<total5>%][<total6>%][<total7>%]"
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "85"         -- units: %
                              , "--low"      , "#2aa198"
                              , "--normal"   , "#859900"
                              , "--high"     , "#dc322f"
-                             ] 10
+                             ] 1
 
         -- cpu core temperature monitor
-        , Run CoreTemp       [ "--template" , "Temp: [<core0>°C][<core1>°C][<core2>°C][<core3>°C][<core4>°C]"
+        , Run CoreTemp       [ "-m 2"
+                             , "--template" , "Temp: [<core0>°C]"
                              , "--Low"      , "70"        -- units: °C
                              , "--High"     , "80"        -- units: °C
                              , "--low"      , "#2aa198"
                              , "--normal"   , "#859900"
                              , "--high"     , "#dc322f"
-                             ] 50
+                             ] 1
                           
         -- memory usage monitor
-        , Run Memory         [ "--template" ,"Memory: <usedratio>%"
+        , Run Memory         [ "-p 3"
+                             , "--template" ,"Memory: [<usedratio>%]"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "90"        -- units: %
                              , "--low"      , "#2aa198"
                              , "--normal"   , "#859900"
                              , "--high"     , "#dc322f"
-                             ] 10
+                             ] 1
 
         -- battery monitor
-        , Run Battery        [ "--template" , "Battery: <acstatus>"
+        , Run BatteryP ["CMB0"]        [ "--template" , "Battery: <acstatus>"
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
-                             , "--low"      , "#2aa198"
+                             , "--low"      , "#dc322f"
                              , "--normal"   , "#859900"
-                             , "--high"     , "#dc322f"
+                             , "--high"     , "#2aa198"
 
                              , "--" -- battery specific options
                                        -- discharging status
-                                       , "-o"	, "<left>% (<timeleft>)"
+                                     --, "-o"	, "<left>% (<timeleft>)"
+                                       , "-o"	, "[<left>%]"
                                        -- AC "on" status
-                                       , "-O"	, "<fc=#2aa198>Charging</fc>"
+                                       , "-O"	, "[<fc=#2aa198>Charging</fc>]"
                                        -- charged status
-                                       , "-i"	, "<fc=#859900>Charged</fc>"
+                                       , "-i"	, "[<fc=#859900>Charged</fc>]"
                              ] 50
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fc=#268bd2>%F (%a) %T</fc>" "date" 10
+        , Run Date           "[<fc=#268bd2>%F (%a) %T</fc>]" "date" 10
         ]
    }
