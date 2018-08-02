@@ -1,12 +1,17 @@
 # Gentoo Linux UEFI boot on LG gram
-- date
+- date (fit to UTC time)
 - gdisk /dev/sda
   - o
   - n
   - Enter
   - Enter
-  - +128M
+  - +512M
   - EF00
+  - n
+  - Enter
+  - Enter
+  - +16G
+  - 8200
   - n
   - Enter
   - Enter
@@ -14,12 +19,14 @@
   - Enter
   - w
 - mkfs.vfat -F 32 /dev/sda1
-- mkfs.ext4 /dev/sda2
-- mount /dev/sda2 /mnt/gentoo
+- mkfs.ext4 /dev/sda3
+- mkswap /dev/sda2
+- swapon /dev/sda2
+- mount /dev/sda3 /mnt/gentoo
 - mkdir /mnt/gentoo/boot
 - mount /dev/sda1 /mnt/gentoo/boot
 - cd /mnt/gentoo
-- (download stage3 tarball (i did it using firefox))
+- (download stage3 tarball (i did it using firefox), Do not select no-multilib!!)
 - (extract tarball)
   - tar -xvjpf stage3* --xattrs --numeric-owner (in case of bz2)
   - tar -xvJpf stage3* --xattrs --numeric-owner (in case of bz)
@@ -34,16 +41,18 @@
 - mount --rbind /sys /mnt/gentoo/sys
 - chroot /mnt/gentoo /bin/bash
 - source /etc/profile
-- emerge --sync
+- emerge-webrsync
+- eselect profile list
+- eselect profile set XX
 - nano -w /etc/fstab
-  - /dev/sda1 /boot vat noauto,noatime 1 2
-  - /dev/sda2 / ext4 noatime 0 1
+  - /dev/sda1 /boot vfat noauto,noatime 0 2
+  - /dev/sda3 / ext4 noatime 0 1
 - nano -w /etc/locale.gen
 - locale-gen
 - eselect locale list
 - eselect locale set YY
 - env-update && source /etc/profile
-- emerge -avuDN @world gentoo-sources genkernel efibootmgr wireless-tools wpa_supplicant linux-firmware sudo
+- emerge -avuDN @world gentoo-sources genkernel efibootmgr wireless-tools wpa_supplicant linux-firmware sudo dev-vcs/git
 - cd /usr/src/linux
 - genkernel all
 - make modules_install
@@ -63,11 +72,8 @@
 - ln -s net.lo net.wlp2s0
 - rc-update add net.wlp2s0 default
 - wpa_passphrase "SSID" "PASSPHRASE" > /etc/wpa_supplicant/wpa_supplicant.conf
-- useradd -m -G wheel,portage XXX
+- useradd -m -G wheel,portage,audio XXX
 - passwd XXX
-- visudo
+- visudo ( nopasswd )
 - Ctrl D
 - reboot
-- eselect profile list
-- eselect profile set XX
-- emerge -avuDN @world
