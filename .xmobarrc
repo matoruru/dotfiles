@@ -42,7 +42,7 @@ Config {
 
         -- network activity monitor (dynamic interface resolution)
         , Run DynNetwork     [ "-m 5"
-                             , "--template" , "<dev>: [<tx>kB/s][<rx>kB/s]"
+                             , "--template" , "<tx>kB/s <rx>kB/s"
                              , "--Low"      , "1000"       -- units: B/s
                              , "--High"     , "5000"       -- units: B/s
                              , "--low"      , "#2aa198"
@@ -52,7 +52,7 @@ Config {
 
         -- cpu activity monitor
         , Run MultiCpu       [ "-p 3"
-                             , "--template" , "CPU: [<total0>%][<total1>%][<total2>%][<total3>%][<total4>%][<total5>%][<total6>%][<total7>%]"
+                             , "--template" , "<total0>% <total1>% <total2>% <total3>% <total4>% <total5>% <total6>% <total7>%"
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "85"         -- units: %
                              , "--low"      , "#2aa198"
@@ -62,7 +62,7 @@ Config {
 
         -- cpu core temperature monitor
         , Run CoreTemp       [ "-m 2"
-                             , "--template" , "Temp: [<core0>°C]"
+                             , "--template" , "<core0>°C"
                              , "--Low"      , "70"        -- units: °C
                              , "--High"     , "80"        -- units: °C
                              , "--low"      , "#2aa198"
@@ -72,7 +72,7 @@ Config {
                           
         -- memory usage monitor
         , Run Memory         [ "-p 3"
-                             , "--template" ,"Memory: [<usedratio>%]"
+                             , "--template" ,"<usedratio>%"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "90"        -- units: %
                              , "--low"      , "#2aa198"
@@ -81,7 +81,7 @@ Config {
                              ] 1
 
         -- battery monitor
-        , Run BatteryP ["CMB0"]        [ "--template" , "Battery: <acstatus>"
+        , Run BatteryP ["CMB0"]        [ "--template" , "<acstatus>"
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
                              , "--low"      , "#dc322f"
@@ -90,16 +90,15 @@ Config {
 
                              , "--" -- battery specific options
                                        -- discharging status
-                                     --, "-o"	, "<left>% (<timeleft>)"
-                                       , "-o"	, "[<left>%]"
+                                       , "-o"	, "<left>%"
                                        -- AC "on" status
-                                       , "-O"	, "[<fc=#2aa198>Charging</fc>]"
+                                       , "-O"	, "<fc=#2aa198>Charging</fc>"
                                        -- charged status
-                                       , "-i"	, "[<fc=#859900>Charged</fc>]"
+                                       , "-i"	, "<fc=#859900>Charged</fc>"
                              ] 50
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "[<fc=#268bd2>%F (%a) %T</fc>]" "date" 10
+        , Run Date           "<fc=#268bd2>%F (%a) %T</fc>" "date" 10
         ]
    }
