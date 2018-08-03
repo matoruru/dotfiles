@@ -42,6 +42,8 @@
 - chroot /mnt/gentoo /bin/bash
 - source /etc/profile
 - emerge-webrsync
+- echo "Asia/Tokyo" > /etc/timezone
+- emerge --config sys-libs/timezone-data
 - eselect profile list
 - eselect profile set XX
 - nano -w /etc/fstab
@@ -63,7 +65,7 @@
 - mount -o remount,rw /sys/firmware/efi/efivars
 - efibootmgr -v
 - efibootmgr -b X -B (if you want to delete any entry point)
-- efibootmgr -c -d /dev/sda -L "Gentoo EFI Stub" -l "\efi\boot\bootx64.efi" -u "root=/dev/sda2 rw initrd=/initramfs-genkernel-x86_64.X.XX.XX-gentoo"
+- efibootmgr -c -d /dev/sda -L "Gentoo EFI Stub" -l "\efi\boot\bootx64.efi" -u "root=/dev/sda3 rw initrd=/initramfs-genkernel-x86_64.X.XX.XX-gentoo"
 - nano -w /etc/conf.d/net
   - module_wlp2s0="dhcp"
   - modules="wpa_supplicant"
@@ -77,3 +79,8 @@
 - visudo ( nopasswd )
 - Ctrl D
 - reboot
+- mkdir -p ~/repositories/matoruru
+- cd ~/repositories/matoruru
+- git clone https://github.com/matoruru/dotfiles.git
+- cd repositories/matoruru/dotfiles
+- bash install.sh
