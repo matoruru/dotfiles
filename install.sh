@@ -154,14 +154,15 @@ function clone_my_gentoo_tools {
    # clone gentoo-tools
    cd ~/repositories/matoruru
    git clone https://github.com/matoruru/gentoo-tools.git
+   cd dotfiles
 }
 clone_my_gentoo_tools
 
 function installer_moc {
    # install moc
    echo "[ install moc ]"
+   mkdir                   ~/.moc
    create_link .moc/themes ~/.moc/
-   chmod 755               ~/.moc/themes/changetheme.sh
-
+   chmod 755        ~/.moc/themes/changetheme.sh
 }
 installer_moc
