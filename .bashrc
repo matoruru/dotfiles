@@ -18,7 +18,7 @@ fi
 alias ll="ls -alF"
 alias vim='vim -p'
 alias mocp='mocp -T mytheme'
-alias showtodo="bash ~/repositories/matoruru/gentoo-tools/showtodo.sh"
+alias showtodo="fish ~/repositories/matoruru/gentoo-tools/showtodo.fish"
 alias edittodo="vim ~/todolist.txt;showtodo"
 
 # what want to do when bash is executed
