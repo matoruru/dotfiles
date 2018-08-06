@@ -81,7 +81,8 @@ Config {
                              ] 1
 
         -- battery monitor
-        , Run BatteryP ["CMB0"]        [ "--template" , "<acstatus>"
+        , Run BatteryP ["CMB0"]
+                             [ "--template" , "<acstatus>"
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
                              , "--low"      , "#dc322f"
