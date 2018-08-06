@@ -1,7 +1,7 @@
 Config { 
 
    -- appearance
-     font =         "xft:Monaco:pixelsize=14"
+     font =         "xft:Monaco:pixelsize=12"
    , alpha =        180
    , bgColor =      "#000000"
    , fgColor =      "#93a1a1"
