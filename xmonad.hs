@@ -14,7 +14,7 @@ gwU      = 6
 gwD      = 6
 gwL      = 6
 gwR      = 6
-mySpacing   = spacing gapwidth $ gaps [(U, gwU), (D, gwD), (L, gwL), (R, gwR)] $ Tall 1 0.05 0.5 ||| Tall 2 0.05 0.5 ||| Full
+myLayout = spacing gapwidth $ gaps [(U, gwU), (D, gwD), (L, gwL), (R, gwR)] $ Tall 1 0.05 0.5 ||| Tall 2 0.05 0.5 ||| Full
 myKeysP = [
            ("M-p"      , spawn "rofi -show run")
           ,("<Print>"  , spawn "scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
@@ -31,5 +31,5 @@ myConfig = defaultConfig
     terminal    = myTerminal
    ,modMask     = myModMask
    ,borderWidth = myBorderWidth
-   ,layoutHook  = mySpacing
+   ,layoutHook  = myLayout
    } `additionalKeysP` myKeysP
