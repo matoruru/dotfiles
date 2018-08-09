@@ -20,6 +20,7 @@ myKeysP = [
           ,("<Print>"  , spawn "scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
           ,("M-<Print>", spawn "scrot --focused ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
           ]
+myWorkspaces = map show [1..5]
 
 main :: IO ()
 
@@ -32,4 +33,5 @@ myConfig = defaultConfig
    ,modMask     = myModMask
    ,borderWidth = myBorderWidth
    ,layoutHook  = myLayout
+   ,workspaces  = myWorkspaces
    } `additionalKeysP` myKeysP
