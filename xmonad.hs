@@ -1,4 +1,5 @@
 import XMonad
+import System.IO
 import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
 import XMonad.Hooks.DynamicLog
@@ -20,10 +21,15 @@ myKeysP = [
           ,("M-<Print>", spawn "scrot --focused ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
           ]
 
-main = xmonad =<< xmobar ( defaultConfig
+main :: IO ()
+
+main = do
+   xmonad =<< xmobar myConfig
+
+myConfig = defaultConfig
    {
     terminal    = myTerminal
    ,modMask     = myModMask
    ,borderWidth = myBorderWidth
    ,layoutHook  = mySpacing
-   } `additionalKeysP` myKeysP )
+   } `additionalKeysP` myKeysP
