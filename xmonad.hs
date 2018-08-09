@@ -14,7 +14,11 @@ gwD      = 6
 gwL      = 6
 gwR      = 6
 mySpacing   = spacing gapwidth $ gaps [(U, gwU), (D, gwD), (L, gwL), (R, gwR)] $ Tall 1 0.05 0.5 ||| Tall 2 0.05 0.5 ||| Full
-myKeysP = [ ("M-p", spawn "rofi -show run") ]
+myKeysP = [
+           ("M-p"      , spawn "rofi -show run")
+          ,("<Print>"  , spawn "scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
+          ,("M-<Print>", spawn "scrot --focused ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
+          ]
 
 main = xmonad =<< xmobar ( defaultConfig
    {
