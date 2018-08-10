@@ -97,6 +97,8 @@ function installer_vimrc {
    create_link                 .gvimrc ~/
 
    mkdir -p ~/.vim/view
+
+   sudo cp .vimrc-root /root/.vimrc
 }
 installer_vimrc
 
