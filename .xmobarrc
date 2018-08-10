@@ -1,16 +1,32 @@
 Config { 
+     --Solarized color codes
+     --base03 = "#002b36",  base02  = "#073642"
+     --base01 = "#586e75",  base00  = "#657b83"
+     --base0  = "#839496",  base1   = "#93a1a1"
+     --base2  = "#eee8d5",  base3   = "#fdf6e3"
+     --yellow = "#b58900",  orange  = "#cb4b16"
+     --red    = "#dc322f",  magenta = "#d33682"
+     --violet = "#6c71c4",  blue	   = "#268bd2"
+     --cyan	  = "#2aa198",  green   = "#859900"
+
 
    -- appearance
-     font =         "xft:Monaco:pixelsize=12"
-   , alpha =        180
+     font            = "xft:Monaco:pixelsize=12:antialias=true"
+   , additionalFonts = []
+   , alpha   =      175
    , bgColor =      "#000000"
    , fgColor =      "#93a1a1"
-   , position =     Top
+   , border      =  NoBorder
+   , borderColor =  "#000000"
+   , position =     Static { xpos = 0, ypos = 0, width = 1920, height = 15 }
+   , textOffset = -1
+   , iconOffset = -1
+   , iconRoot = "."
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " %battery% | %multicpu% | %coretemp% | %memory% | %dynnetwork% }{ %RJTT% | %date% "
+   , template = " %StdinReader%}%date%{%multicpu% | %coretemp% | %memory% | %dynnetwork% |%battery%"
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -36,12 +52,8 @@ Config {
    --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
    , commands = 
 
-        -- weather monitor
-        [ Run Weather "RJTT" [ "--template", "<skyCondition> | <fc=#4682B4><tempC></fc>°C | <fc=#4682B4><rh></fc>% | <fc=#4682B4><pressure></fc>hPa"
-                             ] 36000
-
         -- network activity monitor (dynamic interface resolution)
-        , Run DynNetwork     [ "-m 5"
+        [ Run DynNetwork     [ "-m 5"
                              , "--template" , "<tx>kB/s <rx>kB/s"
                              , "--Low"      , "1000"       -- units: B/s
                              , "--High"     , "5000"       -- units: B/s
@@ -82,7 +94,8 @@ Config {
 
         -- battery monitor
         , Run BatteryP ["CMB0"]
-                             [ "--template" , "<acstatus>"
+                             [ "-m 5"
+                             , "--template" , "<acstatus>"
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
                              , "--low"      , "#dc322f"
@@ -91,12 +104,13 @@ Config {
 
                              , "--" -- battery specific options
                                        -- discharging status
-                                       , "-o"	, "<left>%"
+                                       , "-o"	, "<left>%   "
                                        -- AC "on" status
-                                       , "-O"	, "<fc=#2aa198>Charging</fc>"
+                                       , "-O"	, "<fc=#2aa198> Charging </fc>"
                                        -- charged status
-                                       , "-i"	, "<fc=#859900>Charged</fc>"
-                             ] 50
+                                       , "-i"	, "<fc=#859900> Charged </fc>"
+                             ] 200
+        , Run StdinReader
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
