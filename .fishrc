@@ -1,3 +1,6 @@
+# To remove the message at fish login
+set fish_greeting
+
 # Set alias
 alias ll='ls -alF'
 alias vim='vim -p'
