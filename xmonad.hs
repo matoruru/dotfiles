@@ -7,13 +7,15 @@ import XMonad.Util.EZConfig
 
 myTerminal    = "urxvtc" -- use as a daemon
 myModMask     = mod4Mask -- Win key or Super_L
-myBorderWidth = 0
+myNormalBorderColor  = "#fdf6e3"
+myFocusedBorderColor = "#2aa198"
+myBorderWidth        = 2
 
-gapwidth = 6
-gwU      = 6
-gwD      = 6
-gwL      = 6
-gwR      = 6
+gapwidth = 5
+gwU      = 5
+gwD      = 5
+gwL      = 5
+gwR      = 5
 myLayout = spacing gapwidth $ gaps [(U, gwU), (D, gwD), (L, gwL), (R, gwR)] $ Tall 1 0.05 0.5 ||| Tall 2 0.05 0.5 ||| Full
 myKeysP = [
            ("M-p"      , spawn "rofi -show run")
