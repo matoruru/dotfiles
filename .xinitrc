@@ -49,8 +49,9 @@ if [ -n "$failsafe" ]; then
  urxvtd --quiet --fork --opendisplay &
 # set wallpaper by using feh
  bash ~/.fehbg &
- unclutter -root &
+ unclutter -idle 1.5 -root &
  compton -b
+ xsetroot -cursor_name left_ptr &
  exec xmonad
 else
  exec $command
