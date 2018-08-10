@@ -10,3 +10,46 @@ alias edittodo="vim ~/todolist.txt;showtodo"
 
 # Set yimmy theme
 . ~/repositories/theme-yimmy/fish_prompt.fish
+
+# when you  want to use dual monitors
+function dualon
+   xrandr --output HDMI1 --auto --above eDP1
+end
+
+function dualoff
+   xrandr --output HDMI1 --off
+end
+
+# wraper of dict command
+function dic
+   if test -n "$argv[1]"
+      dict $argv[1] | less
+      return
+   end
+
+   while true
+      read word
+      if test -z "$word"
+         return
+      end
+      dict $word | less
+   end
+end
+
+# switch apatche server on/off
+function httpon
+   sudo /etc/init.d/apache2 start
+end
+
+function httpoff
+   sudo /etc/init.d/apache2 stop
+end
+
+# switch wifi on/off
+function wifion
+   sudo /etc/init.d/net.wlp2s0 start
+end
+
+function wifioff
+   sudo /etc/init.d/net.wlp2s0 stop
+end
