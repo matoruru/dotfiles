@@ -53,8 +53,6 @@ function installer_portage_files {
    sudo rm -rf                            /etc/portage/package.use
    create_link_sudo portage/package.use   /etc/portage/
    sudo mv /etc/portage/zz-autounmask     /etc/portage/package.use/
-##   sudo emerge-webrsync
-   ##sudo emerge --sync && sudo emerge -avuDN @world
 }
 installer_portage_files
 
