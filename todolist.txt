@@ -1,0 +1,4 @@
+- i want 3d cube desktop...
+- enable mod+arrow key as workspace switcher
+  and mod+n as creating new workspace
+- make the brightness changable

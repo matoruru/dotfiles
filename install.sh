@@ -66,7 +66,7 @@ function installer_shell_files {
    check_files_existance $HOME/.bashrc
    create_link                 .bashrc ~/
 
-   cp todolist.txt.example ~/todolist.txt
+   cp todolist.txt ~/
 
    FISHDIR="$HOME/.config/fish"
    if [[ -d $FISHDIR ]]; then
