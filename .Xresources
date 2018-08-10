@@ -1,4 +1,6 @@
-Xcursor.theme: handhelds
+Xcursor.theme: gentoo-silver
+Xcursor.size : 24
+
 
 Xft.dpi:        96
 Xft.antialias:  true
