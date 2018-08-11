@@ -55,7 +55,7 @@ myXmobarPP = xmobarPP
    ,ppHidden          = xmobarColor cyan   "" . wrap " " " "
    ,ppHiddenNoWindows = xmobarColor base01 "" . wrap " " " "
    ,ppLayout          = xmobarColor base1  ""
-   ,ppTitle           = xmobarColor yellow "" . shorten 60
+   ,ppTitle           = xmobarColor yellow "" . shorten 70
    ,ppSep             = "  "
    ,ppWsSep           = ""
    }
