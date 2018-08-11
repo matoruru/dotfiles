@@ -52,7 +52,7 @@ myBar = "xmobar"
 myXmobarPP = xmobarPP
    {
     ppCurrent         = xmobarColor yellow "" . wrap "[" "]"
-   ,ppHidden          = xmobarColor cyan   "" . wrap " " " "
+   ,ppHidden          = xmobarColor yellow "" . wrap " " " "
    ,ppHiddenNoWindows = xmobarColor base01 "" . wrap " " " "
    ,ppLayout          = xmobarColor base1  ""
    ,ppTitle           = xmobarColor yellow "" . shorten 70
