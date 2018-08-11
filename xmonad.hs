@@ -4,6 +4,7 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.EZConfig
+import XMonad.Actions.CycleWS
 
 -- Solarized color codes
 base03   = "#002b36"
@@ -39,6 +40,11 @@ myKeysP = [
            ("M-p"      , spawn "rofi -show run")
           ,("<Print>"  , spawn "scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
           ,("M-<Print>", spawn "scrot --focused ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
+          ,("M-h"      , moveTo Prev NonEmptyWS)
+          ,("M-l"      , moveTo Next NonEmptyWS)
+          ,("M-n"      , moveTo Next EmptyWS)
+          ,("M-<Left>" , sendMessage Shrink)
+          ,("M-<Right>", sendMessage Expand)
           ]
 
 myBar = "xmobar"
