@@ -5,6 +5,7 @@ import XMonad.Layout.Gaps
 import XMonad.Hooks.DynamicLog
 import XMonad.Util.EZConfig
 import XMonad.Actions.CycleWS
+import qualified XMonad.StackSet as W
 
 -- Solarized color codes
 base03   = "#002b36"
@@ -42,7 +43,9 @@ myKeysP = [
           ,("M-<Print>", spawn "scrot --focused ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
           ,("M-h"      , moveTo Prev NonEmptyWS)
           ,("M-l"      , moveTo Next NonEmptyWS)
-          ,("M-n"      , moveTo Next EmptyWS)
+          ,("M-n"      , do
+                            windows $ W.greedyView "9"
+                            moveTo Next EmptyWS)
           ,("M-<Left>" , sendMessage Shrink)
           ,("M-<Right>", sendMessage Expand)
           ]
