@@ -38,16 +38,31 @@ gwL      = 5
 gwR      = 5
 myLayout = spacing gapwidth $ gaps [(U, gwU), (D, gwD), (L, gwL), (R, gwR)] $ Tall 1 0.01 0.5 ||| Tall 2 0.01 0.5 ||| Full
 myKeysP = [
-           ("M-p"      , spawn "rofi -show run")
-          ,("<Print>"  , spawn "scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
-          ,("M-<Print>", spawn "scrot --focused ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
-          ,("M-h"      , moveTo Prev NonEmptyWS)
-          ,("M-l"      , moveTo Next NonEmptyWS)
-          ,("M-n"      , do
-                            windows $ W.greedyView "9"
-                            moveTo Next EmptyWS)
-          ,("M-<Left>" , sendMessage Shrink)
-          ,("M-<Right>", sendMessage Expand)
+           ("M-p"         , spawn "rofi -show run")
+          ,("M-u"         , spawn "urxvtc")
+          ,("M-i"         , spawn "qutebrowser")
+          ,(  "<Print>"   , spawn "scrot           ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
+          ,("M-<Print>"   , spawn "scrot --focused ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
+          ,("M-h"         , moveTo   Prev NonEmptyWS)
+          ,("M-l"         , moveTo   Next NonEmptyWS)
+          ,("M-n"         , do
+                              windows $ W.greedyView "9"
+                              moveTo Next    EmptyWS)
+          ,("M-<Left>"    , sendMessage Shrink)
+          ,("M-<Right>"   , sendMessage Expand)
+          ,("M-w"         , kill)
+          ,("M-S-<Return>", spawn "")
+          ,("M-<Tab>"     , spawn "")
+          ,("M-S-<Tab>"   , spawn "")
+          ,("M-1"         , spawn "")
+          ,("M-2"         , spawn "")
+          ,("M-3"         , spawn "")
+          ,("M-4"         , spawn "")
+          ,("M-5"         , spawn "")
+          ,("M-6"         , spawn "")
+          ,("M-7"         , spawn "")
+          ,("M-8"         , spawn "")
+          ,("M-9"         , spawn "")
           ]
 
 myBar = "xmobar"
