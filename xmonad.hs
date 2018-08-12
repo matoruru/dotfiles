@@ -54,11 +54,11 @@ myBar = "xmobar"
 
 myXmobarPP = xmobarPP
    {
-    ppCurrent         = xmobarColor cyan      "" . \s -> "[=]"
-   ,ppHidden          = xmobarColor cyan      "" . \s -> "[ ]"
+    ppCurrent         = xmobarColor green     "" . \s -> "[=]"
+   ,ppHidden          = xmobarColor green     "" . \s -> "[ ]"
    ,ppHiddenNoWindows = xmobarColor "#505050" "" . \s -> "[ ]"
    ,ppLayout          = xmobarColor "#000000" "" . \s -> ""
-   ,ppTitle           = xmobarColor green     "" . shorten 70
+   ,ppTitle           = xmobarColor cyan      "" . shorten 70
    ,ppSep             = " "
    ,ppWsSep           = ""
    }
