@@ -27,7 +27,7 @@ green	   = "#859900"
 
 myTerminal    = "urxvtc" -- use as a daemon
 myModMask     = mod4Mask -- Win key or Super_L
-myNormalBorderColor  = base3
+myNormalBorderColor  = base0
 myFocusedBorderColor = cyan
 myBorderWidth        = 2
 
@@ -54,12 +54,12 @@ myBar = "xmobar"
 
 myXmobarPP = xmobarPP
    {
-    ppCurrent         = xmobarColor yellow "" . wrap "[" "]"
-   ,ppHidden          = xmobarColor yellow "" . wrap " " " "
-   ,ppHiddenNoWindows = xmobarColor base01 "" . wrap " " " "
-   ,ppLayout          = xmobarColor base1  ""
-   ,ppTitle           = xmobarColor yellow "" . shorten 70
-   ,ppSep             = "  "
+    ppCurrent         = xmobarColor yellow    "" . \s -> "[=]"
+   ,ppHidden          = xmobarColor yellow    "" . \s -> "[ ]"
+   ,ppHiddenNoWindows = xmobarColor "#505050" "" . \s -> "[ ]"
+   ,ppLayout          = xmobarColor base0     "" . \s -> ""
+   ,ppTitle           = xmobarColor yellow    "" . shorten 70
+   ,ppSep             = " "
    ,ppWsSep           = ""
    }
 
