@@ -2,15 +2,17 @@
 my dotfiles repository, on gentoo linux
 ## shell
 - bash (default)
-- fish
+- fish (always use)
 ## display manager
-- LightDM (not yet but it will be better)
+- cdm
 ## window manager
 - xmonad
-  - dmenu (press mod + p to call)
-  - xmobar (i have no idea yet so need to search)
+  - rofi (press mod + p to call)
+    - Solarized
+  - xmobar
+    - Solarized
 ## composite manager
-- compton (for transparency)
+- compton (for transparency and shadow)
 ## terminal emulator
 - rxvt-unicode
   - Color scheme              -> Solarized
@@ -21,10 +23,11 @@ my dotfiles repository, on gentoo linux
 - vim
   - Color scheme              -> Solarized dark
 ## web browser
-- Google Chrome
-### Chrome Extension
-- vimium
-  - used for keybind like vim
+- qutebrowser
+  - i want to contribute to this...!
 ## pdf viewer
 - qpdfview
   - light weight pdf viewer
+## music player
+- moc
+  - Solarized
