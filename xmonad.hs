@@ -50,7 +50,7 @@ myKeysP = [
                               moveTo Next    EmptyWS)
           ,("M-<Left>"    , sendMessage Shrink)
           ,("M-<Right>"   , sendMessage Expand)
-          ,("M-w"         , kill)
+          ,("M-c"         , kill)
           ,("M-S-<Return>", spawn "")
           ,("M-<Tab>"     , spawn "")
           ,("M-S-<Tab>"   , spawn "")
