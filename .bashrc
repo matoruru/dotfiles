@@ -23,7 +23,11 @@ alias edittodo="vim ~/todolist.txt;showtodo"
 
 # what want to do when bash is executed
 tabs 3
-showtodo
+
+if [[ $(tty) = '/dev/pts/0' ]]; then
+   showtodo
+fi
+
 rm ~/.serverauth.* 1> /dev/null 2>&1
 
 # execute this after loading bash settings
