@@ -25,17 +25,19 @@ blue	   = "#268bd2"
 cyan	   = "#2aa198"
 green	   = "#859900"
 
+darkgreen	   = "#637700"
+
 myTerminal    = "urxvtc" -- use as a daemon
 myModMask     = mod4Mask -- Win key or Super_L
 myNormalBorderColor  = base0
 myFocusedBorderColor = cyan
-myBorderWidth        = 2
+myBorderWidth        = 3
 
-gapwidth = 5
-gwU      = 5
-gwD      = 5
-gwL      = 5
-gwR      = 5
+gapwidth = 4
+gwU      = 4
+gwD      = 4
+gwL      = 4
+gwR      = 4
 myLayout = spacing gapwidth $ gaps [(U, gwU), (D, gwD), (L, gwL), (R, gwR)] $ Tall 1 0.01 0.5 ||| Tall 2 0.01 0.5 ||| Full
 myKeysP = [
            ("M-p"         , spawn "rofi -show run")
@@ -65,16 +67,23 @@ myKeysP = [
           ,("M-9"         , spawn "")
           ]
 
+myManageHook = composeAll
+   [ className =? "~/Pictures/Screenshots/tmp/fehF.sh" --> doFloat ]
+
 myBar = "xmobar"
 
 myXmobarPP = xmobarPP
    {
-    ppCurrent         = xmobarColor green     "" . \s -> "[=]"
-   ,ppHidden          = xmobarColor green     "" . \s -> "[ ]"
-   ,ppHiddenNoWindows = xmobarColor "#505050" "" . \s -> "[ ]"
-   ,ppLayout          = xmobarColor "#000000" "" . \s -> ""
-   ,ppTitle           = xmobarColor cyan      "" . shorten 70
-   ,ppSep             = " "
+    ppCurrent         = xmobarColor green     "" . \s -> "[$]"
+   ,ppHidden          = xmobarColor darkgreen "" . \s -> "[ ]"
+   ,ppHiddenNoWindows = xmobarColor "#505050" "" . \s -> "[+]"
+   ,ppLayout          = xmobarColor green     "" .
+      (\x -> case x of
+       "Spacing 4 Tall" -> "[T]"
+       "Spacing 4 Full" -> "[F]"
+      )
+   ,ppTitle           = xmobarColor cyan      "" . shorten 75
+   ,ppSep             = "  "
    ,ppWsSep           = ""
    }
 
