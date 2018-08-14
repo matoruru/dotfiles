@@ -166,3 +166,11 @@ function installer_moc {
    chmod 755               ~/.moc/themes/changetheme.sh
 }
 installer_moc
+
+function installer_ctags  {
+   # install ctags
+   echo "[ install ctags  ]"
+   check_files_existance $HOME/.ctags
+   create_link               ./.ctags ~/
+}
+installer_ctags
