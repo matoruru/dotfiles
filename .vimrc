@@ -29,6 +29,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('vim-scripts/surround.vim')
   call dein#add('cohama/lexima.vim')
   call dein#add('simeji/winresizer')
+  call dein#add('majutsushi/tagbar')
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
@@ -147,6 +148,7 @@ inoremap kk <esc><Right>
 nnoremap <F6> :<C-u>vsplit $MYVIMRC<CR>
 nnoremap <F7> :<C-u>source $MYVIMRC<CR>
 nnoremap <F8> :<C-u>NERDTreeTabsToggle<CR>
+nnoremap <F9> :<C-u>TagbarToggle<CR>
 
 " Press <Esc> key 2 times, to :noh
 nnoremap <silent><Esc><Esc> :noh<CR><Esc>
