@@ -174,3 +174,11 @@ function installer_ctags  {
    create_link               ./.ctags ~/
 }
 installer_ctags
+
+function installer_xmodmap  {
+   # install xmodmap
+   echo "[ install xmodmap  ]"
+   check_files_existance $HOME/.Xmodmap
+   create_link               ./.Xmodmap ~/
+}
+installer_xmodmap

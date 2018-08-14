@@ -1,0 +1,8 @@
+clear  Lock
+keysym Caps_Lock = Escape
+keysym Escape    = F20
+
+clear  Mod1
+clear  Mod4
+add    Mod1 = Super_L Super_R
+add    Mod4 = Alt_L   Alt_R
