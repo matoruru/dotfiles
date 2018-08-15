@@ -4,9 +4,12 @@ set fish_greeting
 # Set alias
 alias ll='ls -alF'
 alias vim='vim -p'
+alias vi='vim'
 alias mocp='mocp -T mytheme'
 alias showtodo="fish ~/repositories/matoruru/gentoo-tools/showtodo.fish"
 alias edittodo="vim ~/todolist.txt;showtodo"
+alias su="sudo su -"
+alias scrot="scrot -q 100"
 
 # Set yimmy theme
 . ~/repositories/theme-yimmy/fish_prompt.fish

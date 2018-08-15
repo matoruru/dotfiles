@@ -17,6 +17,7 @@ fi
 # Put your fun stuff here.
 alias ll="ls -alF"
 alias vim='vim -p'
+alias vi='vim'
 alias mocp='mocp -T mytheme'
 alias showtodo="fish ~/repositories/matoruru/gentoo-tools/showtodo.fish"
 alias edittodo="vim ~/todolist.txt;showtodo"
