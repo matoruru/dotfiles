@@ -16,7 +16,9 @@ alias scrot="scrot -q 100"
 
 # when you  want to use dual monitors
 function dualon
-   xrandr --output HDMI1 --auto --above eDP1
+   set ROTATE right # at home
+#set ROTATE normal # at work
+   xrandr --output HDMI1 --auto --above eDP1 --rotate $ROTATE
 end
 
 function dualoff
