@@ -31,6 +31,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('simeji/winresizer')
   call dein#add('majutsushi/tagbar')
   call dein#add('alvan/vim-closetag')
+  call dein#add('bronson/vim-trailing-whitespace')
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
