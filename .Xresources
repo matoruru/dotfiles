@@ -15,7 +15,7 @@ URxvt.scrollBar:   false
 URxvt.scrollstyle: rxvt
 
 URxvt.font:        xft:Monaco:pixelsize=14,xft:Inconsolata for Powerline:pixelsize=20,xft:Hack:pixelsize=16,xft:Hack:pixelsize=14
-URxvt.letterSpace: -1
+URxvt.letterSpace: 0
 
 
 URxvt.depth:                  32
