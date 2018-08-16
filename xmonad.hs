@@ -2,6 +2,7 @@ import XMonad
 import System.IO
 import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
+import XMonad.Layout.NoBorders
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
@@ -42,7 +43,11 @@ gwU      = 4
 gwD      = 4
 gwL      = 4
 gwR      = 4
-myLayout = spacing gapwidth $ gaps [(U, gwU), (D, gwD), (L, gwL), (R, gwR)] $ Tall 1 0.01 0.5 ||| Tall 2 0.01 0.5 ||| Full
+myLayout = lessBorders OnlyFloat $
+           spacing gapwidth $
+           gaps [(U, gwU), (D, gwD), (L, gwL), (R, gwR)] $
+           Tall 1 0.01 0.5 ||| Tall 2 0.01 0.5 ||| Full
+
 myKeysP = [
            ("M-p"         , spawn "rofi -show run")
           ,("M-u"         , spawn "urxvtc"             )
