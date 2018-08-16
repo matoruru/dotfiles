@@ -40,6 +40,8 @@ function create_link_sudo {
    sudo ln -sr $1 $2
 }
 
+# check connection to internet
+ping www.google.com -c 3 || exit
 
 function installer_portage_files {
    # install portage files,
