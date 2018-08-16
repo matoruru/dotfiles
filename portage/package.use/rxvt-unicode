@@ -1,1 +1,1 @@
-x11-terms/rxvt-unicode -vanilla 256-color wcwidth unicode3 pixbuf
+x11-terms/rxvt-unicode -vanilla alt-font-width 256-color wcwidth unicode3 pixbuf blink
