@@ -3,7 +3,10 @@ import System.IO
 import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
 import XMonad.Util.EZConfig
+import XMonad.Util.Paste
 import XMonad.Actions.CycleWS
 import qualified XMonad.StackSet as W
 
@@ -42,10 +45,12 @@ gwR      = 4
 myLayout = spacing gapwidth $ gaps [(U, gwU), (D, gwD), (L, gwL), (R, gwR)] $ Tall 1 0.01 0.5 ||| Tall 2 0.01 0.5 ||| Full
 myKeysP = [
            ("M-p"         , spawn "rofi -show run")
-          ,("M-u"         , spawn "urxvtc")
-          ,("M-i"         , spawn "qutebrowser")
-          ,(  "<Print>"   , spawn "scrot           ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
-          ,("M-<Print>"   , spawn "scrot --focused ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
+          ,("M-u"         , spawn "urxvtc"             )
+          ,("M-S-u"       , spawn "urxvtc -e sudo su -")
+          ,("M-s"         , spawn "qutebrowser")
+          ,(  "<Print>"   , spawn "screenshot.sh 0.7 70"          )
+          ,("S-<Print>"   , spawn "screenshot.sh 0.7 90 --focused")
+          ,("<Insert>"    , pasteSelection)
           ,("M-h"         , moveTo   Prev NonEmptyWS)
           ,("M-l"         , moveTo   Next NonEmptyWS)
           ,("M-n"         , do
@@ -54,6 +59,8 @@ myKeysP = [
           ,("M-<Left>"    , sendMessage Shrink)
           ,("M-<Right>"   , sendMessage Expand)
           ,("M-c"         , kill)
+          ,("M-S-c"       , spawn "")
+          ,("<F20>"       , spawn "urxvtc -e fish ~/repositories/matoruru/omoshiro-tools/sl-wrapper.sh") -- <F20> is remapped as <Esc> by xmodmap
           ,("M-S-<Return>", spawn "")
           ,("M-<Tab>"     , spawn "")
           ,("M-S-<Tab>"   , spawn "")
@@ -68,8 +75,9 @@ myKeysP = [
           ,("M-9"         , spawn "")
           ]
 
-myManageHook = composeAll
-   [ className =? "~/Pictures/Screenshots/tmp/fehF.sh" --> doFloat ]
+myManageHook = manageFloat <+> manageDocks
+manageFloat  = composeAll
+   [ title =? "feh [1 of 1] - _____scReeNshoT-tmP.png" --> doCenterFloat ]
 
 myBar = "xmobar"
 
@@ -103,4 +111,5 @@ myConfig = defaultConfig
    ,focusedBorderColor = myFocusedBorderColor
    ,borderWidth        = myBorderWidth
    ,layoutHook         = myLayout
+   ,manageHook         = myManageHook
    } `additionalKeysP` myKeysP
