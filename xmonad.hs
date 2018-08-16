@@ -25,7 +25,8 @@ blue	   = "#268bd2"
 cyan	   = "#2aa198"
 green	   = "#859900"
 
-darkgreen	   = "#637700"
+darkgreen	   = "#748800"
+lightgreen	   = "#96aa44"
 
 myTerminal    = "urxvtc" -- use as a daemon
 myModMask     = mod4Mask -- Win key or Super_L
@@ -74,15 +75,15 @@ myBar = "xmobar"
 
 myXmobarPP = xmobarPP
    {
-    ppCurrent         = xmobarColor green     "" . \s -> "[$]"
+    ppCurrent         = xmobarColor darkgreen "" . \s -> "[<fc=#96aa44>$</fc>]"
    ,ppHidden          = xmobarColor darkgreen "" . \s -> "[ ]"
-   ,ppHiddenNoWindows = xmobarColor "#505050" "" . \s -> "[+]"
+   ,ppHiddenNoWindows = xmobarColor "#505050" "" . \s -> "[<fc=#586e75>+</fc>]"
    ,ppLayout          = xmobarColor green     "" .
       (\x -> case x of
        "Spacing 4 Tall" -> "[T]"
-       "Spacing 4 Full" -> "[F]"
+       "Spacing 4 Full" -> "<fc=#cb4b16>[F]</fc>"
       )
-   ,ppTitle           = xmobarColor cyan      "" . shorten 75
+   ,ppTitle           = xmobarColor cyan          "" . shorten 75
    ,ppSep             = "  "
    ,ppWsSep           = ""
    }
