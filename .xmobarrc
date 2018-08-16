@@ -73,7 +73,7 @@ Config {
                              ] 1
 
         -- cpu core temperature monitor
-        , Run CoreTemp       [ "-m 2"
+        , Run CoreTemp       [ "-m 3"
                              , "--template" , "<core0>°C"
                              , "--Low"      , "70"        -- units: °C
                              , "--High"     , "80"        -- units: °C
