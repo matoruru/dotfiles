@@ -43,6 +43,32 @@ function create_link_sudo {
 # check connection to internet
 ping www.google.com -c 3 || exit
 
+
+function clone_my_gentoo_tools {
+   # clone gentoo-tools
+   cd ~/repositories/matoruru
+   git clone https://github.com/matoruru/gentoo-tools.git
+   cd dotfiles
+   if [[ ! -d ~/repositories/matoruru/gentoo-tools ]]; then
+      echo "failed cloning gentoo-tools.git...! exit"
+      exit
+   fi
+}
+clone_my_gentoo_tools
+
+function clone_my_omoshiro-tools {
+   # clone omoshiro-tools
+   cd ~/repositories/matoruru
+   git clone https://github.com/matoruru/omoshiro-tools.git
+   cd dotfiles
+   if [[ ! -d ~/repositories/matoruru/omoshiro-tools ]]; then
+      echo "failed cloning omoshiro-tools.git...! exit"
+      exit
+   fi
+}
+clone_my_omoshiro-tools
+
+
 function installer_portage_files {
    # install portage files,
    # include make.conf, package.use
@@ -152,22 +178,6 @@ function installer_rofi {
 }
 installer_rofi
 
-function clone_my_gentoo_tools {
-   # clone gentoo-tools
-   cd ~/repositories/matoruru
-   git clone https://github.com/matoruru/gentoo-tools.git
-   cd dotfiles
-}
-clone_my_gentoo_tools
-
-function clone_my_omoshiro-tools {
-   # clone omoshiro-tools
-   cd ~/repositories/matoruru
-   git clone https://github.com/matoruru/omoshiro-tools.git
-   cd dotfiles
-}
-clone_my_omoshiro-tools
-
 function installer_moc {
    # install moc
    echo "[ install moc ]"
@@ -192,3 +202,6 @@ function installer_xmodmap  {
    create_link               ./.Xmodmap ~/
 }
 installer_xmodmap
+
+
+cd ~/repositories/matoruru/gentoo-tools && bash install.sh
