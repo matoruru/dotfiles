@@ -160,6 +160,14 @@ function clone_my_gentoo_tools {
 }
 clone_my_gentoo_tools
 
+function clone_my_omoshiro-tools {
+   # clone omoshiro-tools
+   cd ~/repositories/matoruru
+   git clone https://github.com/matoruru/omoshiro-tools.git
+   cd dotfiles
+}
+clone_my_omoshiro-tools
+
 function installer_moc {
    # install moc
    echo "[ install moc ]"
