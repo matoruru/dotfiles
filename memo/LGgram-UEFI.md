@@ -84,3 +84,4 @@
 - git clone https://github.com/matoruru/dotfiles.git
 - cd repositories/matoruru/dotfiles
 - bash install.sh
+- ssh-keygen -t rsa -b 4096 -C "my email"
