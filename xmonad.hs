@@ -36,13 +36,13 @@ myTerminal    = "urxvtc" -- use as a daemon
 myModMask     = mod4Mask -- Win key or Super_L
 myNormalBorderColor  = base0
 myFocusedBorderColor = cyan
-myBorderWidth        = 3
+myBorderWidth        = 0
 
-gapwidth = 4
-gwU      = 4
-gwD      = 4
-gwL      = 4
-gwR      = 4
+gapwidth = 6
+gwU      = 6
+gwD      = 6
+gwL      = 6
+gwR      = 6
 myLayout = lessBorders OnlyFloat $
            spacing gapwidth $
            gaps [(U, gwU), (D, gwD), (L, gwL), (R, gwR)] $
@@ -93,8 +93,8 @@ myXmobarPP = xmobarPP
    ,ppHiddenNoWindows = xmobarColor "#505050" "" . \s -> "[<fc=#586e75>+</fc>]"
    ,ppLayout          = xmobarColor green     "" .
       (\x -> case x of
-       "Spacing 4 Tall" -> "[T]"
-       "Spacing 4 Full" -> "<fc=#cb4b16>[F]</fc>"
+       "Spacing 6 Tall" -> "[T]"
+       "Spacing 6 Full" -> "<fc=#cb4b16>[F]</fc>"
       )
    ,ppTitle           = xmobarColor cyan          "" . shorten 75
    ,ppSep             = "  "
