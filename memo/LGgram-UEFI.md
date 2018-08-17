@@ -85,3 +85,4 @@
 - cd repositories/matoruru/dotfiles
 - bash install.sh
 - ssh-keygen -t rsa -b 4096 -C "my email address"
+- git remote set-url origin git@github.com:matoruru/[repositoriy's name].git
