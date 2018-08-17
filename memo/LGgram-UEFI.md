@@ -1,23 +1,23 @@
 # Gentoo Linux UEFI boot on LG gram
 - date (fit to UTC time)
 - gdisk /dev/sda
-  - o
-  - n
-  - Enter
-  - Enter
-  - +512M
-  - EF00
-  - n
-  - Enter
-  - Enter
-  - +4G
-  - 8200
-  - n
-  - Enter
-  - Enter
-  - +100G
-  - Enter
-  - w
+    - o
+    - n
+    - Enter
+    - Enter
+    - +512M
+    - EF00
+    - n
+    - Enter
+    - Enter
+    - +4G
+    - 8200
+    - n
+    - Enter
+    - Enter
+    - +100G
+    - Enter
+    - w
 - mkfs.vfat -F 32 /dev/sda1
 - mkfs.ext4 /dev/sda3
 - mkswap /dev/sda2
@@ -28,12 +28,12 @@
 - cd /mnt/gentoo
 - (download stage3 tarball (i did it using firefox), Do not select no-multilib!!)
 - (extract tarball)
-  - tar -xvjpf stage3* --xattrs --numeric-owner (in case of bz2)
-  - tar -xvJpf stage3* --xattrs --numeric-owner (in case of bz)
+    - tar -xvjpf stage3* --xattrs --numeric-owner (in case of bz2)
+    - tar -xvJpf stage3* --xattrs --numeric-owner (in case of bz)
 - nano -w /mnt/gentoo/etc/portage/make.conf
-  - CFLAGS
-  - CXXFLAGS
-  - MAKEOPTS
+    - CFLAGS
+    - CXXFLAGS
+    - MAKEOPTS
 - mirrorselect -io >> /mnt/gentoo/etc/portage/make.conf
 - cp -L /etc/resolv.conf /mnt/gentoo/etc/
 - mount -t proc /proc /mnt/gentoo/proc
@@ -47,8 +47,8 @@
 - eselect profile list
 - eselect profile set XX
 - nano -w /etc/fstab
-  - /dev/sda1 /boot vfat noauto,noatime 0 2
-  - /dev/sda3 / ext4 noatime 0 1
+    - /dev/sda1 /boot vfat noauto,noatime 0 2
+    - /dev/sda3 / ext4 noatime 0 1
 - nano -w /etc/locale.gen
 - locale-gen
 - eselect locale list
@@ -67,9 +67,9 @@
 - efibootmgr -b X -B (if you want to delete any entry point)
 - efibootmgr -c -d /dev/sda -L "Gentoo EFI Stub" -l "\efi\boot\bootx64.efi" -u "root=/dev/sda3 rw initrd=/initramfs-genkernel-x86_64.X.XX.XX-gentoo"
 - nano -w /etc/conf.d/net
-  - module_wlp2s0="dhcp"
-  - modules="wpa_supplicant"
-  - wpa_supplicant_wlp2s0="-Dwext"
+    - module_wlp2s0="dhcp"
+    - modules="wpa_supplicant"
+    - wpa_supplicant_wlp2s0="-Dwext"
 - cd /etc/init.d
 - ln -s net.lo net.wlp2s0
 - rc-update add net.wlp2s0 default
