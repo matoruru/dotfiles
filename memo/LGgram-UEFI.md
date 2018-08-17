@@ -1,4 +1,4 @@
-# Gentoo Linux UEFI boot on LG gram
+# Gentoo Linux UEFI boot on LG gram without using GRUB
 - date (fit to UTC time)
 - gdisk /dev/sda
     - o
