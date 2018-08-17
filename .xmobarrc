@@ -1,4 +1,4 @@
-Config { 
+Config {
      --Solarized color codes
      --base03 = "#002b36",  base02  = "#073642"
      --base01 = "#586e75",  base00  = "#657b83"
@@ -50,7 +50,7 @@ Config {
    --   The --template option controls how the plugin is displayed. Text
    --   color can be set by enclosing in <fc></fc> tags. For more details
    --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
-   , commands = 
+   , commands =
 
         -- network activity monitor (dynamic interface resolution)
         [ Run DynNetwork     [ "-m 5"
@@ -81,7 +81,7 @@ Config {
                              , "--normal"   , "#859900"
                              , "--high"     , "#dc322f"
                              ] 1
-                          
+
         -- memory usage monitor
         , Run Memory         [ "-p 3"
                              , "--template" ,"<usedratio>%"
@@ -112,7 +112,7 @@ Config {
                              ] 200
         , Run StdinReader
 
-        -- time and date indicator 
+        -- time and date indicator
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
         , Run Date           "<fc=#268bd2>%F (%a) %T</fc>" "date" 10
         ]
