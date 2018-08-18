@@ -68,6 +68,17 @@ function clone_my_omoshiro-tools {
 }
 clone_my_omoshiro-tools
 
+function clone_my_xmonadhs {
+   # clone xmonad.hs
+   cd ~/repositories/matoruru
+   git clone https://github.com/matoruru/xmonad.hs.git
+   cd dotfiles
+   if [[ ! -d ~/repositories/matoruru/xmonad.hs ]]; then
+      echo "failed cloning xmonad.hs.git...! exit"
+      exit
+   fi
+}
+clone_my_xmonadhs
 
 function installer_portage_files {
    # install portage files,
