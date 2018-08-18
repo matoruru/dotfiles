@@ -214,5 +214,17 @@ function installer_xmodmap  {
 }
 installer_xmodmap
 
+function installer_qutebrowser {
+   # install qutebrowser
+   echo "[ install qutebrowser ]"
+   if [[ -d $HOME/.config/qutebrowser ]]; then
+      check_files_existance $HOME/.config/qutebrowser/config.py
+   else
+      mkdir -p ~/.config/qutebrowser
+   fi
+   create_link ./config.py ~/.config/qutebrowser/
+}
+installer_qutebrowser
+
 
 cd ~/repositories/matoruru/gentoo-tools && bash install.sh
