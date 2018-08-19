@@ -65,7 +65,6 @@ myKeysP = [
           ,("M-<Right>"   , sendMessage Expand)
           ,("M-c"         , kill)
           ,("M-S-c"       , spawn "")
-          ,("<F20>"       , spawn "urxvtc -e fish ~/repositories/matoruru/omoshiro-tools/sl-wrapper.sh") -- <F20> is remapped as <Esc> by xmodmap
           ,("M-S-<Return>", spawn "")
           ,("M-<Tab>"     , spawn "")
           ,("M-S-<Tab>"   , spawn "")
