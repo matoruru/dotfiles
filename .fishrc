@@ -8,7 +8,7 @@ alias vi='vim'
 alias mocp='mocp -T mytheme'
 alias showtodo="fish ~/repositories/matoruru/gentoo-tools/showtodo.fish"
 alias edittodo="vim ~/todolist.txt;showtodo"
-alias su="sudo su -"
+alias su="sudo su - -m"
 alias scrot="scrot -q 100"
 
 # Set yimmy theme
