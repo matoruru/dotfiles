@@ -61,3 +61,12 @@ end
 function wifioff
    sudo /etc/init.d/net.wlp2s0 stop
 end
+
+# switch docker on/off
+function dockeron
+   sudo rc-service docker start
+end
+
+function dockeroff
+   sudo rc-service docker stop
+end
