@@ -11,6 +11,9 @@ alias edittodo="vim ~/todolist.txt;showtodo"
 alias su="sudo su - -m"
 alias scrot="scrot -q 100"
 
+# Set tab step
+tabs 3
+
 # Set yimmy theme
 . ~/repositories/theme-yimmy/fish_prompt.fish
 
