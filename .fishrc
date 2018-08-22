@@ -30,6 +30,7 @@ end
 
 # wraper of dict command
 function dic
+   clear
    if test -n "$argv[1]"
       dict $argv[1] | less
       return
