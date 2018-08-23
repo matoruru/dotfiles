@@ -115,6 +115,9 @@ imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosni
 let g:lexima_enable_basic_rules = 1
 "====================================================================
 
+"=======================Settings of tagbar===========================
+autocmd BufEnter * nested :call tagbar#autoopen(0)
+"====================================================================
 
 "=============================Remap keys=============================
 " Disable following keys in order bad habits breaking.
