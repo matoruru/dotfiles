@@ -15,7 +15,7 @@
     - n
     - Enter
     - Enter
-    - +100G
+    - +50G
     - Enter
     - w
 - mkfs.vfat -F 32 /dev/sda1
