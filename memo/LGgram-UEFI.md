@@ -55,17 +55,19 @@
 - eselect locale set YY
 - env-update && source /etc/profile
 - emerge -avuDN @world gentoo-sources genkernel efibootmgr wireless-tools wpa_supplicant linux-firmware sudo dev-vcs/git
+- cd
+- git clone https://github.com/matoruru/dotfiles.git
 - cd /usr/src/linux
-- genkernel all
-- make modules_install
-- make install
+- make mrproper
+- cp ~/dotfiles/.config ./
+- make -j7 && make modules_install && make install && genkernel --kernel-config=.config initramfs
 - cd /boot
 - mkdir -p efi/boot
 - cp vmlinuz*-gentoo efi/boot/bootx64.efi
 - mount -o remount,rw /sys/firmware/efi/efivars
 - efibootmgr -v
 - efibootmgr -b X -B (if you want to delete any entry point)
-- efibootmgr -c -d /dev/sda -L "Gentoo EFI Stub" -l "\efi\boot\bootx64.efi" -u "root=/dev/sda3 rw initrd=/initramfs-genkernel-x86_64.X.XX.XX-gentoo"
+- efibootmgr -c --part 1 -d /dev/sda -L "Gentoo 1 (/dev/sda1)" -l "\efi\boot\bootx64.efi" -u "root=/dev/sda3 rw initrd=/initramfs-genkernel-x86_64.X.XX.XX-gentoo"
 - nano -w /etc/conf.d/net
     - module_wlp2s0="dhcp"
     - modules="wpa_supplicant"
