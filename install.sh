@@ -227,4 +227,4 @@ function installer_qutebrowser {
 installer_qutebrowser
 
 
-cd ~/repositories/matoruru/gentoo-tools && bash install.sh
+echo "execute gentoo-tools' install.sh!"
