@@ -116,7 +116,7 @@ let g:lexima_enable_basic_rules = 1
 "====================================================================
 
 "=======================Settings of tagbar===========================
-autocmd BufEnter * nested :call tagbar#autoopen(0)
+"autocmd BufEnter * nested :call tagbar#autoopen(0)
 "====================================================================
 
 "=============================Remap keys=============================
