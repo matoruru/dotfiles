@@ -1,0 +1,4 @@
+dev-python/PyQt5 webchannel webkit
+dev-libs/libxml2 icu
+sys-libs/zlib minizip
+dev-qt/qtwebchannel qml
