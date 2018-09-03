@@ -60,7 +60,7 @@
 - cd /usr/src/linux
 - make mrproper
 - cp ~/dotfiles/.config ./
-- make -j7 && make modules_install && make install && genkernel --kernel-config=.config initramfs
+- make -j8 && make -j8 modules_install && make install && genkernel --kernel-config=.config initramfs
 - cd /boot
 - mkdir -p efi/boot
 - cp vmlinuz*-gentoo efi/boot/bootx64.efi
