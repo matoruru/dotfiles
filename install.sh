@@ -41,7 +41,7 @@ function create_link_sudo {
 }
 
 # check connection to internet
-ping www.google.com -c 3 || exit
+ping www.google.com -i 0.2 -c 5 || exit
 
 
 function clone_my_gentoo_tools {
