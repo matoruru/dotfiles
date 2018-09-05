@@ -11,8 +11,8 @@ Xft.autohint:   false
 Xft.lcdfilter:  lcddefault
 
 
-URxvt.scrollBar:   false
-URxvt.scrollstyle: rxvt
+URxvt.scrollBar:    false
+URxvt.pointerBlank: true
 
 URxvt.font:        xft:Monaco:pixelsize=14,xft:Inconsolata for Powerline:pixelsize=20,xft:Hack:pixelsize=16,xft:Hack:pixelsize=14
 URxvt.letterSpace: 0
