@@ -1,2 +1,2 @@
-rofi.font: Monaco 11
-rofi.theme:solarized_alternate
+rofi.font: Monaco for Powerline 11
+rofi.theme: /usr/share/rofi/themes/sidebar.rasi
