@@ -15,12 +15,8 @@ URxvt.scrollBar:    false
 URxvt.pointerBlank: true
 
 
+! DO NOT set bold, italic, bold italic. it will not work.
 URxvt*font:           xft:Monaco for Powerline:regular:pixelsize=14.3
-URxvt*imFont:         xft:Monaco for Powerline:regular:pixelsize=14.3
-URxvt*boldFont:       xft:Monaco for Powerline:bold:pixelsize=14.3
-URxvt*italicFont:     xft:Monaco for Powerline:italic:pixelsize=14.3
-URxvt*boldItalicFont: xft:Monaco for Powerline:bold:italic:pixelsize=14.3
-
 URxvt.letterSpace: -1
 
 
