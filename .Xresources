@@ -15,9 +15,9 @@ URxvt.scrollBar:    false
 URxvt.pointerBlank: true
 
 
-URxvt.font:           xft:Monaco:           :pixelsize=15, xft:Hack:pixelsize=15
-URxvt.boldFont:       xft:Monaco:bold       :pixelsize=15
-URxvt.italicFont:     xft:Monaco:italic     :pixelsize=15
+URxvt.font:           xft:Monaco:pixelsize=15,xft:Hack:pixelsize=15
+URxvt.boldFont:       xft:Monaco:bold:pixelsize=15
+URxvt.italicFont:     xft:Monaco:italic:pixelsize=15
 URxvt.boldItalicFont: xft:Monaco:bold:italic:pixelsize=15
 
 URxvt.letterSpace: -1
