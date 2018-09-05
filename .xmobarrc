@@ -11,7 +11,7 @@ Config {
 
 
    -- appearance
-     font            = "xft:Monaco:pixelsize=12:antialias=true"
+     font            = "xft:Monaco for Powerline:pixelsize=12:antialias=true"
    , additionalFonts = []
    , alpha   =      175
    , bgColor =      "#000000"
