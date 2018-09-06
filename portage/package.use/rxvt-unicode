@@ -1,1 +1,1 @@
-x11-terms/rxvt-unicode vanilla unicode3 256-color blink fonts
+x11-terms/rxvt-unicode vanilla unicode3 256-color blink fonts font-styles -alt-font-width -wcwidth
