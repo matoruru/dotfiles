@@ -18,11 +18,9 @@ if dein#load_state('~/.cache/dein')
   call dein#add('Shougo/neocomplete.vim')
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
-  if !has('gui_running')
-	  call dein#add('tpope/vim-fugitive')
-	  call dein#add('vim-airline/vim-airline')
-	  call dein#add('vim-airline/vim-airline-themes')
-  endif
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
   call dein#add('altercation/vim-colors-solarized')
   call dein#add('scrooloose/nerdtree')
   call dein#add('jistr/vim-nerdtree-tabs')
@@ -32,6 +30,10 @@ if dein#load_state('~/.cache/dein')
   call dein#add('majutsushi/tagbar')
   call dein#add('alvan/vim-closetag')
   call dein#add('bronson/vim-trailing-whitespace')
+  call dein#add('ctrlpvim/ctrlp.vim')
+  if has('gui_running')
+     call dein#add('ryanoasis/vim-devicons')
+  endif
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
@@ -76,32 +78,21 @@ vnoremap <F5> :call SwitchTransparent()<CR>
 "====================================================================
 
 "=======================Settings of Powerline========================
-if has('gui_running')
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#fugitiveline#enabled=1
+let g:airline_powerline_fonts=1
 
-else
-   let g:airline#extensions#tabline#enabled=1
-   let g:airline#extensions#fugitiveline#enabled=1
-   let g:airline_powerline_fonts=1
-
-   if !exists('g:airline_symbols')
-      let g:airline_symbols = {}
-   endif
-
-   let g:airline_left_sep = '⮀'
-   let g:airline_left_alt_sep = '⮁'
-   let g:airline_right_sep = '⮂'
-   let g:airline_right_alt_sep = '⮃'
-   let g:airline_symbols.branch = '⭠'
-   let g:airline_symbols.readonly = '⭤'
-   let g:airline_symbols.linenr = '¶'
-   let g:airline_symbols.notexists = 'Ɇ'
-   let g:airline_symbols.paste = 'Þ'
-   let g:airline_symbols.whitespace = 'Ξ'
-   let g:airline_symbols.maxlinenr = ' ⭡'
-
-   " Set airline theme to solarized.
-   let g:airline_theme='solarized'
+if !exists('g:airline_symbols')
+   let g:airline_symbols = {}
 endif
+
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.notexists = ' ?'
+
+" Set airline theme to solarized.
+let g:airline_theme='solarized'
 "====================================================================
 
 "==========================Settings of NERDTree======================
@@ -111,6 +102,10 @@ let g:nerdtree_tabs_focus_on_files=1
 
 " Show hidden files in NERDTree explorer window.
 let NERDTreeShowHidden=1
+"====================================================================
+
+"==========================Settings of devicons======================
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 "====================================================================
 
 "================Settings of neocomplete, neosnippet=================
@@ -129,6 +124,7 @@ imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosni
 
 "======================Settings of lexima.vim========================
 let g:lexima_enable_basic_rules = 1
+let g:tagbar_autofocus = 1
 "====================================================================
 
 "=======================Settings of tagbar===========================
@@ -168,8 +164,8 @@ inoremap kk <esc><Right>
 " Open and edit and reload vimrc anywhere.
 nnoremap <F6> :<C-u>vsplit $MYVIMRC<CR>
 nnoremap <F7> :<C-u>source $MYVIMRC<CR>
-nnoremap <F8> :<C-u>NERDTreeTabsToggle<CR>
-nnoremap <F9> :<C-u>TagbarToggle<CR>
+nnoremap <C-n> :<C-u>NERDTreeTabsToggle<CR>
+nnoremap <C-m> :<C-u>TagbarToggle<CR>
 
 " Press <Esc> key 2 times, to :noh
 nnoremap <silent><Esc><Esc> :noh<CR><Esc>
@@ -188,6 +184,7 @@ set ruler         " show the cursor position all the time
 set tabstop=3        " set tab stop
 set cindent
 au BufWinEnter,WinEnter,TabEnter * :set shiftwidth=3     " set tab stop of autoindent, for override settings
+au BufWinEnter,WinEnter,TabEnter * :set relativenumber nonumber   " show the number of line and offset
 set expandtab       " replace tab with space
 set clipboard=unnamed,autoselect    " set clipboard to unnamed to access the system clipboard under windows.
 
@@ -202,6 +199,8 @@ set noerrorbells
 
 " window will be displayed to the end without omitiing
 set display+=lastline
+
+set scrolloff=5
 
 " Open vim at location you was editing previous
 au BufWritePost * mkview
