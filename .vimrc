@@ -89,7 +89,7 @@ endif
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_symbols.notexists = ' ?'
+let g:airline_symbols.notexists = ' Ɇ'
 
 " Set airline theme to solarized.
 let g:airline_theme='solarized'
@@ -172,19 +172,20 @@ nnoremap <silent><Esc><Esc> :noh<CR><Esc>
 "====================================================================
 
 " Highlight the cursorline
-au BufWinEnter,WinEnter,TabEnter * :set cursorline
+set cursorline
+
+" show the number of line and offset
+set relativenumber nonumber
 
 " Disable mouse and scroll
 set mouse=
-set number        " show the number of line
 set hlsearch         " highlight words which are searched
 set ai            " set auto-indenting on for programming
 set showmatch        " automatically show matching brackets. works like it does in bbedit.
 set ruler         " show the cursor position all the time
 set tabstop=3        " set tab stop
+set shiftwidth=3     " set tab stop of autoindent, for override settings
 set cindent
-au BufWinEnter,WinEnter,TabEnter * :set shiftwidth=3     " set tab stop of autoindent, for override settings
-au BufWinEnter,WinEnter,TabEnter * :set relativenumber nonumber   " show the number of line and offset
 set expandtab       " replace tab with space
 set clipboard=unnamed,autoselect    " set clipboard to unnamed to access the system clipboard under windows.
 
