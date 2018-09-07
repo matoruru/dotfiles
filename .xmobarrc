@@ -11,14 +11,14 @@ Config {
 
 
    -- appearance
-     font            = "xft:Monaco:regular:size=10"
+     font            = "xft:Hermit:pixelsize=12:antialias=true"
    , additionalFonts = []
    , alpha   =      175
    , bgColor =      "#000000"
    , fgColor =      "#93a1a1"
    , border      =  NoBorder
    , borderColor =  "#000000"
-   , position =     Static { xpos = 0, ypos = 0, width = 1920, height = 14 }
+   , position =     Static { xpos = 0, ypos = 0, width = 1920, height = 13 }
    , textOffset = -1
    , iconOffset = -1
    , iconRoot = "."
