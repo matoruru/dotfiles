@@ -16,8 +16,7 @@ URxvt.pointerBlank: true
 
 
 ! DO NOT set bold, italic, bold italic. it will not work.
-URxvt*font:           xft:Osaka－等幅:regular:pixelsize=16.5,xft:Hack:regular:pixelsize=16,xft:Hack:regular:pixelsize=14
-URxvt*boldItalicFont: xft:Fantasque Sans Mono:bold:italic:pixelsize=15.8
+URxvt*font:           xft:Osaka－等幅:regular:pixelsize=17,xft:Hack:regular:pixelsize=20
 URxvt.letterSpace: 0
 
 
