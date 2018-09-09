@@ -30,7 +30,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('majutsushi/tagbar')
   call dein#add('alvan/vim-closetag')
   call dein#add('bronson/vim-trailing-whitespace')
-  call dein#add('ctrlpvim/ctrlp.vim')
+  "call dein#add('ctrlpvim/ctrlp.vim')
   if has('gui_running')
      call dein#add('ryanoasis/vim-devicons')
   endif
