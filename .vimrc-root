@@ -39,7 +39,7 @@ au BufWinEnter,WinEnter,TabEnter * :set cursorline
 
 " Disable mouse and scroll
 set mouse=
-set number        " show the number of line
+set relativenumber nonumber
 set hlsearch         " highlight words which are searched
 set ai            " set auto-indenting on for programming
 set showmatch        " automatically show matching brackets. works like it does in bbedit.
