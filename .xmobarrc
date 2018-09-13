@@ -11,7 +11,7 @@ Config {
 
 
    -- appearance
-     font            = "xft:Hermit:pixelsize=12:antialias=true"
+     font            = "xft:Hermit:pixelsize=12"
    , additionalFonts = []
    , alpha   =      175
    , bgColor =      "#000000"
@@ -19,7 +19,7 @@ Config {
    , border      =  NoBorder
    , borderColor =  "#000000"
    , position =     Static { xpos = 0, ypos = 0, width = 1920, height = 13 }
-   , textOffset = -1
+   , textOffset = 10
    , iconOffset = -1
    , iconRoot = "."
 
