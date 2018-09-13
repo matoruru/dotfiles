@@ -67,6 +67,8 @@ myKeysP = [
           ,("M-<Left>"    , sendMessage Shrink)
           ,("M-<Right>"   , sendMessage Expand)
           ,("M-c"         , kill)
+          ,("<XF86MonBrightnessUp>"  , spawn "xbacklight +5 -time 10")
+          ,("<XF86MonBrightnessDown>", spawn "xbacklight -5 -time 10")
           ,("M-S-c"       , spawn "")
           ,("M-S-<Return>", spawn "")
           ,("M-<Tab>"     , spawn "")
