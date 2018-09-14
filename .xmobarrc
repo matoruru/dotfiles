@@ -26,7 +26,7 @@ Config {
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
    , alignSep = "}{"  -- separator between left-right alignment
-   , template = " %StdinReader%}%date%{| %multicpu% | %coretemp% | %memory% | %dynnetwork% |%battery%"
+   , template = " %StdinReader%}%date%{| %multicpu% | %coretemp% | %memory% | %dynnetwork% | %default:Master% |%battery%"
 
    -- general behavior
    , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -111,6 +111,22 @@ Config {
                                        , "-i"	, "<fc=#859900> Charged </fc>"
                              ] 200
         , Run StdinReader
+
+        -- volume monitor
+        , Run Volume "default" "Master"
+                             [ "-p 3"
+                             , "--template" , "<volume>% <status>"
+                             , "--Low"      , "10"        -- units: %
+                             , "--High"     , "80"        -- units: %
+                             , "--low"      , "#2aa198"
+                             , "--normal"   , "#859900"
+                             , "--high"     , "#dc322f"
+                             , "--"
+                             , "--on"       , " [ON]"
+                             , "--onc"      , "#96aa44"
+                             , "--off"      , "[OFF]"
+                             , "--offc"     , "#586e75"
+                             ] 1
 
         -- time and date indicator
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
