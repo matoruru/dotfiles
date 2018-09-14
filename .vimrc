@@ -180,7 +180,7 @@ nnoremap <silent><Esc><Esc> :noh<CR><Esc>
 set cursorline
 
 " show the number of line and offset
-set relativenumber nonumber
+set relativenumber number
 
 " Disable mouse and scroll
 set mouse=
