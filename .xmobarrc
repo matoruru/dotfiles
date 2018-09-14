@@ -84,7 +84,7 @@ Config {
 
         -- memory usage monitor
         , Run Memory         [ "-p 3"
-                             , "--template" ,"<usedratio>%"
+                             , "--template" , "<usedratio>%"
                              , "--Low"      , "20"        -- units: %
                              , "--High"     , "90"        -- units: %
                              , "--low"      , "#2aa198"
