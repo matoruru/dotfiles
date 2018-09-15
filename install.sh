@@ -128,6 +128,12 @@ function installer_vimrc {
    check_files_existance $HOME/.vimrc
    create_link                 .vimrc  ~/
 
+   # install init.nvim
+   echo "[ install init.vim  ]"
+   mkdir -p ~/.config/nvim
+   check_files_existance $HOME/.config/config/nvim/init.vim
+   create_link                                     init.vim  ~/.config/nvim/
+
    # install gvimrc
    echo "[ install gvimrc ]"
    check_files_existance $HOME/.gvimrc
