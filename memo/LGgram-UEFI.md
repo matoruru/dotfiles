@@ -86,5 +86,9 @@
 - git clone https://github.com/matoruru/dotfiles.git
 - cd repositories/matoruru/dotfiles
 - bash install.sh
-- ssh-keygen -t rsa -b 4096 -C "my email address"
 - git remote set-url origin git@github.com:matoruru/[repositoriy's name].git
+- git config --global user.email "----------@----.---"
+- git config --global user.name "matoruru"
+
+## How to generate ssh-keys
+- ssh-keygen -t rsa -b 4096 -C "my email address"
