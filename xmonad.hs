@@ -7,7 +7,6 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Util.EZConfig
-import XMonad.Util.Paste
 import XMonad.Actions.CycleWS
 import qualified XMonad.StackSet as W
 
@@ -58,7 +57,6 @@ myKeysP = [
           ,("M-s"         , spawn "qutebrowser")
           ,(  "<Print>"   , spawn "screenshot.sh 0.7 60"          )
           ,("S-<Print>"   , spawn "screenshot.sh 0.7 60 --focused")
-          ,("<Insert>"    , pasteSelection)
           ,("M-h"         , moveTo   Prev NonEmptyWS)
           ,("M-l"         , moveTo   Next NonEmptyWS)
           ,("M-n"         , do
