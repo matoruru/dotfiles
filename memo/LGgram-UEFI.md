@@ -54,7 +54,7 @@
 - eselect locale list
 - eselect locale set YY
 - env-update && source /etc/profile
-- emerge -avuDN @world gentoo-sources genkernel efibootmgr wireless-tools wpa_supplicant linux-firmware sudo dev-vcs/git app-arch/lz4
+- emerge -avuDN @world gentoo-sources genkernel efibootmgr wireless-tools wpa_supplicant linux-firmware sudo dev-vcs/git app-arch/lz4 layman
 - cd
 - git clone https://github.com/matoruru/dotfiles.git
 - cd /usr/src/linux
@@ -86,5 +86,9 @@
 - git clone https://github.com/matoruru/dotfiles.git
 - cd repositories/matoruru/dotfiles
 - bash install.sh
-- ssh-keygen -t rsa -b 4096 -C "my email address"
 - git remote set-url origin git@github.com:matoruru/[repositoriy's name].git
+- git config --global user.email "----------@----.---"
+- git config --global user.name "matoruru"
+
+## How to generate ssh-keys
+- ssh-keygen -t rsa -b 4096 -C "my email address"
