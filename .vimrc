@@ -195,6 +195,9 @@ set cindent
 set expandtab       " replace tab with space
 set clipboard=unnamed,autoselect    " set clipboard to unnamed to access the system clipboard under windows.
 
+" set inclemetnal search
+set incsearch
+
 " Change shape of cursor by mode switching.
 let &t_SI .= "\e[6 q"
 let &t_EI .= "\e[2 q"
@@ -208,6 +211,8 @@ set noerrorbells
 set display+=lastline
 
 set scrolloff=5
+
+set nobackup
 
 " Open vim at location you was editing previous
 au BufWritePost * mkview
