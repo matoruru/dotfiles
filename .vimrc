@@ -181,6 +181,8 @@ set cursorline
 " show the number of line and offset
 set relativenumber number
 
+set showcmd
+
 " Disable mouse and scroll
 set mouse=
 set hlsearch         " highlight words which are searched
