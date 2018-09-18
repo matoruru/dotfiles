@@ -54,15 +54,6 @@ function httpoff
    sudo /etc/init.d/apache2 stop
 end
 
-# switch wifi on/off
-function wifion
-   sudo /etc/init.d/net.wlp2s0 start
-end
-
-function wifioff
-   sudo /etc/init.d/net.wlp2s0 stop
-end
-
 # switch docker on/off
 function dockeron
    sudo rc-service docker start
