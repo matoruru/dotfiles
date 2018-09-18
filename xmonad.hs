@@ -37,7 +37,7 @@ myNormalBorderColor  = base0
 myFocusedBorderColor = cyan
 myBorderWidth        = 0
 
-gap_UD = 9
+gap_UD = 10
 gap_LR = 22
 gapwidth = gap_UD
 gwU      = gap_UD
@@ -98,8 +98,8 @@ myXmobarPP = xmobarPP
    ,ppHiddenNoWindows = xmobarColor "#505050" "" . \s -> "[<fc=#586e75>+</fc>]"
    ,ppLayout          = xmobarColor green     "" .
       (\x -> case x of
-       "Spacing 9 Tall" ->             "[T]"
-       "Spacing 9 Full" -> "<fc=#cb4b16>[F]</fc>"
+       "Spacing 10 Tall" ->             "[T]"
+       "Spacing 10 Full" -> "<fc=#cb4b16>[F]</fc>"
       )
    ,ppTitle           = xmobarColor cyan          "" . shorten 70
    ,ppSep             = "  "

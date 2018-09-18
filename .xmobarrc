@@ -18,8 +18,8 @@ Config {
    , fgColor =      "#93a1a1"
    , border      =  NoBorder
    , borderColor =  "#000000"
-   , position =     Static { xpos = 0, ypos = 0, width = 1920, height = 13 }
-   , textOffset = 10
+   , position =     Static { xpos = 0, ypos = 0, width = 1920, height = 10 }
+   , textOffset = 9
    , iconOffset = -1
    , iconRoot = "."
 
