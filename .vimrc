@@ -173,6 +173,10 @@ nnoremap <C-m> :<C-u>TagbarToggle<CR>
 
 " Press <Esc> key 2 times, to :noh
 nnoremap <silent><Esc><Esc> :noh<CR><Esc>
+
+" incremental and decremental
+nnoremap + <C-a>
+nnoremap - <C-x>
 "====================================================================
 
 " Highlight the cursorline
@@ -195,7 +199,7 @@ set cindent
 set expandtab       " replace tab with space
 set clipboard=unnamed,autoselect    " set clipboard to unnamed to access the system clipboard under windows.
 
-" set inclemetnal search
+" set incremetnal search
 set incsearch
 
 " Change shape of cursor by mode switching.
