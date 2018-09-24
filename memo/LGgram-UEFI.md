@@ -89,6 +89,7 @@
 - git remote set-url origin git@github.com:matoruru/[repositoriy's name].git
 - git config --global user.email "----------@----.---"
 - git config --global user.name "matoruru"
+- git config --global core.editor vim
 
 ## How to setup mozc for japanese input
 - ibus-setup
