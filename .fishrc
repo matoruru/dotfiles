@@ -11,6 +11,10 @@ alias edittodo="vim ~/todolist.txt;showtodo"
 alias su="sudo su - -m"
 alias scrot="scrot -q 100"
 
+# funny commnad
+alias えぃｔ="exit"
+alias ゔぃｍ="vim"
+
 # Set tab step
 tabs 3
 
