@@ -90,5 +90,11 @@
 - git config --global user.email "----------@----.---"
 - git config --global user.name "matoruru"
 
+## How to setup mozc for japanese input
+- ibus-setup
+  - General -> Next input method -> <Alt>space
+  - Input Method -> Add -> Japanese - Mozc
+  - Input Method -> Japanese - Mozc -> Preferences -> General -> Keymap style -> Custmize -> Edit -> Import from File -> gentoo-tools/keymapfile
+
 ## How to generate ssh-keys
 - ssh-keygen -t rsa -b 4096 -C "my email address"
