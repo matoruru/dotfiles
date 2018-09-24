@@ -45,6 +45,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 if [ -n "$failsafe" ]; then
+# for mozc
+ export GTK_IM_MODULE=ibus
+ export QT_IM_MODULE=ibus
+ export XMODIFIERS=@im=ibus
+ ibus-daemon -drx
 # start urxvt as a daemon, after this, use urxvtc to start urxvt
  urxvtd --quiet --fork --opendisplay &
 # set wallpaper by using feh
