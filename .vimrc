@@ -162,9 +162,6 @@ cnoremap <C-d> <Del>
 " Disable ex mode when press Q.
 nnoremap Q <nop>
 
-inoremap jj <esc>
-inoremap kk <esc><Right>
-
 " Open and edit and reload vimrc anywhere.
 nnoremap <F6> :<C-u>vsplit $MYVIMRC<CR>
 nnoremap <F7> :<C-u>source $MYVIMRC<CR>
