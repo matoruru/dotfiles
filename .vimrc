@@ -211,7 +211,7 @@ set noerrorbells
 " window will be displayed to the end without omitiing
 set display+=lastline
 
-set scrolloff=5
+set scrolloff=2
 
 set nobackup
 
