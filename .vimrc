@@ -29,7 +29,7 @@ if dein#load_state('~/.vim/dein')
   call dein#add('majutsushi/tagbar')
   call dein#add('alvan/vim-closetag')
   call dein#add('bronson/vim-trailing-whitespace')
-  "call dein#add('ctrlpvim/ctrlp.vim')
+  call dein#add('dag/vim-fish')
   if has('gui_running')
      call dein#add('ryanoasis/vim-devicons')
   endif
@@ -218,3 +218,6 @@ set nobackup
 " Open vim at location you was editing previous
 au BufWritePost * mkview
 au BufReadPost * loadview
+
+set encoding=utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
