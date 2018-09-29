@@ -97,5 +97,27 @@
   - Input Method -> Add -> Japanese - Mozc
   - Input Method -> Japanese - Mozc -> Preferences -> General -> Keymap style -> Custmize -> Edit -> Import from File -> gentoo-tools/keymapfile
 
+## Useful tools
+when you install these, -j5 and editing fstab
+
+- app-office/libreoffice
+- app-editors/retext
+- app-text/qpdfview
+- media-gfx/pinta
+- net-misc/youtube-viewer
+- dev-python/spyder
+
+## How to install PureScript and create projects
+- mkdir -p ~/purescript-projects/project1
+- ~/purescript-projects/project1
+- npm init -y
+- npm install -D purescript
+- npm install -D bower
+- pulp init
+- set PATH ~/project1/node_modules/.bin/ $PATH (execute this every develop)
+
+### If you need some package
+execute commands, fg. bower install --save purescript-console
+
 ## How to generate ssh-keys
 - ssh-keygen -t rsa -b 4096 -C "my email address"
