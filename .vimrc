@@ -29,7 +29,7 @@ if dein#load_state('~/.vim/dein')
   call dein#add('majutsushi/tagbar')
   call dein#add('alvan/vim-closetag')
   call dein#add('bronson/vim-trailing-whitespace')
-  "call dein#add('ctrlpvim/ctrlp.vim')
+  call dein#add('dag/vim-fish')
   if has('gui_running')
      call dein#add('ryanoasis/vim-devicons')
   endif
@@ -162,9 +162,6 @@ cnoremap <C-d> <Del>
 " Disable ex mode when press Q.
 nnoremap Q <nop>
 
-inoremap jj <esc>
-inoremap kk <esc><Right>
-
 " Open and edit and reload vimrc anywhere.
 nnoremap <F6> :<C-u>vsplit $MYVIMRC<CR>
 nnoremap <F7> :<C-u>source $MYVIMRC<CR>
@@ -214,10 +211,13 @@ set noerrorbells
 " window will be displayed to the end without omitiing
 set display+=lastline
 
-set scrolloff=5
+set scrolloff=2
 
 set nobackup
 
 " Open vim at location you was editing previous
 au BufWritePost * mkview
 au BufReadPost * loadview
+
+set encoding=utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
