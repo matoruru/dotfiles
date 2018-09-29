@@ -115,7 +115,7 @@ when you install these, -j5 and editing fstab
 - mkdir ~/purescript-projects
 - cd ~/purescript-projects
 - npm init -y
-- npm install -D purescript bower
+- npm install -D purescript bower pulp
 
 ### create project
 - mkdir project1
