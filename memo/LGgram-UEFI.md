@@ -5,7 +5,7 @@
     - n
     - Enter
     - Enter
-    - +512M
+    - +256M
     - EF00
     - n
     - Enter
@@ -29,7 +29,7 @@
 - (download stage3 tarball (i did it using firefox), Do not select no-multilib!!)
 - (extract tarball)
     - tar -xvjpf stage3* --xattrs --numeric-owner (in case of bz2)
-    - tar -xvJpf stage3* --xattrs --numeric-owner (in case of bz)
+    - tar -xvJpf stage3* --xattrs --numeric-owner (in case of xz)
 - nano -w /mnt/gentoo/etc/portage/make.conf
     - CFLAGS
     - CXXFLAGS
