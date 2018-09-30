@@ -30,6 +30,7 @@ if dein#load_state('~/.vim/dein')
   call dein#add('alvan/vim-closetag')
   call dein#add('bronson/vim-trailing-whitespace')
   call dein#add('dag/vim-fish')
+  call dein#add('purescript-contrib/purescript-vim')
   if has('gui_running')
      call dein#add('ryanoasis/vim-devicons')
   endif
