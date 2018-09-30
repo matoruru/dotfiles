@@ -47,7 +47,7 @@ ping www.google.com -i 0.2 -c 5 || exit
 function clone_my_gentoo_tools {
    # clone gentoo-tools
    cd ~/repositories/matoruru
-   git clone https://github.com/matoruru/gentoo-tools.git
+   git clone git@github.com:matoruru/gentoo-tools.git
    cd dotfiles
    if [[ ! -d ~/repositories/matoruru/gentoo-tools ]]; then
       echo "failed cloning gentoo-tools.git...! exit"
@@ -59,7 +59,7 @@ clone_my_gentoo_tools
 function clone_my_omoshiro-tools {
    # clone omoshiro-tools
    cd ~/repositories/matoruru
-   git clone https://github.com/matoruru/omoshiro-tools.git
+   git clone git@github.com:matoruru/omoshiro-tools.git
    cd dotfiles
    if [[ ! -d ~/repositories/matoruru/omoshiro-tools ]]; then
       echo "failed cloning omoshiro-tools.git...! exit"
@@ -71,7 +71,7 @@ clone_my_omoshiro-tools
 function clone_my_xmonadhs {
    # clone xmonad.hs
    cd ~/repositories/matoruru
-   git clone https://github.com/matoruru/xmonad.hs.git
+   git clone git@github.com:matoruru/xmonad.hs.git
    cd dotfiles
    if [[ ! -d ~/repositories/matoruru/xmonad.hs ]]; then
       echo "failed cloning xmonad.hs.git...! exit"

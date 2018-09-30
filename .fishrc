@@ -2,7 +2,9 @@
 set fish_greeting
 
 # To set environment for purescripts
-set PATH ~/purescript-projects/node_modules/.bin/ $PATH
+if test -d ~/purescript-projects/node_modules/.bin
+   set PATH ~/purescript-projects/node_modules/.bin/ $PATH
+end
 
 # Set alias
 alias ll='ls -alF'

@@ -5,7 +5,7 @@
     - n
     - Enter
     - Enter
-    - +512M
+    - +256M
     - EF00
     - n
     - Enter
@@ -29,7 +29,7 @@
 - (download stage3 tarball (i did it using firefox), Do not select no-multilib!!)
 - (extract tarball)
     - tar -xvjpf stage3* --xattrs --numeric-owner (in case of bz2)
-    - tar -xvJpf stage3* --xattrs --numeric-owner (in case of bz)
+    - tar -xvJpf stage3* --xattrs --numeric-owner (in case of xz)
 - nano -w /mnt/gentoo/etc/portage/make.conf
     - CFLAGS
     - CXXFLAGS
@@ -108,13 +108,19 @@ when you install these, -j5 and editing fstab
 - dev-python/spyder
 
 ## How to install PureScript and create projects
-- mkdir -p ~/purescript-projects/project1
-- ~/purescript-projects/project1
+
+### install PureScript
+- cd /usr/bin
+- ln -s stack-bin stack
+- mkdir ~/purescript-projects
+- cd ~/purescript-projects
 - npm init -y
-- npm install -D purescript
-- npm install -D bower
+- npm install -D purescript bower pulp
+
+### create project
+- mkdir project1
+- cd project1
 - pulp init
-- set PATH ~/project1/node_modules/.bin/ $PATH (execute this every develop)
 
 ### If you need some package
 execute commands, fg. bower install --save purescript-console
