@@ -1,6 +1,11 @@
 # To remove the message at fish login
 set fish_greeting
 
+# To set environment for purescripts
+if test -d ~/purescript-projects/node_modules/.bin
+   set PATH ~/purescript-projects/node_modules/.bin/ $PATH
+end
+
 # Set alias
 alias ll='ls -alF'
 alias vim='vim -p'
