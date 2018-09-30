@@ -93,12 +93,11 @@
 
 ## How to setup mozc for japanese input
 - ibus-setup
-  - General -> Next input method -> <Alt>space
-  - Input Method -> Add -> Japanese - Mozc
+  - General -> Next input method -> (none)
+  - Input Method -> Add -> Japanese -> Mozc
   - Input Method -> Japanese - Mozc -> Preferences -> General -> Keymap style -> Custmize -> Edit -> Import from File -> gentoo-tools/keymapfile
 
 ## Useful tools
-when you install these, -j5 and editing fstab
 
 - app-office/libreoffice
 - app-editors/retext
@@ -111,7 +110,7 @@ when you install these, -j5 and editing fstab
 
 ### install PureScript
 - cd /usr/bin
-- ln -s stack-bin stack
+- sudo ln -s stack-bin stack
 - mkdir ~/purescript-projects
 - cd ~/purescript-projects
 - npm init -y
