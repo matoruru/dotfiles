@@ -48,7 +48,7 @@ gwR      = gap_LR
 myLayout = lessBorders OnlyFloat $
            spacing gapwidth $
            gaps [(U, gwU), (D, gwD), (L, gwL), (R, gwR)] $
-           Tall 1 0.01 0.5 ||| Tall 2 0.01 0.5 ||| Full
+           Tall 1 0.01 0.5 ||| Full
 
 myKeysP = [
            ("M-p"         , spawn "rofi -show run")
