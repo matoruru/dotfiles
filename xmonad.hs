@@ -37,8 +37,8 @@ myNormalBorderColor  = base0
 myFocusedBorderColor = cyan
 myBorderWidth        = 0
 
-gap_UD = 10
-gap_LR = 22
+gap_UD = 7
+gap_LR = 21
 gapwidth = gap_UD
 gwU      = gap_UD
 gwD      = gap_UD
@@ -51,8 +51,7 @@ myLayout = lessBorders OnlyFloat $
 
 myKeysP = [
            ("M-p"         , spawn "rofi -show run")
-          ,("M-u"         , spawn "urxvtc"             )
-          ,("M-S-u"       , spawn "urxvtc -e sudo su -")
+          ,("M-u"         , spawn "kitty"             )
           ,("M-s"         , spawn "qutebrowser")
           ,(  "<Print>"   , spawn "screenshot.sh 0.7 60"          )
           ,("S-<Print>"   , spawn "screenshot.sh 0.7 60 --focused")
@@ -99,8 +98,8 @@ myXmobarPP = xmobarPP
    ,ppHiddenNoWindows = xmobarColor "#505050" "" . \s -> "[<fc=#586e75>+</fc>]"
    ,ppLayout          = xmobarColor green     "" .
       (\x -> case x of
-       "Spacing 10 Tall" ->             "[T]"
-       "Spacing 10 Full" -> "<fc=#cb4b16>[F]</fc>"
+       "Spacing 7 Tall" ->             "[T]"
+       "Spacing 7 Full" -> "<fc=#cb4b16>[F]</fc>"
       )
    ,ppTitle           = xmobarColor cyan          "" . shorten 70
    ,ppSep             = "  "
