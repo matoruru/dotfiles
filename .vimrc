@@ -31,9 +31,6 @@ if dein#load_state('~/.vim/dein')
   call dein#add('bronson/vim-trailing-whitespace')
   call dein#add('dag/vim-fish')
   call dein#add('purescript-contrib/purescript-vim')
-  if has('gui_running')
-     call dein#add('ryanoasis/vim-devicons')
-  endif
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
@@ -87,10 +84,6 @@ let g:nerdtree_tabs_focus_on_files=1
 
 " Show hidden files in NERDTree explorer window.
 let NERDTreeShowHidden=1
-"====================================================================
-
-"==========================Settings of devicons======================
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 "====================================================================
 
 "================Settings of neocomplete, neosnippet=================
