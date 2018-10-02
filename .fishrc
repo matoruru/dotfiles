@@ -4,6 +4,9 @@ set fish_greeting
 # To set environment for purescripts
 if test -d ~/purescript-projects/node_modules/.bin
    set PATH ~/purescript-projects/node_modules/.bin/ $PATH
+else
+   echo ".fishrc (line 6):"
+   echo "   modules for purescript does not exists"
 end
 
 # Set alias
