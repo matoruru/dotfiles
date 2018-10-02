@@ -50,10 +50,13 @@ if [ -n "$failsafe" ]; then
  export QT_IM_MODULE=ibus
  export XMODIFIERS=@im=ibus
  ibus-daemon -drx
-# start urxvt as a daemon, after this, use urxvtc to start urxvt
- urxvtd --quiet --fork --opendisplay &
+
 # set wallpaper by using feh
  bash ~/.fehbg &
+
+# start urxvt as a daemon, after this, use urxvtc to start urxvt
+ urxvtd --quiet --fork --opendisplay &
+
  compton -b
  xsetroot -cursor_name left_ptr &
  exec xmonad

@@ -57,24 +57,9 @@ endif
 
 "=======================Settings of Solarized========================
 " toggle solarized's theme dark or light
-call togglebg#map("<F5>")
-
 set background=dark
 let g:solarized_termtrans=1
 colorscheme solarized
-
-function! SwitchTransparent()
-   if g:solarized_termtrans
-      let g:solarized_termtrans=0
-   else
-      let g:solarized_termtrans=1
-   endif
-   colorscheme solarized
-   :AirlineRefresh
-endfunction
-nnoremap <F5> :call SwitchTransparent()<CR>
-inoremap <F5> :call SwitchTransparent()<CR>
-vnoremap <F5> :call SwitchTransparent()<CR>
 "====================================================================
 
 "=======================Settings of Powerline========================
@@ -175,6 +160,9 @@ nnoremap <silent><Esc><Esc> :noh<CR><Esc>
 " incremental and decremental
 nnoremap + <C-a>
 nnoremap - <C-x>
+
+" run the program
+nnoremap <F5> :w<Enter><C-w>w clear<Enter>pulp run<Enter><C-w>w
 "====================================================================
 
 " Highlight the cursorline
@@ -221,4 +209,4 @@ au BufWritePost * mkview
 au BufReadPost * loadview
 
 set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
