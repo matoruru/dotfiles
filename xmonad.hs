@@ -54,7 +54,6 @@ myKeysP = [
            ("M-p"         , spawn "rofi -show run")
           ,("M-u"         , spawn "urxvtc"             )
           ,("M-S-u"       , spawn "urxvtc -e sudo su -")
-          ,("M-v"         , spawn "urxvtc -e vimtutor")
           ,("M-s"         , spawn "qutebrowser")
           ,(  "<Print>"   , spawn "screenshot.sh 0.7 60"          )
           ,("S-<Print>"   , spawn "screenshot.sh 0.7 60 --focused")
