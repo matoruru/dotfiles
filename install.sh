@@ -232,5 +232,17 @@ function installer_qutebrowser {
 }
 installer_qutebrowser
 
+function installer_kitty {
+   # install kitty
+   echo "[ install kitty ]"
+   if [[ -d $HOME/.config/kitty/ ]]; then
+      check_files_existance $HOME/.config/kitty/kitty.conf
+   else
+      mkdir -p ~/.config/kitty
+   fi
+   create_link ./kitty.conf ~/.config/kitty/
+}
+installer_kitty
+
 
 echo "execute gentoo-tools' install.sh!"
