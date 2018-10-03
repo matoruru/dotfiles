@@ -40,23 +40,6 @@ function dualoff
    xrandr --output HDMI1 --off
 end
 
-# wraper of dict command
-function dic
-   clear
-   if test -n "$argv[1]"
-      dict $argv[1] | less
-      return
-   end
-
-   while true
-      read word
-      if test -z "$word"
-         return
-      end
-      dict $word | less
-   end
-end
-
 # switch apatche server on/off
 function httpon
    sudo /etc/init.d/apache2 start
