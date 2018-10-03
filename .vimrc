@@ -31,6 +31,8 @@ if dein#load_state('~/.vim/dein')
   call dein#add('bronson/vim-trailing-whitespace')
   call dein#add('dag/vim-fish')
   call dein#add('purescript-contrib/purescript-vim')
+  call dein#add('stephpy/vim-yaml')
+  call dein#add('vim-ruby/vim-ruby')
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
