@@ -59,6 +59,12 @@ if [ -n "$failsafe" ]; then
 
  compton -b
  xsetroot -cursor_name left_ptr &
+
+ if type amixer; then
+    amixer set Master off
+    echo ".bash_profile : Master volume was turned off."
+ fi
+
  exec xmonad
 else
  exec $command
