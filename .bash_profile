@@ -1,7 +1,11 @@
 # /etc/skel/.bash_profile
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-   exec startx
+   if type startx; then
+      exec startx
+   else
+      echo ".bash_profile : startx does not exist"
+   fi
 fi
 
 # This file is sourced by bash for login shells.  The following line
