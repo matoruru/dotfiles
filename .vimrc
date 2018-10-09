@@ -33,6 +33,7 @@ if dein#load_state('~/.vim/dein')
   call dein#add('purescript-contrib/purescript-vim')
   call dein#add('stephpy/vim-yaml')
   call dein#add('vim-ruby/vim-ruby')
+  call dein#add('dag/vim2hs')
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
@@ -91,6 +92,10 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
 imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
 imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+
 "====================================================================
 
 "======================Settings of lexima.vim========================
@@ -101,6 +106,8 @@ let g:tagbar_autofocus = 1
 "=======================Settings of tagbar===========================
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
 "====================================================================
+
+"=======================Settings of haskell==========================
 
 "=============================Remap keys=============================
 " Disable following keys in order bad habits breaking.
@@ -188,7 +195,9 @@ set display+=lastline
 
 set scrolloff=2
 
-set nobackup
+set undodir=~/.vim/.tmp/undo//
+set backupdir=~/.vim/.tmp/backup//
+set directory=~/.vim/.tmp/swp//
 
 " Open vim at location you was editing previous
 au BufWritePost * mkview
