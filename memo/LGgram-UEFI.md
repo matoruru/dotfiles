@@ -98,7 +98,6 @@
   - Input Method -> Japanese - Mozc -> Preferences -> General -> Keymap style -> Custmize -> Edit -> Import from File -> gentoo-tools/keymapfile
 
 ## Useful tools
-
 - app-office/libreoffice
 - app-editors/retext
 - app-text/qpdfview
@@ -123,6 +122,17 @@
 
 ### If you need some package
 execute commands, fg. bower install --save purescript-console
+
+## How to install miniconda and make environments using fish shell
+### How to install miniconda
+- see https://conda.io/miniconda.html and download and execute miniconda installer for Linux
+- in installer, not to edit .bashrc
+- add config.fish ~/miniconda3/etc/fish/conf.d/conda.fish
+
+### How to make environments
+- conda create -n ENVIRONMENT_NAME
+- conda activate ENVIRONMENT_NAME
+- conda install PACKAGE_NAME1 PACKAGE_NAME2 ...
 
 ## How to generate ssh-keys
 - ssh-keygen -t rsa -b 4096 -C "my email address"
