@@ -125,7 +125,7 @@
 ### If you need some package
 execute commands, fg. bower install --save purescript-console
 
-### How to install Android Studio
+## How to install Android Studio
 - Download zip file from https://developer.android.com/studio/
 - cd ~/Download
 - unzip android-studio-XXXX-linux.zip
