@@ -203,5 +203,8 @@ set directory=~/.vim/.tmp/swp//
 au BufWritePost * mkview
 au BufReadPost * loadview
 
+" Set filetype as another filetype depend on extention
+au BufRead,BufNewFile *.ipynb set filetype=json
+
 set encoding=utf-8
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp

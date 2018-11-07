@@ -53,11 +53,10 @@ if [ -n "$failsafe" ]; then
 
 # set wallpaper by using feh
 # start quickly if wallpaper doesn't set yet => append &
-#bash ~/.fehbg &
  bash ~/.fehbg
 
 # start urxvt as a daemon, after this, use urxvtc to start urxvt
-#urxvtd --quiet --fork --opendisplay &
+ urxvtd --quiet --fork --opendisplay &
 
  compton -b
  xsetroot -cursor_name left_ptr &
