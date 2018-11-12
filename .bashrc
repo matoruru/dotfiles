@@ -29,7 +29,7 @@ if [[ $(tty) = '/dev/pts/0' ]]; then
    showtodo
 fi
 
-rm ~/.serverauth.* 1> /dev/null 2>&1
+#rm ~/.serverauth.* 1> /dev/null 2>&1
 
 # execute this after loading bash settings
 ISFISHON=true
