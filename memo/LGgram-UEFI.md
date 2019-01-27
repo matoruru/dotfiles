@@ -76,6 +76,8 @@
 - ln -s net.lo net.wlp2s0
 - rc-update add net.wlp2s0 default
 - wpa_passphrase "SSID" "PASSPHRASE" > /etc/wpa_supplicant/wpa_supplicant.conf
+- vim /etc/rc.conf
+  - rc_parallel="yes"
 - useradd -m -G wheel,portage,audio XXX
 - passwd XXX
 - visudo ( nopasswd )
@@ -98,7 +100,6 @@
   - Input Method -> Japanese - Mozc -> Preferences -> General -> Keymap style -> Custmize -> Edit -> Import from File -> gentoo-tools/keymapfile
 
 ## Useful tools
-
 - app-office/libreoffice
 - app-editors/retext
 - app-text/qpdfview
@@ -123,6 +124,25 @@
 
 ### If you need some package
 execute commands, fg. bower install --save purescript-console
+
+## How to install Android Studio
+- Download zip file from https://developer.android.com/studio/
+- cd ~/Download
+- unzip android-studio-XXXX-linux.zip
+- sudo mv android-studio /usr/local/
+- sudo ln -sr /usr/local/android-studio/bin/studio.sh /usr/local/bin/android-studio
+- android-studio
+
+## How to install miniconda and make environments using fish shell
+### How to install miniconda
+- see https://conda.io/miniconda.html and download and execute miniconda installer for Linux
+- in installer, not to edit .bashrc
+- add config.fish ~/miniconda3/etc/fish/conf.d/conda.fish
+
+### How to make environments
+- conda create -n ENVIRONMENT_NAME
+- conda activate ENVIRONMENT_NAME
+- conda install PACKAGE_NAME1 PACKAGE_NAME2 ...
 
 ## How to generate ssh-keys
 - ssh-keygen -t rsa -b 4096 -C "my email address"
