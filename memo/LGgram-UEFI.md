@@ -126,12 +126,9 @@
 execute commands, fg. bower install --save purescript-console
 
 ## How to install Android Studio
-- Download zip file from https://developer.android.com/studio/
-- cd ~/Download
-- unzip android-studio-XXXX-linux.zip
-- sudo mv android-studio /usr/local/
-- sudo ln -sr /usr/local/android-studio/bin/studio.sh /usr/local/bin/android-studio
+- sudo emerge -av android-studio
 - android-studio
+- if you see white window, close it and then push "restart ..." button
 
 ## How to install miniconda and make environments using fish shell
 ### How to install miniconda
