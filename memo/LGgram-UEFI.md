@@ -26,7 +26,7 @@
 - mkdir /mnt/gentoo/boot
 - mount /dev/sda1 /mnt/gentoo/boot
 - cd /mnt/gentoo
-- (download stage3 tarball (i did it using firefox), Do not select no-multilib!!)
+- (download stage3 tarball (i did it using firefox), Do not select no-multilib!!) here[http://ftp.iij.ad.jp/pub/linux/gentoo/releases/amd64/autobuilds/]
 - (extract tarball)
     - tar -xvjpf stage3* --xattrs --numeric-owner (in case of bz2)
     - tar -xvJpf stage3* --xattrs --numeric-owner (in case of xz)
