@@ -125,21 +125,10 @@
 ### If you need some package
 execute commands, fg. bower install --save purescript-console
 
-## How to install Oracle jdk/jre
-- sudo emerge -av oracle-jre-bin oracle-jdk-bin
-- follow the message from emerge, download jre and jdk and jdk-demo into /usr/portage/distfiles/
-- sudo emerge -av oracle-jre-bin oracle-jdk-bin
-- java-config --list-available-vms
-- sudo java-config --set-system-vm N(number of oracle-jre)
-
 ## How to install Android Studio
-- before this, install Oracle jdk/jre
-- Download zip file from https://developer.android.com/studio/
-- cd ~/Download
-- unzip android-studio-XXXX-linux.zip
-- sudo mv android-studio /usr/local/
-- sudo ln -sr /usr/local/android-studio/bin/studio.sh /usr/local/bin/android-studio
+- sudo emerge -av android-studio
 - android-studio
+- if you see white window, close it and then push "restart ..." button
 
 ## How to install miniconda and make environments using fish shell
 ### How to install miniconda
