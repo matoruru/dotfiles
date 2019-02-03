@@ -63,7 +63,7 @@ amixer     x = "amixer set Master " ++ x
 
 myKeysP = [
            ("M-p"         , spawn "rofi -show run")
-          ,("M-u"         , spawn "kitty"             )
+          ,("M-u"         , spawn myTerminal)
           ,("M-s"         , spawn "qutebrowser")
           ,(  "<Print>"   , spawn "screenshot.sh 0.7 60"          )
           ,("S-<Print>"   , spawn "screenshot.sh 0.7 60 --focused")
