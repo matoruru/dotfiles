@@ -11,15 +11,15 @@ Config {
 
 
    -- appearance
-     font            = "xft:Hermit:pixelsize=12:antialias=true"
+     font            = "xft:Hermit:pixelsize=12"
    , additionalFonts = []
    , alpha   =      175
    , bgColor =      "#000000"
    , fgColor =      "#93a1a1"
    , border      =  NoBorder
    , borderColor =  "#000000"
-   , position =     Static { xpos = 0, ypos = 0, width = 1920, height = 13 }
-   , textOffset = -1
+   , position =     Static { xpos = 0, ypos = 0, width = 1920, height = 10 }
+   , textOffset = 9
    , iconOffset = -1
    , iconRoot = "."
 
@@ -123,7 +123,7 @@ Config {
                              , "--high"     , "#dc322f"
                              , "--"
                              , "--on"       , "[+]"
-                             , "--onc"      , "#96aa44"
+                             , "--onc"      , "#dc322f"
                              , "--off"      , "[-]"
                              , "--offc"     , "#586e75"
                              ] 1

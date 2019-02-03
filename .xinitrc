@@ -52,7 +52,8 @@ if [ -n "$failsafe" ]; then
  ibus-daemon -drx
 
 # set wallpaper by using feh
- bash ~/.fehbg &
+# start quickly if wallpaper doesn't set yet => append &
+ bash ~/.fehbg
 
 # start urxvt as a daemon, after this, use urxvtc to start urxvt
  urxvtd --quiet --fork --opendisplay &
@@ -64,6 +65,8 @@ if [ -n "$failsafe" ]; then
     amixer set Master off
     echo ".bash_profile : Master volume was turned off."
  fi
+
+ xbacklight -set 56 -time 1 &
 
  exec xmonad
 else

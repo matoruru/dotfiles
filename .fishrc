@@ -9,6 +9,14 @@ else
    echo "   modules for purescript does not exists"
 end
 
+if test -d ~/miniconda3
+   source ~/miniconda3/etc/fish/conf.d/conda.fish
+else
+   echo ".fishrc (line 13):"
+   echo "miniconda is not installed."
+   echo "see https://docs.anaconda.com/anaconda/install"
+end
+
 # Set alias
 alias ll='ls -alF'
 alias vim='vim -p'
