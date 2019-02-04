@@ -54,7 +54,7 @@
 - eselect locale list
 - eselect locale set YY
 - env-update && source /etc/profile
-- emerge -avuDN @world gentoo-sources genkernel efibootmgr wireless-tools wpa_supplicant linux-firmware sudo dev-vcs/git app-arch/lz4 layman
+- emerge -avuDN @world gentoo-sources genkernel efibootmgr wireless-tools wpa_supplicant linux-firmware sudo dev-vcs/git app-arch/lz4 layman ntp
 - cd
 - git clone https://github.com/matoruru/dotfiles.git
 - cd /usr/src/linux
@@ -98,6 +98,9 @@
   - General -> Next input method -> (none)
   - Input Method -> Add -> Japanese -> Mozc
   - Input Method -> Japanese - Mozc -> Preferences -> General -> Keymap style -> Custmize -> Edit -> Import from File -> gentoo-tools/keymapfile
+  
+##  If you saw a message like that "xmobar hGetContents: invalid argument (invalid byte sequence...." from xmonad
+Didn't you forget set LANG?, eselect locale set YY
 
 ## Useful tools
 - app-office/libreoffice
@@ -106,17 +109,10 @@
 - media-gfx/pinta
 - net-misc/youtube-viewer
 - dev-python/spyder
+- chromium
+- idea-community
 
-## How to install PureScript and create projects
-
-### install PureScript
-- cd /usr/bin
-- sudo ln -s stack-bin stack
-- mkdir ~/purescript-projects
-- cd ~/purescript-projects
-- npm init -y
-- npm install -D purescript bower pulp
-
+## How to create purescript projects
 ### create project
 - mkdir project1
 - cd project1
