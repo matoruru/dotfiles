@@ -112,16 +112,7 @@ Didn't you forget set LANG?, eselect locale set YY
 - chromium
 - idea-community
 
-## How to install PureScript and create projects
-
-### install PureScript
-- cd /usr/bin
-- sudo ln -s stack-bin stack
-- mkdir ~/purescript-projects
-- cd ~/purescript-projects
-- npm init -y
-- npm install -D purescript bower pulp
-
+## How to create purescript projects
 ### create project
 - mkdir project1
 - cd project1
