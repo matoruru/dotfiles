@@ -2,8 +2,8 @@
 set fish_greeting
 
 # To set environment for purescripts
-if test -d ~/purescript-projects/node_modules/.bin
-   set PATH ~/purescript-projects/node_modules/.bin/ $PATH
+if test -d ~/purescript-projects/tools/node_modules/.bin
+   set PATH ~/purescript-projects/tools/node_modules/.bin/ $PATH
 end
 
 if test -d ~/miniconda3
