@@ -98,6 +98,9 @@
   - General -> Next input method -> (none)
   - Input Method -> Add -> Japanese -> Mozc
   - Input Method -> Japanese - Mozc -> Preferences -> General -> Keymap style -> Custmize -> Edit -> Import from File -> gentoo-tools/keymapfile
+  
+##  If you saw a message like that "xmobar hGetContents: invalid argument (invalid byte sequence...." from xmonad
+Didn't you forget set LANG?, eselect locale set YY
 
 ## Useful tools
 - app-office/libreoffice
