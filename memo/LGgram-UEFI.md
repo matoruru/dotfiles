@@ -54,7 +54,7 @@
 - eselect locale list
 - eselect locale set YY
 - env-update && source /etc/profile
-- emerge -avuDN @world gentoo-sources genkernel efibootmgr wireless-tools wpa_supplicant linux-firmware sudo dev-vcs/git app-arch/lz4 layman
+- emerge -avuDN @world gentoo-sources genkernel efibootmgr wireless-tools wpa_supplicant linux-firmware sudo dev-vcs/git app-arch/lz4 layman ntp
 - cd
 - git clone https://github.com/matoruru/dotfiles.git
 - cd /usr/src/linux
