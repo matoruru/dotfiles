@@ -244,5 +244,12 @@ function installer_kitty {
 }
 installer_kitty
 
+function installer_ntp {
+   # install ntp
+   echo "[ install ntp ]"
+   sudo mv /etc/ntp.conf /etc/ntp.conf.old
+   create_link ./ntp.conf /etc/ntp.conf
+}
+installer_ntp
 
 echo "execute gentoo-tools' install.sh!"
