@@ -106,6 +106,8 @@
 - media-gfx/pinta
 - net-misc/youtube-viewer
 - dev-python/spyder
+- chromium
+- idea-community
 
 ## How to install PureScript and create projects
 
