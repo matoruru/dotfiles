@@ -61,10 +61,12 @@ myLayout = fullscreenFull $
 xbacklight x = "xbacklight " ++ x ++ " -time 1"
 amixer     x = "amixer set Master " ++ x
 
+myBrowser = "chromium"
+
 myKeysP = [
            ("M-p"         , spawn "rofi -show run")
           ,("M-u"         , spawn myTerminal)
-          ,("M-s"         , spawn "qutebrowser")
+          ,("M-s"         , spawn myBrowser)
           ,(  "<Print>"   , spawn "screenshot.sh 0.7 60"          )
           ,("S-<Print>"   , spawn "screenshot.sh 0.7 60 --focused")
           ,("M-h"         , moveTo   Prev NonEmptyWS)
