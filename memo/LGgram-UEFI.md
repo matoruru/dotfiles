@@ -109,7 +109,7 @@ Didn't you forget set LANG?, eselect locale set YY
 - media-gfx/pinta
 - net-misc/youtube-viewer
 - dev-python/spyder
-- chromium
+- chromium ([theme](https://chrome.google.com/webstore/detail/material-incognito-dark-t/ahifcnpnjgbadkjdhagpfjfkmlapfoel?hl=en))
 - idea-community
 
 ## How to create purescript projects
