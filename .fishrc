@@ -13,13 +13,9 @@ end
 # Set default editor and options
 set default_editor 'vim'
 set editor_options '-p'
-alias e="$default_editor $editor_options"
+alias  e="$default_editor $editor_options"
 
 # Set alias
-alias s="ls"
-alias l="ls -l"
-alias a="ls -a"
-alias la="ls -la"
 alias mocp='mocp -T mytheme'
 alias showtodo="fish ~/repositories/matoruru/gentoo-tools/showtodo.fish"
 alias edittodo="vim ~/todolist.txt;showtodo"
