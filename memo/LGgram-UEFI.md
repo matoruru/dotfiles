@@ -78,7 +78,7 @@
 - wpa_passphrase "SSID" "PASSPHRASE" > /etc/wpa_supplicant/wpa_supplicant.conf
 - vim /etc/rc.conf
   - rc_parallel="yes"
-- useradd -m -G wheel,portage,audio XXX
+- useradd -m -G wheel,portage,audio,video XXX
 - passwd XXX
 - visudo ( nopasswd )
 - Ctrl D
