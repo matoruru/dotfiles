@@ -33,11 +33,11 @@ function check_files_existance {
 
 function create_link {
    # create symbolic link like $2 -> $1
-   sudo ln -sr $1 $2
+   sudo ln -srf $1 $2
 }
 function create_link_sudo {
    # create symbolic link like $2 -> $1
-   sudo ln -sr $1 $2
+   sudo ln -srf $1 $2
 }
 
 # check connection to internet
@@ -256,5 +256,13 @@ function installer_ntp {
    create_link ./ntp.conf /etc/ntp.conf
 }
 installer_ntp
+
+function installer-gtk30 {
+   # install gtk-3.0
+   echo "[ install gtk-3.0  ]"
+   mkdir -p                   ~/.config/gtk-3.0
+   create_link ./settings.ini ~/.config/gtk-3.0/
+}
+installer-gtk30
 
 echo "execute gentoo-tools' install.sh!"
