@@ -10,10 +10,12 @@ import XMonad.Layout.Fullscreen
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Util.EZConfig
 import XMonad.Actions.CycleWS
 import XMonad.Actions.MouseResize
 import qualified XMonad.StackSet as W
+import qualified XMonad.Hooks.EwmhDesktops as E
 
 -- Solarized color codes
 base03   = "#002b36"
@@ -152,5 +154,5 @@ myConfig = def
    ,layoutHook         = myLayout
    ,startupHook        = myStartupHook
    ,manageHook         = myManageHook
-   ,handleEventHook    = fullscreenEventHook
+   ,handleEventHook    = E.fullscreenEventHook
    } `additionalKeysP` myKeysP
