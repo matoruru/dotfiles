@@ -46,23 +46,23 @@ fi
 
 if [ -n "$failsafe" ]; then
 # for mozc
- export GTK_IM_MODULE=ibus
- export QT_IM_MODULE=ibus
- export XMODIFIERS=@im=ibus
- ibus-daemon -drx
+ export GTK_IM_MODULE=ibus &
+ export QT_IM_MODULE=ibus &
+ export XMODIFIERS=@im=ibus &
+ ibus-daemon -drx &
 
 # set wallpaper by using feh
 # start quickly if wallpaper doesn't set yet => append &
- bash ~/.fehbg
+ bash ~/.fehbg &
 
 # start urxvt as a daemon, after this, use urxvtc to start urxvt
  urxvtd --quiet --fork --opendisplay &
 
- compton -b
+ compton -b &
  xsetroot -cursor_name left_ptr &
 
  if type amixer; then
-    amixer set Master off
+    amixer set Master off &
     echo ".bash_profile : Master volume was turned off."
  fi
 
