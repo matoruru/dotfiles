@@ -89,6 +89,7 @@ function installer_portage_files {
 
    sudo mkdir                               /etc/portage/env
    create_link_sudo portage/env/makeopts-j4 /etc/portage/env/
+   create_link_sudo portage/env/notmpfs     /etc/portage/env/
    create_link_sudo portage/package.env     /etc/portage/
 
    if [[ -f /etc/portage/package.use/zz-autounmask ]]; then
