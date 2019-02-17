@@ -88,7 +88,7 @@ function installer_portage_files {
    create_link_sudo portage/make.conf       /etc/portage/
 
    sudo mkdir                               /etc/portage/env
-   create_link_sudo portage/env/makeopts-j4 /etc/portage/env/
+   create_link_sudo portage/env/makeopts-j3 /etc/portage/env/
    create_link_sudo portage/env/notmpfs     /etc/portage/env/
    create_link_sudo portage/package.env     /etc/portage/
 
