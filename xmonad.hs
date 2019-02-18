@@ -45,7 +45,7 @@ myFocusedBorderColor = cyan
 myBorderWidth        = 0
 
 gap_UD = 7
-gap_LR = 21
+gap_LR = 7
 gapwidth = gap_UD
 gwU      = gap_UD
 gwD      = gap_UD
