@@ -84,20 +84,20 @@ function installer_portage_files {
    # install portage files,
    # include make.conf, package.use
    echo "[ install portage files ]"
-   sudo rm                                  /etc/portage/make.conf
-   create_link_sudo portage/make.conf       /etc/portage/
+   sudo rm                                    /etc/portage/make.conf
+   create_link_sudo portage/make.conf         /etc/portage/
 
-   sudo mkdir                               /etc/portage/env
-   create_link_sudo portage/env/makeopts-j3 /etc/portage/env/
-   create_link_sudo portage/env/notmpfs     /etc/portage/env/
-   create_link_sudo portage/package.env     /etc/portage/
+   sudo mkdir                                 /etc/portage/env
+   create_link_sudo portage/env/makeopts-less /etc/portage/env/
+   create_link_sudo portage/env/notmpfs       /etc/portage/env/
+   create_link_sudo portage/package.env       /etc/portage/
 
    if [[ -f /etc/portage/package.use/zz-autounmask ]]; then
       sudo mv /etc/portage/package.use/zz-autounmask /etc/portage/
    fi
-   sudo rm -rf                              /etc/portage/package.use
-   create_link_sudo portage/package.use     /etc/portage/
-   sudo mv /etc/portage/zz-autounmask       /etc/portage/package.use/
+   sudo rm -rf                                /etc/portage/package.use
+   create_link_sudo portage/package.use       /etc/portage/
+   sudo mv /etc/portage/zz-autounmask         /etc/portage/package.use/
 }
 installer_portage_files
 
