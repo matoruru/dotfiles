@@ -80,7 +80,7 @@ Config {
                              , "--low"      , "#2aa198"
                              , "--normal"   , "#859900"
                              , "--high"     , "#dc322f"
-                             ] 1
+                             ] 5
 
         -- memory usage monitor
         , Run Memory         [ "-p 3"
@@ -130,6 +130,6 @@ Config {
 
         -- time and date indicator
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
-        , Run Date           "<fc=#268bd2>%F (%a) %T</fc>" "date" 5
+        , Run Date           "<fc=#268bd2>%a %d %b %Y %T</fc>" "date" 5
         ]
    }
