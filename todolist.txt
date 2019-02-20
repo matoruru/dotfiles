@@ -1,2 +1,2 @@
-- make the brightness changable
-- put screenshot images at github, README.md
+- set font of xmobar to show japanese
+- get windows product key
