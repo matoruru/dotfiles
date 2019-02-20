@@ -1,1 +1,1 @@
-MAKEOPTS="-j6"
+MAKEOPTS="-j7"
