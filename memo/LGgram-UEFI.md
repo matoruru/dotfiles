@@ -109,7 +109,9 @@ Didn't you forget set LANG?, eselect locale set YY
 - media-gfx/pinta
 - net-misc/youtube-viewer
 - dev-python/spyder
-- chromium ([theme](https://chrome.google.com/webstore/detail/material-incognito-dark-t/ahifcnpnjgbadkjdhagpfjfkmlapfoel?hl=en))
+- chromium
+  - get theme [here](https://chrome.google.com/webstore/detail/material-incognito-dark-t/ahifcnpnjgbadkjdhagpfjfkmlapfoel?hl=en)
+  - try middle click on top border and check "Use system title bar and borders"! 
 - idea-community
 
 ## How to create purescript projects
