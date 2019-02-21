@@ -1,9 +1,9 @@
 # To remove the message at fish login
 set fish_greeting
 
-# To set environment for purescripts
-if test -d ~/purescript/node_modules/.bin
-   set PATH ~/purescript/node_modules/.bin/ $PATH
+# To use 'npm i -g' wituout sudo
+if test -d ~/.npm-global
+   set PATH ~/.npm-global/bin/ $PATH
 end
 
 if test -d ~/miniconda3
