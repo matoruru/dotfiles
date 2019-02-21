@@ -266,4 +266,5 @@ function installer-gtk30 {
 }
 installer-gtk30
 
+cd ../gentoo-tools
 echo "execute gentoo-tools' install.sh!"
