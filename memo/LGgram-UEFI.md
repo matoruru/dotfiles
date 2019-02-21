@@ -77,7 +77,7 @@
 - rc-update add net.wlp2s0 default
 - wpa_passphrase "SSID" "PASSPHRASE" > /etc/wpa_supplicant/wpa_supplicant.conf
 - vim /etc/rc.conf
-  - rc_parallel="yes"
+  - rc_parallel="YES"
 - useradd -m -G wheel,portage,audio,video XXX
 - passwd XXX
 - visudo ( nopasswd )
@@ -86,7 +86,7 @@
 - mkdir -p ~/repositories/matoruru
 - cd ~/repositories/matoruru
 - git clone https://github.com/matoruru/dotfiles.git
-- cd repositories/matoruru/dotfiles
+- cd dotfiles
 - bash install.sh
 - git remote set-url origin git@github.com:matoruru/[repositoriy's name].git
 - git config --global user.email "----------@----.---"
