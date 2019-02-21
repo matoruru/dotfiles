@@ -77,7 +77,7 @@
 - rc-update add net.wlp2s0 default
 - wpa_passphrase "SSID" "PASSPHRASE" > /etc/wpa_supplicant/wpa_supplicant.conf
 - vim /etc/rc.conf
-  - rc_parallel="yes"
+  - rc_parallel="YES"
 - useradd -m -G wheel,portage,audio,video XXX
 - passwd XXX
 - visudo ( nopasswd )
@@ -86,7 +86,7 @@
 - mkdir -p ~/repositories/matoruru
 - cd ~/repositories/matoruru
 - git clone https://github.com/matoruru/dotfiles.git
-- cd repositories/matoruru/dotfiles
+- cd dotfiles
 - bash install.sh
 - git remote set-url origin git@github.com:matoruru/[repositoriy's name].git
 - git config --global user.email "----------@----.---"
@@ -104,15 +104,10 @@ Didn't you forget set LANG?, eselect locale set YY
 
 ## Useful tools
 - app-office/libreoffice
-- app-editors/retext
-- app-text/qpdfview
-- media-gfx/pinta
-- net-misc/youtube-viewer
 - dev-python/spyder
 - chromium
   - get theme [here](https://chrome.google.com/webstore/detail/material-incognito-dark-t/ahifcnpnjgbadkjdhagpfjfkmlapfoel?hl=en)
   - try middle click on top border and check "Use system title bar and borders"! 
-- idea-community
 
 ## How to create purescript projects
 ### create project
