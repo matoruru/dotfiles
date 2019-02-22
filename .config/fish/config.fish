@@ -35,8 +35,7 @@ tabs 3
 
 # when you  want to use dual monitors
 function dualon
-   set ROTATE right # at home
-#set ROTATE normal # at work
+   set ROTATE normal # at work
    xrandr --output HDMI1 --auto --above eDP1 --rotate $ROTATE
 end
 

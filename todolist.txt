@@ -1,2 +1,0 @@
-- set font of xmobar to show japanese
-- get windows product key
