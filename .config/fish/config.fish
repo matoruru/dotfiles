@@ -33,16 +33,6 @@ tabs 3
 # Set yimmy theme
 . ~/repositories/theme-yimmy/fish_prompt.fish
 
-# when you  want to use dual monitors
-function dualon
-   set ROTATE normal # at work
-   xrandr --output HDMI1 --auto --above eDP1 --rotate $ROTATE
-end
-
-function dualoff
-   xrandr --output HDMI1 --off
-end
-
 # switch apatche server on/off
 function httpon
    sudo /etc/init.d/apache2 start
