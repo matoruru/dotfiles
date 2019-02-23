@@ -38,6 +38,7 @@ ping www.google.com -i 0.2 -c 5 || exit
 echo "[ install rc files ]"
 ln -srb .bash_profile ~/
 ln -srb .bashrc ~/
+mkdir -p                         ~/.config/fish
 ln -srb .config/fish/config.fish ~/.config/fish/
 ln -srb .config/fish/config.fish ~/.fishrc
 
