@@ -41,6 +41,7 @@ ln -srb .bashrc ~/
 mkdir -p                         ~/.config/fish
 ln -srb .config/fish/config.fish ~/.config/fish/
 ln -srb .config/fish/config.fish ~/.fishrc
+ln -srb .npmrc ~/
 
 
 # install vimrc
