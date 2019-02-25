@@ -3,7 +3,11 @@ set fish_greeting
 
 # To use 'npm i -g' wituout sudo
 if test -d ~/.npm-global
-   set PATH ~/.npm-global/bin/ $PATH
+   set -x PATH ~/.npm-global/bin $PATH
+end
+
+if test -d ~/.nodebrew
+   set -x PATH $HOME/.nodebrew/current/bin $PATH
 end
 
 if test -d ~/miniconda3
@@ -21,7 +25,7 @@ alias showtodo="fish ~/repositories/matoruru/gentoo-tools/showtodo.fish"
 alias edittodo="vim ~/todolist.txt;showtodo"
 alias su="sudo su - -m"
 alias scrot="scrot -q 100"
-alias n="sudo n"
+alias nb="nodebrew"
 
 # funny commnad
 alias えぃｔ="exit"
