@@ -1,0 +1,4 @@
+gtk-application-prefer-dark-theme = "true"
+gtk-cursor-theme-name = "breeze-cursors"
+gtk-theme-name = "vimix"
+gtk-icon-theme-name = "Paper"
