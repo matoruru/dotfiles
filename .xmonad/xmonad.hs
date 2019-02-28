@@ -55,7 +55,6 @@ myLayout = fullscreenFull $
            toggleLayouts Full $
            mouseResize $
            windowArrange $
-           lessBorders OnlyFloat $
            spacing gapwidth $
            gaps [(U, gwU), (D, gwD), (L, gwL), (R, gwR)] $
            ResizableTall 1 0.01 0.5 [] ||| Full
@@ -126,11 +125,7 @@ myXmobarPP = xmobarPP
     ppCurrent         = xmobarColor darkgreen "" . \s -> "[<fc=#96aa44>$</fc>]"
    ,ppHidden          = xmobarColor darkgreen "" . \s -> "[ ]"
    ,ppHiddenNoWindows = xmobarColor "#505050" "" . \s -> "[<fc=#586e75>+</fc>]"
-   ,ppLayout          = xmobarColor green     "" .
-      (\x -> case x of
-       "Spacing 7 ResizableTall" ->             "[T]"
-       "Spacing 7 Full"          -> "<fc=#cb4b16>[F]</fc>"
-      )
+   ,ppLayout          = xmobarColor green     "" . \s -> ""
    ,ppTitle           = xmobarColor cyan          "" . shorten 70
    ,ppSep             = "  "
    ,ppWsSep           = ""
