@@ -46,10 +46,10 @@ fi
 
 if [ -n "$failsafe" ]; then
 # for mozc
- export GTK_IM_MODULE=ibus &
- export QT_IM_MODULE=ibus &
- export XMODIFIERS=@im=ibus &
- ibus-daemon -drx &
+ export GTK_IM_MODULE=fcitx
+ export QT_IM_MODULE=fcitx
+ export XMODIFIERS="@im=fcitx"
+ fcitx &
 
 # set wallpaper by using feh
 # start quickly if wallpaper doesn't set yet => append &
