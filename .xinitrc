@@ -66,7 +66,7 @@ if [ -n "$failsafe" ]; then
     echo ".bash_profile : Master volume was turned off."
  fi
 
- xbacklight -set 56 -time 1 &
+ xbacklight -set 46 -time 1 &
 
  exec xmonad
 else
