@@ -1,4 +1,5 @@
 Config {
+
      --Solarized color codes
      --base03 = "#002b36",  base02  = "#073642"
      --base01 = "#586e75",  base00  = "#657b83"
@@ -9,17 +10,16 @@ Config {
      --violet = "#6c71c4",  blue	   = "#268bd2"
      --cyan	  = "#2aa198",  green   = "#859900"
 
-
    -- appearance
-     font            = "xft:Hermit:pixelsize=12"
+     font =         "xft:Fira Code:size=9:Bold:antialias=true"
    , additionalFonts = []
    , alpha   =      175
    , bgColor =      "#000000"
    , fgColor =      "#93a1a1"
    , border      =  NoBorder
    , borderColor =  "#000000"
-   , position =     Static { xpos = 0, ypos = 0, width = 1920, height = 10 }
-   , textOffset = 9
+   , position =     Static { xpos = 0, ypos = 0, width = 1920, height = 12 }
+   , textOffset = 10
    , iconOffset = -1
    , iconRoot = "."
 
@@ -51,6 +51,8 @@ Config {
    --   color can be set by enclosing in <fc></fc> tags. For more details
    --   see http://projects.haskell.org/xmobar/#system-monitor-plugins.
    , commands =
+
+        -- weather monitor
 
         -- network activity monitor (dynamic interface resolution)
         [ Run DynNetwork     [ "-m 5"
@@ -110,26 +112,28 @@ Config {
                                        -- charged status
                                        , "-i"	, "<fc=#859900> Charged </fc>"
                              ] 200
+
         , Run StdinReader
 
-        -- volume monitor
-        , Run Volume "default" "Master"
-                             [ "-p 3"
-                             , "--template" , "<volume>% <status>"
-                             , "--Low"      , "10"        -- units: %
-                             , "--High"     , "80"        -- units: %
-                             , "--low"      , "#2aa198"
-                             , "--normal"   , "#859900"
-                             , "--high"     , "#dc322f"
-                             , "--"
-                             , "--on"       , "[+]"
-                             , "--onc"      , "#dc322f"
-                             , "--off"      , "[-]"
-                             , "--offc"     , "#586e75"
-                             ] 1
+--        -- volume monitor
+--        , Run Volume "default" "Master"
+--                             [ "-p 3"
+--                             , "--template" , "<volume>% <status>"
+--                             , "--Low"      , "10"        -- units: %
+--                             , "--High"     , "80"        -- units: %
+--                             , "--low"      , "#2aa198"
+--                             , "--normal"   , "#859900"
+--                             , "--high"     , "#dc322f"
+--                             , "--"
+--                             , "--on"       , "[+]"
+--                             , "--onc"      , "#dc322f"
+--                             , "--off"      , "[-]"
+--                             , "--offc"     , "#586e75"
+--                             ] 1
 
         -- time and date indicator
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
         , Run Date           "<fc=#268bd2>%a %d %b %Y %T</fc>" "date" 5
         ]
+
    }
