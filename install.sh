@@ -95,17 +95,14 @@ echo "[ install ctags  ]"
 ln -srb ./.ctags ~/
 
 
-# install qutebrowser
-echo "[ install qutebrowser ]"
-mkdir -p                              ~/.config/qutebrowser
-ln -srb .config/qutebrowser/config.py ~/.config/qutebrowser/
-
-
 # install kitty
 echo "[ install kitty ]"
 mkdir -p ~/.config/kitty
 ln -srb    .config/kitty/kitty.conf ~/.config/kitty/
 
+# install gtk-2.0
+echo "[ install gtk-2.0  ]"
+ln -srb .gtkrc-2.0 ~/
 
 # install gtk-3.0
 echo "[ install gtk-3.0  ]"
