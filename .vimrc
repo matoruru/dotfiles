@@ -34,6 +34,7 @@ if dein#load_state('~/.vim/dein')
   call dein#add('stephpy/vim-yaml')
   call dein#add('vim-ruby/vim-ruby')
   call dein#add('dag/vim2hs')
+  call dein#add('thinca/vim-quickrun')
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
@@ -105,6 +106,16 @@ let g:tagbar_autofocus = 1
 
 "=======================Settings of tagbar===========================
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
+"====================================================================
+
+"======================Settings of purescript========================
+let purescript_indent_if = 3
+let purescript_indent_case = 5
+let purescript_indent_let = 4
+let purescript_indent_where = 6
+let purescript_indent_do = 3
+let purescript_indent_in = 1
+let purescript_indent_dot = v:true
 "====================================================================
 
 "=======================Settings of haskell==========================
