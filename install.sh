@@ -112,5 +112,6 @@ echo "[ install gtk-3.0  ]"
 mkdir -p ~/.config/gtk-3.0
 ln -srb    .config/gtk-3.0/settings.ini ~/.config/gtk-3.0/
 
-
-echo "execute gentoo-tools' install.sh!"
+# install user locale file (for fcitx)
+echo "[ install locale.conf ]"
+ln -srb .config/locale.conf ~/.config/
