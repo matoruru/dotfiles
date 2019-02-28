@@ -69,7 +69,7 @@ ln -srb .xmobarrc ~/
 
 # install feh
 cp .fehbg  ~/
-chmod 754  ~/.fehbg
+chmod +x   ~/.fehbg
 
 
 # install compton
