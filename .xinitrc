@@ -51,6 +51,9 @@ if [ -n "$failsafe" ]; then
  export XMODIFIERS="@im=fcitx"
  fcitx &
 
+# for android-studio
+ export _JAVA_AWT_WM_NONREPARENTING=1
+
 # set wallpaper by using feh
 # start quickly if wallpaper doesn't set yet => append &
  bash ~/.fehbg &
