@@ -1,21 +1,20 @@
 import XMonad
 import System.IO
 import XMonad.Layout.Spacing
-import XMonad.Layout.Gaps
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.WindowArranger
-import XMonad.Layout.Fullscreen
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.SetWMName
 import XMonad.Util.EZConfig
 import XMonad.Actions.CycleWS
 import XMonad.Actions.MouseResize
 import qualified XMonad.StackSet as W
-import qualified XMonad.Hooks.EwmhDesktops as E
+import qualified XMonad.Hooks.EwmhDesktops
 
 -- Solarized color codes
 base03   = "#002b36"
@@ -40,23 +39,13 @@ lightgreen   = "#96aa44"
 
 myTerminal    = "kitty"
 myModMask     = mod4Mask -- Win key or Super_L
-myNormalBorderColor  = base0
-myFocusedBorderColor = cyan
-myBorderWidth        = 0
+myBorderWidth = 0
 
-gap_UD = 7
-gap_LR = 7
-gapwidth = gap_UD
-gwU      = gap_UD
-gwD      = gap_UD
-gwL      = gap_LR
-gwR      = gap_LR
-myLayout = fullscreenFull $
-           toggleLayouts Full $
+b = 11
+myLayout = toggleLayouts Full $
            mouseResize $
            windowArrange $
-           spacing gapwidth $
-           gaps [(U, gwU), (D, gwD), (L, gwL), (R, gwR)] $
+           spacingRaw False (Border b b b b) True (Border b b b b) True $
            ResizableTall 1 0.01 0.5 [] ||| Full
 
 xbacklight x = "xbacklight " ++ x ++ " -time 1"
@@ -106,7 +95,6 @@ myKeysP = [
           ]
 
 myManageHook =
-   fullscreenManageHook <+>
    manageDocks <+>
    composeAll
    [
@@ -134,7 +122,7 @@ myXmobarPP = xmobarPP
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 myStartupHook = do
-   spawn "wmname LG3D"
+   setWMName "LG3D"
 
 main = do
    xmonad =<< statusBar myBar myXmobarPP toggleStrutsKey myConfig
@@ -143,11 +131,9 @@ myConfig = def
    {
     terminal           = myTerminal
    ,modMask            = myModMask
-   ,normalBorderColor  = myNormalBorderColor
-   ,focusedBorderColor = myFocusedBorderColor
    ,borderWidth        = myBorderWidth
    ,layoutHook         = myLayout
    ,startupHook        = myStartupHook
    ,manageHook         = myManageHook
-   ,handleEventHook    = E.fullscreenEventHook
+   ,handleEventHook    = fullscreenEventHook
    } `additionalKeysP` myKeysP
