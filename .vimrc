@@ -35,6 +35,8 @@ if dein#load_state('~/.vim/dein')
   call dein#add('vim-ruby/vim-ruby')
   call dein#add('dag/vim2hs')
   call dein#add('thinca/vim-quickrun')
+  call dein#add('pangloss/vim-javascript')
+  call dein#add('MaxMEllon/vim-jsx-pretty')
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
@@ -101,10 +103,10 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 
 "======================Settings of lexima.vim========================
 let g:lexima_enable_basic_rules = 1
-let g:tagbar_autofocus = 1
 "====================================================================
 
 "=======================Settings of tagbar===========================
+let g:tagbar_autofocus = 1
 "autocmd BufEnter * nested :call tagbar#autoopen(0)
 "====================================================================
 
@@ -118,7 +120,13 @@ let purescript_indent_in = 1
 let purescript_indent_dot = v:true
 "====================================================================
 
-"=======================Settings of haskell==========================
+"============================close tag===============================
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.jsx,*.js"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
+"====================================================================
 
 "=============================Remap keys=============================
 " Disable following keys in order bad habits breaking.
@@ -206,9 +214,9 @@ set display+=lastline
 
 set scrolloff=2
 
-set undodir=~/.vim/.tmp/undo//
-set backupdir=~/.vim/.tmp/backup//
-set directory=~/.vim/.tmp/swp//
+set undodir=~/.vim/.tmp/undo/
+set backupdir=~/.vim/.tmp/backup/
+set directory=~/.vim/.tmp/swp/
 
 " Open vim at location you was editing previous
 au BufWritePost * mkview
