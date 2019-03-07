@@ -96,7 +96,7 @@ Config {
 
         -- battery monitor
         , Run BatteryP ["CMB0"]
-                             [ "-m 5"
+                             [ "-m 4"
                              , "--template" , "<acstatus>"
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
@@ -106,12 +106,12 @@ Config {
 
                              , "--" -- battery specific options
                                        -- discharging status
-                                       , "-o"	, "<left>%   "
+                                       , "-o"	, "<left>%  "
                                        -- AC "on" status
                                        , "-O"	, "<fc=#2aa198> Charging </fc>"
                                        -- charged status
                                        , "-i"	, "<fc=#859900> Charged </fc>"
-                             ] 200
+                             ] 2
 
         , Run StdinReader
 
@@ -135,5 +135,4 @@ Config {
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time)
         , Run Date           "<fc=#268bd2>%a %d %b %Y %T</fc>" "date" 5
         ]
-
-   }
+}
