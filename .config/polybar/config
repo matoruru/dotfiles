@@ -1,74 +1,17 @@
-;==========================================================
-;
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;
-;   Created By Aditya Shakya.
-;
-;==========================================================
-
 [color]
 
-trans = #00000000
-white = #FFFFFF
-black = #000000
-
+; adapta's color
 bg = #263238
 fg = #CFD8DC
-fg-alt = #A9ABB0
-
-acolor = #FFFFFF
-curgent = #EF5350
-coccupied = #42A5F5
-
-shade1 = #01579B
-shade2 = #0277BD
-shade3 = #0288D1
-shade4 = #039BE5
-shade5 = #03A9F4
-shade6 = #29B6F6
-shade7 = #4FC3F7
-shade8 = #81D4FA
-ashade8 = #2C2C2C
 
 adapta-cyan = #00BCD4
 adapta-red = #FF5252
 adapta-yellow = #FFA500
 
-## Material Colors
-
-red = #e53935
-pink = #d81b60
-purple = #8e24aa
-deep-purple = #5e35b1
-indigo = #3949ab
-blue = #1e88e5
-light-blue = #039be5
-cyan = #00acc1
-teal = #00897b
-green = #43a047
-light-green = #7cb342
-lime = #c0ca33
-yellow = #fdd835
-amber = #ffb300
-orange = #fb8c00
-deep-orange = #f4511e
-brown = #6d4c41
-grey = #757575
-blue-gray = #546e7a
-
 
 [margin]
 for-modules = 1
 
-
-;==========================================================
 
 [bar/main]
 width = 100%
@@ -79,36 +22,24 @@ line-size = 2
 background = ${color.bg}
 foreground = ${color.fg}
 
-;==========================================================
-
 font-0 = "Fantasque Sans Mono:pixelsize=10;3"
 font-1 = "Iosevka Nerd Font:pixelsize=14;3"
 
-;==========================================================
-
 cursor-click = pointer
-cursor-scroll = ns-resize
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-
-;== Module Location ========================================================
 
 modules-left = arch explorer workspaces google github reddit facebook youtube
 modules-right = mpd pkg volume wlan date battery powermenu
 
-;== Modules ========================================================
+
 
 [module/arch]
 type = custom/text
 content = 
 ;content = 
-;alt content = 
 content-padding = 1
-;content-background = ${color.shade1}
 content-foreground = ${color.fg}
-click-left = rmenu_1
-click-right = rmenu_wi_1
+;click-left = rmenu_1
+;click-right = rmenu_wi_1
 
 content-underline = ${color.adapta-cyan}
 
@@ -145,53 +76,51 @@ label-urgent-padding = 1
 label-occupied-padding = 1
 
 label-empty-foreground = ${color.fg}
-label-active-foreground = ${color.acolor}
-label-urgent-foreground = ${color.curgent}
-label-occupied-foreground = ${color.coccupied}
+;label-active-foreground = ${color.}
+;label-urgent-foreground = ${color.}
+;label-occupied-foreground = ${color.}
 
 [module/explorer]
 type = custom/text
 content = 
 content-padding = 1
-content-foreground = ${color.fg-alt}
+content-foreground = ${color.fg}
 click-left = nautilus
 
 [module/google]
 type = custom/text
 content = 
 content-padding = 1
-content-foreground = ${color.fg-alt}
+content-foreground = ${color.fg}
 click-left = xdg-open https://www.google.com/
 
 [module/github]
 type = custom/text
 content = 
 content-padding = 1
-content-foreground = ${color.fg-alt}
+content-foreground = ${color.fg}
 click-left = xdg-open https://www.github.com/
 
 [module/reddit]
 type = custom/text
 content = 
 content-padding = 1
-content-foreground = ${color.fg-alt}
+content-foreground = ${color.fg}
 click-left = xdg-open https://www.reddit.com/
 
 [module/facebook]
 type = custom/text
 content = 
 content-padding = 1
-content-foreground = ${color.fg-alt}
+content-foreground = ${color.fg}
 click-left = xdg-open https://www.facebook.com/
 
 [module/youtube]
 type = custom/text
 content = 
 content-padding = 1
-content-foreground = ${color.fg-alt}
+content-foreground = ${color.fg}
 click-left = xdg-open https://www.youtube.com/
-
-;==========================================================
 
 [module/mpd]
 type = internal/mpd
@@ -209,8 +138,6 @@ label-song-maxlen = 25
 label-song-ellipsis = true
 
 format-online-margin = ${margin.for-modules}
-
-;==========================================================
 
 [module/pkg]
 type = custom/script
@@ -338,5 +265,3 @@ content-underline = ${color.adapta-cyan}
 content-foreground = ${color.fg}
 click-left = pmenu_1
 click-right = pmenu_1
-
-;== EOF ========================================================
