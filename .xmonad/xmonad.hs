@@ -5,7 +5,6 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.WindowArranger
-import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.EwmhDesktops
@@ -14,7 +13,6 @@ import XMonad.Util.EZConfig
 import XMonad.Actions.CycleWS
 import XMonad.Actions.MouseResize
 import qualified XMonad.StackSet as W
-import qualified XMonad.Hooks.EwmhDesktops
 
 -- Solarized color codes
 base03   = "#002b36"
@@ -41,11 +39,12 @@ myTerminal    = "kitty"
 myModMask     = mod4Mask -- Win key or Super_L
 myBorderWidth = 0
 
-b = 11
+ub = 22
+b  = 6
 myLayout = toggleLayouts Full $
            mouseResize $
            windowArrange $
-           spacingRaw False (Border b b b b) True (Border b b b b) True $
+           spacingRaw False (Border (b + ub) b b b) True (Border b b b b) True $
            ResizableTall 1 0.01 0.5 [] ||| Full
 
 xbacklight x = "xbacklight " ++ x ++ " -time 1"
@@ -106,26 +105,16 @@ myManageHook =
    ,isDialog     --> doCenterFloat
    ]
 
-myBar = "xmobar"
-
-myXmobarPP = xmobarPP
-   {
-    ppCurrent         = xmobarColor darkgreen "" . \s -> "[<fc=#96aa44>$</fc>]"
-   ,ppHidden          = xmobarColor darkgreen "" . \s -> "[ ]"
-   ,ppHiddenNoWindows = xmobarColor "#505050" "" . \s -> "[<fc=#586e75>+</fc>]"
-   ,ppLayout          = xmobarColor green     "" . \s -> ""
-   ,ppTitle           = xmobarColor cyan          "" . shorten 70
-   ,ppSep             = "  "
-   ,ppWsSep           = ""
-   }
-
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 myStartupHook = do
-   setWMName "LG3D"
+      setWMName "LG3D"
 
-main = do
-   xmonad =<< statusBar myBar myXmobarPP toggleStrutsKey myConfig
+myHandleEventHook =
+          fullscreenEventHook
+      <+> ewmhDesktopsEventHook
+
+main = xmonad myConfig
 
 myConfig = def
    {
@@ -135,5 +124,5 @@ myConfig = def
    ,layoutHook         = myLayout
    ,startupHook        = myStartupHook
    ,manageHook         = myManageHook
-   ,handleEventHook    = fullscreenEventHook
+   ,handleEventHook    = myHandleEventHook
    } `additionalKeysP` myKeysP

@@ -113,3 +113,7 @@ ln -srb    .config/gtk-3.0/settings.ini ~/.config/gtk-3.0/
 # install user locale file (for fcitx)
 echo "[ install locale.conf ]"
 ln -srb .config/locale.conf ~/.config/
+
+# install polybar
+echo "[ install polybar ]"
+ln -srb    .config/polybar ~/.config/
