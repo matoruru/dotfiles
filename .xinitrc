@@ -53,6 +53,8 @@ if [ -n "$failsafe" ]; then
 
 # for android-studio
  export _JAVA_AWT_WM_NONREPARENTING=1
+ export ANDROID_HOME=$HOME/AndroidTools
+ export ANDROID_SDK_ROOT=$ANDROID_HOME/sdk
 
 # set wallpaper by using feh
 # start quickly if wallpaper doesn't set yet => append &
@@ -70,6 +72,8 @@ if [ -n "$failsafe" ]; then
  fi
 
  xbacklight -set 46 -time 1 &
+
+ bash ~/.config/polybar/launch.sh
 
  exec xmonad
 else
