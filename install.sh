@@ -32,7 +32,6 @@ ping www.google.com -i 0.2 -c 5 || exit
    git clone git@github.com:matoruru/gentoo-tools.git
    git clone git@github.com:matoruru/arch-tools.git
    git clone git@github.com:matoruru/omoshiro-tools.git
-   git clone git@github.com:matoruru/xmonad.hs.git
 )
 
 # install rc files
