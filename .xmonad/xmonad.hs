@@ -109,6 +109,7 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 myStartupHook = do
       setWMName "LG3D"
+      spawn "bash ~/.config/polybar/launch.sh"
 
 myHandleEventHook =
           fullscreenEventHook

@@ -31,6 +31,8 @@ ping www.google.com -i 0.2 -c 5 || exit
    cd ~/repositories/matoruru
    git clone git@github.com:matoruru/gentoo-tools.git
    git clone git@github.com:matoruru/arch-tools.git
+   git clone git@github.com:matoruru/polybar-adapta-theme.git
+   git clone git@github.com:matoruru/imgs.git
    git clone git@github.com:matoruru/omoshiro-tools.git
 )
 
@@ -115,4 +117,4 @@ ln -srb .config/locale.conf ~/.config/
 
 # install polybar
 echo "[ install polybar ]"
-ln -srb    .config/polybar ~/.config/
+ln -srb ../polybar-adapta-theme/polybar ~/.config/

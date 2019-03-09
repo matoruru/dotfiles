@@ -73,8 +73,6 @@ if [ -n "$failsafe" ]; then
 
  xbacklight -set 46 -time 1 &
 
- bash ~/.config/polybar/launch.sh
-
  exec xmonad
 else
  exec $command
