@@ -63,7 +63,7 @@ if [ -n "$failsafe" ]; then
 # start urxvt as a daemon, after this, use urxvtc to start urxvt
  urxvtd --quiet --fork --opendisplay &
 
- compton -b &
+ compton -b
  xsetroot -cursor_name left_ptr &
 
  if type amixer; then
