@@ -39,8 +39,8 @@ myTerminal    = "kitty"
 myModMask     = mod4Mask -- Win key or Super_L
 myBorderWidth = 0
 
-ub = 22
-b  = 6
+ub = 21
+b  = 9
 myLayout = toggleLayouts Full $
            mouseResize $
            windowArrange $
