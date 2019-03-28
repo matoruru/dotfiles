@@ -37,6 +37,7 @@ if dein#load_state('~/.vim/dein')
   call dein#add('thinca/vim-quickrun')
   call dein#add('pangloss/vim-javascript')
   call dein#add('MaxMEllon/vim-jsx-pretty')
+  call dein#add('fleischie/vim-styled-components')
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
@@ -199,6 +200,9 @@ set clipboard=unnamed,autoselect    " set clipboard to unnamed to access the sys
 
 " set incremetnal search
 set incsearch
+
+set wildmenu
+set wildmode=longest,full
 
 " Change shape of cursor by mode switching.
 let &t_SI .= "\e[6 q"

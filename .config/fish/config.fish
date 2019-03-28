@@ -10,9 +10,7 @@ if test -d ~/.nodebrew
    set -x PATH $HOME/.nodebrew/current/bin $PATH
 end
 
-if test -d ~/miniconda3
-   source ~/miniconda3/etc/fish/conf.d/conda.fish
-end
+source /opt/miniconda3/etc/fish/conf.d/conda.fish
 
 # Set default editor and options
 set default_editor 'vim'
@@ -26,6 +24,7 @@ alias edittodo="vim ~/todolist.txt;showtodo"
 alias su="sudo su - -m"
 alias scrot="scrot -q 100"
 alias nb="nodebrew"
+alias dvim="vim -u ~/.vim/myplugin/essential.vim"
 
 # funny commnad
 alias えぃｔ="exit"

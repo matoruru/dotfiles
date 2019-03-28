@@ -1,7 +1,11 @@
+--{-# OPTIONS -Wall -Werror #-}
+
+import Data.List (sortBy)
+import Data.Function (on)
+import Control.Monad (forM_, join)
+
 import XMonad
-import System.IO
 import XMonad.Layout.Spacing
-import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.WindowArranger
@@ -10,30 +14,10 @@ import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName
 import XMonad.Util.EZConfig
+import XMonad.Util.Run (safeSpawn)
 import XMonad.Actions.CycleWS
 import XMonad.Actions.MouseResize
 import qualified XMonad.StackSet as W
-
--- Solarized color codes
-base03   = "#002b36"
-base02   = "#073642"
-base01   = "#586e75"
-base00   = "#657b83"
-base0    = "#839496"
-base1    = "#93a1a1"
-base2    = "#eee8d5"
-base3    = "#fdf6e3"
-yellow   = "#b58900"
-orange   = "#cb4b16"
-red      = "#dc322f"
-magenta  = "#d33682"
-violet   = "#6c71c4"
-blue     = "#268bd2"
-cyan     = "#2aa198"
-green    = "#859900"
-
-darkgreen    = "#748800"
-lightgreen   = "#96aa44"
 
 myTerminal    = "kitty"
 myModMask     = mod4Mask -- Win key or Super_L
@@ -82,15 +66,6 @@ myKeysP = [
           ,("M-S-<Return>", spawn "")
           ,("M-<Tab>"     , spawn "")
           ,("M-S-<Tab>"   , spawn "")
-          ,("M-1"         , spawn "")
-          ,("M-2"         , spawn "")
-          ,("M-3"         , spawn "")
-          ,("M-4"         , spawn "")
-          ,("M-5"         , spawn "")
-          ,("M-6"         , spawn "")
-          ,("M-7"         , spawn "")
-          ,("M-8"         , spawn "")
-          ,("M-9"         , spawn "")
           ]
 
 myManageHook =
@@ -101,6 +76,7 @@ myManageHook =
     className =? "feh"               --> doCenterFloat
    ,className =? "jetbrains-studio" --> doFloat
    ,className =? "jetbrains-idea"    --> doFloat
+   ,className =? "Galculator"    --> doCenterFloat
    ,isFullscreen --> doFullFloat
    ,isDialog     --> doCenterFloat
    ]
@@ -115,7 +91,21 @@ myHandleEventHook =
           fullscreenEventHook
       <+> ewmhDesktopsEventHook
 
-main = xmonad myConfig
+eventLogHook = do
+      winset <- gets windowset
+      let currWs = W.currentTag winset
+      let wss = map W.tag $ W.workspaces winset
+      let wsStr  = join $ map (fmt currWs) $ sort' wss
+      io $ appendFile "/tmp/.xmonad-workspace-log" (wsStr ++ "\n")
+      where fmt currWs ws
+              | currWs == ws = "\63022"
+              | otherwise    = "\63023"
+            sort' = sortBy (compare `on` (!! 0))
+
+main = do
+      forM_ [".xmonad-workspace-log"] $ \file -> do
+         safeSpawn "mkfifo" ["/tmp/" ++ file]
+      xmonad myConfig
 
 myConfig = def
    {
@@ -125,5 +115,6 @@ myConfig = def
    ,layoutHook         = myLayout
    ,startupHook        = myStartupHook
    ,manageHook         = myManageHook
+   ,logHook            = eventLogHook
    ,handleEventHook    = myHandleEventHook
    } `additionalKeysP` myKeysP
