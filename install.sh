@@ -34,6 +34,7 @@ ping www.google.com -i 0.2 -c 5 || exit
    git clone git@github.com:matoruru/polybar-adapta-theme.git
    git clone git@github.com:matoruru/imgs.git
    git clone git@github.com:matoruru/omoshiro-tools.git
+   git clone git@github.com:matoruru/vimtutor-ja
 )
 
 # install rc files

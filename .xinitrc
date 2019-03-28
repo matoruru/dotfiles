@@ -73,6 +73,8 @@ if [ -n "$failsafe" ]; then
 
  xbacklight -set 46 -time 1 &
 
+ xset r rate 240 30 &
+
  exec xmonad
 else
  exec $command
