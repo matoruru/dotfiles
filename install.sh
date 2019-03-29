@@ -49,7 +49,8 @@ ln -srb .npmrc ~/
 
 # install vimrc
 echo "[ install vimrc  ]"
-ln -srb .vimrc  ~/
+ln -srb .vimrc   ~/
+ln -srb .gvimrc  ~/
 mkdir -p ~/.vim/view
 
 
