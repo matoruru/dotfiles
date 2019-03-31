@@ -21,6 +21,7 @@ if dein#load_state('~/.vim/dein')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('altercation/vim-colors-solarized')
+  call dein#add('morhetz/gruvbox')
   call dein#add('scrooloose/nerdtree')
   call dein#add('jistr/vim-nerdtree-tabs')
   call dein#add('vim-scripts/surround.vim')
@@ -59,20 +60,26 @@ endif
 
 "End dein Scripts-------------------------
 
-"=======================Settings of Solarized========================
-" toggle solarized's theme dark or light
+"=======================Settings of colorscheme======================
+" toggle theme dark or light
 set background=dark
+
+"solarized
 let g:solarized_termtrans=1
 colorscheme solarized
+let g:airline_theme='solarized'
+
+"gruvbox
+"colorscheme gruvbox
+"let g:gruvbox_contrast_dark='soft'
+"let g:airline_theme='gruvbox'
+"hi Normal guibg=NONE ctermbg=NONE
 "====================================================================
 
 "=======================Settings of Powerline========================
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#fugitiveline#enabled=1
 let g:airline_powerline_fonts=1
-
-" Set airline theme to solarized.
-let g:airline_theme='solarized'
 "====================================================================
 
 "==========================Settings of NERDTree======================

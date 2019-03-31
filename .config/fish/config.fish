@@ -33,7 +33,16 @@ alias ゔぃｍ="vim"
 # Set tab step
 tabs 3
 
-# Set yimmy theme
+# Set theme
+set theme 'solarized'
+
+if      test $theme = 'solarized'
+   set yimmy_solarized true
+else if test $theme = 'gruvbox'
+   set yimmy_solarized false
+   theme_gruvbox dark
+end
+
 . ~/repositories/theme-yimmy/fish_prompt.fish
 
 # switch apatche server on/off
