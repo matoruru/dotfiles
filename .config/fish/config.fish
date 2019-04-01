@@ -20,6 +20,7 @@ set editor_options '-p'
 alias  e="$default_editor $editor_options"
 
 # Set alias
+alias vim="nvim"
 alias mocp='mocp -T mytheme'
 alias showtodo="fish ~/repositories/matoruru/gentoo-tools/showtodo.fish"
 alias edittodo="nvim ~/todolist.txt;showtodo"
@@ -36,7 +37,7 @@ alias ゔぃｍ="vim"
 tabs 3
 
 # Set theme
-set theme 'solarized'
+set theme 'gruvbox'
 
 if      test $theme = 'solarized'
    set yimmy_solarized true

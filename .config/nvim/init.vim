@@ -38,6 +38,7 @@ if dein#load_state('~/.vim/dein')
   call dein#add('pangloss/vim-javascript')
   call dein#add('MaxMEllon/vim-jsx-pretty')
   call dein#add('fleischie/vim-styled-components')
+  call dein#add('dhruvasagar/vim-table-mode')
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
@@ -118,6 +119,10 @@ let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 "====================================================================
+
+"=============================Table plugin==========================
+let g:table_mode_corner='|'
+"===================================================================
 
 "=============================Remap keys=============================
 " Disable following keys in order bad habits breaking.
@@ -216,3 +221,5 @@ au BufRead,BufNewFile *.ipynb set filetype=json
 
 set encoding=utf-8
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
+
+tnoremap <ESC> <C-\><C-n>
