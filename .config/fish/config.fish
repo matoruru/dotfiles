@@ -1,3 +1,5 @@
+#!/bin/fish
+
 # To remove the message at fish login
 set fish_greeting
 
@@ -20,11 +22,11 @@ alias  e="$default_editor $editor_options"
 # Set alias
 alias mocp='mocp -T mytheme'
 alias showtodo="fish ~/repositories/matoruru/gentoo-tools/showtodo.fish"
-alias edittodo="vim ~/todolist.txt;showtodo"
+alias edittodo="nvim ~/todolist.txt;showtodo"
 alias su="sudo su - -m"
 alias scrot="scrot -q 100"
 alias nb="nodebrew"
-alias dvim="vim -u ~/.vim/myplugin/essential.vim"
+alias dvim="nvim -u ~/.vim/myplugin/essential.vim"
 
 # funny commnad
 alias えぃｔ="exit"

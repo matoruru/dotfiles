@@ -49,9 +49,12 @@ ln -srb .npmrc ~/
 
 # install vimrc
 echo "[ install vimrc  ]"
-ln -srb .vimrc   ~/
-ln -srb .gvimrc  ~/
+#ln -srb .vimrc   ~/
 mkdir -p ~/.vim/view
+mkdir -p ~/.local/share/nvim/view
+mkdir -p ~/.config/nvim
+ln -srb .config/nvim/init.vim ~/.config/nvim/
+ln -srb ~/.config/nvim/init.vim ~/.nvimrc
 
 
 # install X files

@@ -14,7 +14,6 @@ if dein#load_state('~/.vim/dein')
   " Required:
 
   " Add or remove your plugins here:
-  call dein#add('Shougo/neocomplete.vim')
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('tpope/vim-fugitive')
@@ -27,7 +26,6 @@ if dein#load_state('~/.vim/dein')
   call dein#add('vim-scripts/surround.vim')
   call dein#add('cohama/lexima.vim')
   call dein#add('simeji/winresizer')
-  call dein#add('majutsushi/tagbar')
   call dein#add('alvan/vim-closetag')
   call dein#add('bronson/vim-trailing-whitespace')
   call dein#add('dag/vim-fish')
@@ -61,20 +59,21 @@ endif
 
 "End dein Scripts-------------------------
 
+
 "=======================Settings of colorscheme======================
 " toggle theme dark or light
 set background=dark
 
 "solarized
-let g:solarized_termtrans=1
-colorscheme solarized
-let g:airline_theme='solarized'
+"let g:solarized_termtrans=1
+"colorscheme solarized
+"let g:airline_theme='solarized'
 
 "gruvbox
-"colorscheme gruvbox
-"let g:gruvbox_contrast_dark='soft'
-"let g:airline_theme='gruvbox'
-"hi Normal guibg=NONE ctermbg=NONE
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='soft'
+let g:airline_theme='gruvbox'
+hi Normal guibg=NONE ctermbg=NONE
 "====================================================================
 
 "=======================Settings of Powerline========================
@@ -92,23 +91,6 @@ let g:nerdtree_tabs_focus_on_files=1
 let NERDTreeShowHidden=1
 "====================================================================
 
-"================Settings of neocomplete, neosnippet=================
-
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#min_keyword_length = 3
-let g:neocomplete#enable_auto_delimiter = 1
-let g:neocomplete#auto_completion_start_length = 1
-inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
-
-imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
-imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
-
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-
-"====================================================================
 
 "======================Settings of lexima.vim========================
 let g:lexima_enable_basic_rules = 1
@@ -204,7 +186,6 @@ set tabstop=3        " set tab stop
 set shiftwidth=3     " set tab stop of autoindent, for override settings
 set cindent
 set expandtab       " replace tab with space
-set clipboard=unnamed,autoselect    " set clipboard to unnamed to access the system clipboard under windows.
 
 " set incremetnal search
 set incsearch
