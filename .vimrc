@@ -66,15 +66,15 @@ endif
 set background=dark
 
 "solarized
-let g:solarized_termtrans=1
-colorscheme solarized
-let g:airline_theme='solarized'
+"let g:solarized_termtrans=1
+"colorscheme solarized
+"let g:airline_theme='solarized'
 
 "gruvbox
-"colorscheme gruvbox
-"let g:gruvbox_contrast_dark='soft'
-"let g:airline_theme='gruvbox'
-"hi Normal guibg=NONE ctermbg=NONE
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='soft'
+let g:airline_theme='gruvbox'
+hi Normal guibg=NONE ctermbg=NONE
 "====================================================================
 
 "=======================Settings of Powerline========================

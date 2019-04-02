@@ -39,6 +39,8 @@ if dein#load_state('~/.vim/dein')
   call dein#add('MaxMEllon/vim-jsx-pretty')
   call dein#add('fleischie/vim-styled-components')
   call dein#add('dhruvasagar/vim-table-mode')
+  call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
+					\ 'build': 'cd app & yarn install' })
 
   " You can specify revision/branch/tag.
   " call dein#add('Shougo/deol.nvim', { 'rev': 'a1b5108fd' })
@@ -120,8 +122,9 @@ let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 "====================================================================
 
-"=============================Table plugin==========================
+"============================Markdown settings=======================
 let g:table_mode_corner='|'
+let g:mkdp_auto_start = 1
 "===================================================================
 
 "=============================Remap keys=============================

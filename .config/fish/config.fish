@@ -20,14 +20,14 @@ set editor_options '-p'
 alias  e="$default_editor $editor_options"
 
 # Set alias
-alias vim="nvim"
+alias n='nvim'
 alias mocp='mocp -T mytheme'
 alias showtodo="fish ~/repositories/matoruru/gentoo-tools/showtodo.fish"
 alias edittodo="nvim ~/todolist.txt;showtodo"
 alias su="sudo su - -m"
 alias scrot="scrot -q 100"
 alias nb="nodebrew"
-alias dvim="nvim -u ~/.vim/myplugin/essential.vim"
+alias dvim="vim -u ~/.vim/myplugin/essential.vim"
 
 # funny commnad
 alias えぃｔ="exit"
