@@ -4,11 +4,11 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.nvim/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('~/.vim/dein')
-  call dein#begin('~/.vim/dein')
+if dein#load_state('~/.nvim/dein')
+  call dein#begin('~/.nvim/dein')
 
   " Let dein manage dein
   " Required:
@@ -182,8 +182,6 @@ set cursorline
 " show the number of line and offset
 set relativenumber number
 
-set showcmd
-
 " Disable mouse and scroll
 set mouse=
 set hlsearch         " highlight words which are searched
@@ -198,9 +196,6 @@ set expandtab       " replace tab with space
 " set incremetnal search
 set incsearch
 
-set wildmenu
-set wildmode=longest,full
-
 " Change shape of cursor by mode switching.
 let &t_SI .= "\e[6 q"
 let &t_EI .= "\e[2 q"
@@ -211,13 +206,11 @@ set visualbell t_vb=
 set noerrorbells
 
 " window will be displayed to the end without omitiing
-set display+=lastline
+set display=lastline
 
-set scrolloff=2
-
-set undodir=~/.vim/.tmp/undo/
-set backupdir=~/.vim/.tmp/backup/
-set directory=~/.vim/.tmp/swp/
+set undodir=~/.nvim/.tmp/undo/
+set backupdir=~/.nvim/.tmp/backup/
+set directory=~/.nvim/.tmp/swp/
 
 " Set filetype as another filetype depend on extention
 au BufRead,BufNewFile *.ipynb set filetype=json
@@ -226,3 +219,5 @@ set encoding=utf-8
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
 
 tnoremap <ESC> <C-\><C-n>
+
+set hidden

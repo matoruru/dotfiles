@@ -14,20 +14,14 @@ end
 
 source /opt/miniconda3/etc/fish/conf.d/conda.fish
 
-# Set default editor and options
-set default_editor 'vim'
-set editor_options '-p'
-alias  e="$default_editor $editor_options"
-
 # Set alias
-alias n='nvim'
 alias mocp='mocp -T mytheme'
 alias showtodo="fish ~/repositories/matoruru/gentoo-tools/showtodo.fish"
 alias edittodo="nvim ~/todolist.txt;showtodo"
 alias su="sudo su - -m"
 alias scrot="scrot -q 100"
 alias nb="nodebrew"
-alias dvim="vim -u ~/.vim/myplugin/essential.vim"
+alias dvim="nvim -u ~/.vim/myplugin/essential.vim"
 
 # funny commnad
 alias えぃｔ="exit"
