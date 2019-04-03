@@ -56,6 +56,9 @@ mkdir -p ~/.config/nvim
 ln -srb .config/nvim/init.vim ~/.config/nvim/
 ln -srb ~/.config/nvim/init.vim ~/.nvimrc
 
+sudo mkdir -p /root/.config/nvim
+sudo ln -srb .config/nvim/init-root.vim /root/.config/nvim/init.vim
+
 
 # install X files
 ln -srb .xinitrc ~/
