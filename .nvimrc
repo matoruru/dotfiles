@@ -21,8 +21,6 @@ if dein#load_state('~/.nvim/dein')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('altercation/vim-colors-solarized')
   call dein#add('morhetz/gruvbox')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('jistr/vim-nerdtree-tabs')
   call dein#add('vim-scripts/surround.vim')
   call dein#add('cohama/lexima.vim')
   call dein#add('simeji/winresizer')
@@ -85,32 +83,17 @@ let g:airline#extensions#fugitiveline#enabled=1
 let g:airline_powerline_fonts=1
 "====================================================================
 
-"==========================Settings of NERDTree======================
-" Launch NERDTree when vim stert with vim-nerdtree-tabs
-" instead of "autocmd vimenter * NERDTree".
-let g:nerdtree_tabs_focus_on_files=1
-
-" Show hidden files in NERDTree explorer window.
-let NERDTreeShowHidden=1
-"====================================================================
-
-
 "======================Settings of lexima.vim========================
 let g:lexima_enable_basic_rules = 1
 "====================================================================
 
-"=======================Settings of tagbar===========================
-let g:tagbar_autofocus = 1
-"autocmd BufEnter * nested :call tagbar#autoopen(0)
-"====================================================================
-
 "======================Settings of purescript========================
 let purescript_indent_if = 3
-let purescript_indent_case = 5
-let purescript_indent_let = 4
-let purescript_indent_where = 6
+let purescript_indent_case = 3
+let purescript_indent_let = 3
+let purescript_indent_where = 3
 let purescript_indent_do = 3
-let purescript_indent_in = 1
+let purescript_indent_in = 3
 let purescript_indent_dot = v:true
 "====================================================================
 
@@ -128,18 +111,12 @@ let g:mkdp_auto_start = 1
 "===================================================================
 
 "=============================Remap keys=============================
-" Disable following keys in order bad habits breaking.
-noremap  <Up>        <nop>
-noremap  <Down>      <nop>
-noremap  <Left>      <nop>
-noremap  <Right>     <nop>
-noremap! <Up>        <nop>
-noremap! <Down>      <nop>
-noremap! <Left>      <nop>
-noremap! <Right>     <nop>
+set backspace=0
 noremap  <BackSpace> <nop>
-noremap  <Delete>    <nop>
 noremap! <BackSpace> <nop>
+inoremap <BackSpace> <nop>
+inoremap <BackSpace> <nop>
+noremap  <Delete>    <nop>
 noremap! <Delete>    <nop>
 
 noremap  <C-h> <C-w>h
@@ -147,33 +124,40 @@ noremap  <C-l> <C-w>l
 noremap  <C-j> <C-w>j
 noremap  <C-k> <C-w>k
 
-" like emacs
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-cnoremap <C-b> <Left>
-cnoremap <C-f> <Right>
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-cnoremap <C-d> <Del>
-
 " Disable ex mode when press Q.
 nnoremap Q <nop>
 
-" Open and edit and reload vimrc anywhere.
-nnoremap <F6> :<C-u>vsplit $MYVIMRC<CR>
-nnoremap <F7> :<C-u>source $MYVIMRC<CR>
-nnoremap <C-n> :<C-u>NERDTreeTabsToggle<CR>
-nnoremap <C-m> :<C-u>TagbarToggle<CR>
+noremap : q:i
 
-" Press <Esc> key 2 times, to :noh
-nnoremap <silent><Esc><Esc> :noh<CR><Esc>
+nnoremap <C-n> :Ex<CR>
+
+" Open and edit and reload vimrc anywhere.
+nnoremap <F6> :<C-u>tabnew $MYVIMRC<CR>
+nnoremap <F7> :<C-u>source $MYVIMRC<CR>
+
+" Press <Esc> to :noh
+nnoremap <silent> <Esc> :noh<CR><Esc>
 
 " incremental and decremental
 nnoremap + <C-a>
 nnoremap - <C-x>
 
-" run the program
-nnoremap <F5> :w<Enter><C-w>w clear<Enter>pulp run<Enter><C-w>w
+tnoremap <ESC> <C-\><C-n>
+
+nnoremap ]b :bn<CR>
+nnoremap [b :bp<CR>
+nnoremap ]B :bl<CR>
+nnoremap [B :bf<CR>
+
+nnoremap ]a :next<CR>
+nnoremap [a :prev<CR>
+nnoremap ]A :last<CR>
+nnoremap [A :first<CR>
+
+nnoremap ]t gt
+nnoremap [t gT
+nnoremap ]T :tabl<CR>
+nnoremap [T :tabfir<CR>
 "====================================================================
 
 " Highlight the cursorline
@@ -190,7 +174,6 @@ set showmatch        " automatically show matching brackets. works like it does 
 set ruler         " show the cursor position all the time
 set tabstop=3        " set tab stop
 set shiftwidth=3     " set tab stop of autoindent, for override settings
-set cindent
 set expandtab       " replace tab with space
 
 " set incremetnal search
@@ -201,23 +184,36 @@ let &t_SI .= "\e[6 q"
 let &t_EI .= "\e[2 q"
 let &t_SR .= "\e[4 q"
 
-" Turn off beep sound and screen blinking.
-set visualbell t_vb=
-set noerrorbells
-
-" window will be displayed to the end without omitiing
-set display=lastline
-
 set undodir=~/.nvim/.tmp/undo/
 set backupdir=~/.nvim/.tmp/backup/
 set directory=~/.nvim/.tmp/swp/
 
+set visualbell t_vb=
+set novisualbell
+set noerrorbells
+
 " Set filetype as another filetype depend on extention
-au BufRead,BufNewFile *.ipynb set filetype=json
+augroup open-ipynb-asjson
+  autocmd!
+  autocmd BufRead,BufNewFile *.ipynb set filetype=json
+augroup END
 
 set encoding=utf-8
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
 
-tnoremap <ESC> <C-\><C-n>
-
+" It makes buffers useful
 set hidden
+
+" It road the file automatically when it was updated
+augroup nvimrc-checktime
+  autocmd!
+  autocmd CursorMoved * if !bufexists("[Command Line]") | checktime | endif
+augroup END
+
+
+augroup terminsert
+  autocmd!
+  autocmd TermOpen * startinsert
+augroup END
+
+let g:netrw_banner=0

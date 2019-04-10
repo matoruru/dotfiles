@@ -14,8 +14,6 @@ if dein#load_state('/root/.nvim/dein')
   " Required:
 
   " Add or remove your plugins here:
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('jistr/vim-nerdtree-tabs')
   call dein#add('bronson/vim-trailing-whitespace')
   call dein#add('dag/vim-fish')
 
@@ -43,20 +41,6 @@ endif
 "=======================Settings of colorscheme======================
 " toggle theme dark or light
 set background=dark
-"====================================================================
-
-"==========================Settings of NERDTree======================
-" Launch NERDTree when vim stert with vim-nerdtree-tabs
-" instead of "autocmd vimenter * NERDTree".
-let g:nerdtree_tabs_focus_on_files=1
-
-" Show hidden files in NERDTree explorer window.
-let NERDTreeShowHidden=1
-"====================================================================
-
-"=======================Settings of tagbar===========================
-let g:tagbar_autofocus = 1
-"autocmd BufEnter * nested :call tagbar#autoopen(0)
 "====================================================================
 
 "=============================Remap keys=============================
@@ -91,11 +75,11 @@ cnoremap <C-d> <Del>
 " Disable ex mode when press Q.
 nnoremap Q <nop>
 
+noremap : q:i
+
 " Open and edit and reload vimrc anywhere.
 nnoremap <F6> :<C-u>vsplit $MYVIMRC<CR>
 nnoremap <F7> :<C-u>source $MYVIMRC<CR>
-nnoremap <C-n> :<C-u>NERDTreeTabsToggle<CR>
-nnoremap <C-m> :<C-u>TagbarToggle<CR>
 
 " Press <Esc> key 2 times, to :noh
 nnoremap <silent><Esc><Esc> :noh<CR><Esc>
@@ -103,9 +87,6 @@ nnoremap <silent><Esc><Esc> :noh<CR><Esc>
 " incremental and decremental
 nnoremap + <C-a>
 nnoremap - <C-x>
-
-" run the program
-nnoremap <F5> :w<Enter><C-w>w clear<Enter>pulp run<Enter><C-w>w
 "====================================================================
 
 " Highlight the cursorline

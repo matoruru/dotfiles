@@ -52,12 +52,14 @@ echo "[ install vimrc  ]"
 #ln -srb .vimrc   ~/
 mkdir -p ~/.vim/view
 mkdir -p ~/.local/share/nvim/view
+
 mkdir -p ~/.config/nvim
-ln -srb .config/nvim/init.vim ~/.config/nvim/
-ln -srb ~/.config/nvim/init.vim ~/.nvimrc
+echo "source ~/.nvimrc" > ~/.config/nvim/init.vim
+ln -srb .nvimrc ~/.nvimrc
 
 sudo mkdir -p /root/.config/nvim
-sudo ln -srb .config/nvim/init-root.vim /root/.config/nvim/init.vim
+echo "source ~/.nvimrc" | sudo tee /root/.config/nvim/init.vim > /dev/null
+sudo ln -srb .nvimrc-root /root/.nvimrc
 
 
 # install X files
