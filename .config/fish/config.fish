@@ -34,6 +34,7 @@ alias psc-package="npx --no-install psc-package"
 # funny commnad
 alias えぃｔ="exit"
 alias ゔぃｍ="vim"
+alias んゔぃｍ="nvim"
 
 # Set tab step
 tabs 3
@@ -41,14 +42,14 @@ tabs 3
 # Set theme
 set theme 'gruvbox'
 
+. ~/repositories/theme-yimmy/fish_prompt.fish
+
 if      test $theme = 'solarized'
    set yimmy_solarized true
 else if test $theme = 'gruvbox'
    set yimmy_solarized false
    theme_gruvbox dark
 end
-
-. ~/repositories/theme-yimmy/fish_prompt.fish
 
 # switch apatche server on/off
 function httpon
