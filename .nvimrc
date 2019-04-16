@@ -28,7 +28,7 @@ if dein#load_state('~/.nvim/dein')
   call dein#add('bronson/vim-trailing-whitespace')
   call dein#add('dag/vim-fish')
   call dein#add('purescript-contrib/purescript-vim')
-  call dein#add('FrigoEU/psc-ide-vim')
+  call dein#add('matoruru/psc-ide-vim')
   call dein#add('stephpy/vim-yaml')
   call dein#add('vim-ruby/vim-ruby')
   call dein#add('dag/vim2hs')
@@ -95,6 +95,11 @@ let purescript_indent_where = 3
 let purescript_indent_do = 3
 let purescript_indent_in = 3
 let purescript_indent_dot = v:true
+
+augroup open-dhall-aspurs
+  autocmd!
+  autocmd BufRead,BufNewFile *.dhall set filetype=haskell
+augroup END
 "====================================================================
 
 "============================close tag===============================
@@ -128,12 +133,13 @@ noremap  <C-k> <C-w>k
 nnoremap Q <nop>
 
 noremap : q:i
+noremap / q/i
 
 nnoremap <C-n> :Ex<CR>
 
 " Open and edit and reload vimrc anywhere.
-nnoremap <F6> :<C-u>tabnew $MYVIMRC<CR>
-nnoremap <F7> :<C-u>source $MYVIMRC<CR>
+nnoremap <F6> :<C-u>tabnew ~/.nvimrc<CR>
+nnoremap <F7> :<C-u>source ~/.nvimrc<CR>
 
 " Press <Esc> to :noh
 nnoremap <silent> <Esc> :noh<CR><Esc>
@@ -153,6 +159,11 @@ nnoremap ]a :next<CR>
 nnoremap [a :prev<CR>
 nnoremap ]A :last<CR>
 nnoremap [A :first<CR>
+
+nnoremap ]c :cnext<CR>
+nnoremap [c :cprev<CR>
+nnoremap ]C :clast<CR>
+nnoremap [C :cfirst<CR>
 
 nnoremap ]t gt
 nnoremap [t gT
