@@ -12,6 +12,10 @@ if test -d ~/.nodebrew
    set -x PATH $HOME/.nodebrew/current/bin $PATH
 end
 
+if test -d ~/.yarn-global
+   set -x PATH /home/matoruru/.yarn-global/bin $PATH
+end
+
 source /opt/miniconda3/etc/fish/conf.d/conda.fish
 
 # Set alias
@@ -24,12 +28,12 @@ alias scrot="scrot -q 100"
 alias nb="nodebrew"
 alias dvim="nvim -u ~/.vim/myplugin/essential.vim"
 
-alias pulp="npx --no-install pulp"
-alias purs="npx --no-install purs"
-alias bower="npx --no-install bower"
-alias yarn="npx --no-install yarn"
-alias parcel="npx --no-install parcel"
-alias psc-package="npx --no-install psc-package"
+alias pulp="yarn run pulp"
+alias purs="yarn run purs"
+alias spago="yarn run spago"
+alias bower="yarn run bower"
+alias parcel="yarn run parcel"
+alias psc-package="yarn run psc-package"
 
 # funny commnad
 alias えぃｔ="exit"

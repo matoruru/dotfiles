@@ -56,6 +56,10 @@ if [ -n "$failsafe" ]; then
  export ANDROID_HOME=$HOME/AndroidTools
  export ANDROID_SDK_ROOT=$ANDROID_HOME/sdk
 
+# for authenticate on sfdx
+ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+ export SSH_AUTH_SOCK
+
 # set wallpaper by using feh
 # start quickly if wallpaper doesn't set yet => append &
  bash ~/.fehbg &
