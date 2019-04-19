@@ -75,11 +75,16 @@ if [ -n "$failsafe" ]; then
     echo ".bash_profile : Master volume was turned off."
  fi
 
+ wmname LG3D &
+
+ bash ~/.config/polybar/launch.sh &
+
  xbacklight -set 46 -time 1 &
 
  xset r rate 240 30 &
 
  exec xmonad
+
 else
  exec $command
 fi
