@@ -68,14 +68,11 @@ if [ -n "$failsafe" ]; then
  urxvtd --quiet --fork --opendisplay &
 
  compton -b
- xsetroot -cursor_name left_ptr &
 
  if type amixer; then
     amixer set Master off &
     echo ".bash_profile : Master volume was turned off."
  fi
-
- wmname LG3D &
 
  bash ~/.config/polybar/launch.sh &
 
