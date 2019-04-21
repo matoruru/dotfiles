@@ -141,6 +141,7 @@ nnoremap <C-n> :Ex<CR>
 " Open and edit and reload vimrc anywhere.
 nnoremap <F6> :<C-u>tabnew ~/.nvimrc<CR>
 nnoremap <F7> :<C-u>source ~/.nvimrc<CR>
+nnoremap <F8> :set relativenumber! number!<CR>
 
 " Press <Esc> to :noh
 nnoremap <silent> <Esc> :noh<CR><Esc>
