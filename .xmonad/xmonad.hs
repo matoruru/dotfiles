@@ -5,6 +5,7 @@ import Prelude
 import Control.Monad
 import Data.List
 import Data.Monoid
+import Data.Maybe
 import Data.Ord
 import System.Directory
 import System.Posix.Files
@@ -110,13 +111,12 @@ getWorkspaceLog = do
       let (wsIds', wins') = sortById wsIds wins
       return . join . map (fmt currWs wins') $ wsIds'
       where
-         hasW            = not . null
          idx             = flip (-) 1 . read
          sortById ids xs = unzip $ sortBy (comparing fst) (zip ids xs)
          fmt cw ws wi
-              | wi == cw            = "\63022"
-              | hasW $ ws !! idx wi = "\61842"
-              | otherwise           = "\63023"
+              | wi == cw              = "\63022"
+              | isJust $ ws !! idx wi = "\61842"
+              | otherwise             = "\63023"
 
 myLogHook :: FilePath -> X ()
 myLogHook filename = io . appendFile filename . (++ "\n") =<< getWorkspaceLog
