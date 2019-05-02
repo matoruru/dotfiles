@@ -62,7 +62,6 @@ if [ -n "$failsafe" ]; then
 
 # set wallpaper by using feh
 # start quickly if wallpaper doesn't set yet => append &
- bash ~/.fehbg &
 
 # start urxvt as a daemon, after this, use urxvtc to start urxvt
  urxvtd --quiet --fork --opendisplay &

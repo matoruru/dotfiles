@@ -79,11 +79,6 @@ echo "[ install xmobar ]"
 ln -srb .xmobarrc ~/
 
 
-# install feh
-cp .fehbg  ~/
-chmod +x   ~/.fehbg
-
-
 # install compton
 echo "[ install compton  ]"
 ln -srb .compton.conf ~/
