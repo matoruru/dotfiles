@@ -1,4 +1,4 @@
---{-# OPTIONS -Wall -Werror #-}
+{-# OPTIONS -Wall -Werror #-}
 {-# LANGUAGE LambdaCase #-}
 
 import Prelude
@@ -24,10 +24,7 @@ import XMonad.Layout.ResizableTile
 import XMonad.Layout.Spacing
 import XMonad.Util.Cursor
 import XMonad.Util.EZConfig
-import XMonad.Prompt
-import XMonad.Prompt.ConfirmPrompt
 import qualified XMonad.StackSet as W
-
 
 main :: IO ()
 main = do
@@ -60,7 +57,7 @@ myBorderWidth :: Dimension
 myBorderWidth = 0
 
 border :: Border
-border = Border b b b b where b = 8
+border = Border b b b b where b = 9
 
 myLayout :: Eq a => ModifiedLayout AvoidStruts (ModifiedLayout Spacing (Choose ResizableTall Full)) a
 myLayout = avoidStruts
@@ -121,6 +118,7 @@ myKeysP = [ ("M-u"      , spawn myTerminal)
           , ("M-<Return>"  , return ())
           , ("M-S-<Return>", return ())
           , ("M-q"         , reCompile)
+          , ("M-S-q"       , io $ exitSuccess)
           , ("M-c", kill)
           ]
 
@@ -164,9 +162,6 @@ getWorkspaceLog = do
             | isJust $ ws !! idx wi = "\61842"
             | otherwise             = "\63023"
 
--- appendFileX :: FilePath -> String -> X ()
--- appendFileX = appendFile
-
 writeWorkspaceLog :: FilePath -> X ()
 writeWorkspaceLog filename = io . appendFile filename . (++ "\n") =<< getWorkspaceLog
 
@@ -190,8 +185,11 @@ setWallpaper = do
 wsLogfile :: FilePath
 wsLogfile = "/tmp/.xmonad-workspace-log"
 
+launchMultimonitor :: X ()
+launchMultimonitor = spawn "bash ~/.screenlayout/main.sh"
+
 myStartupHook :: X ()
-myStartupHook = setDefaultCursor xC_left_ptr >> setWMName "LG3D" >> setWallpaper
+myStartupHook = setDefaultCursor xC_left_ptr >> setWMName "LG3D" >> setWallpaper >> launchMultimonitor
 
 myWorkspaces :: [WorkspaceId]
 myWorkspaces = map show [1 .. 9 :: Int]
