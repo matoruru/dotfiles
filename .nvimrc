@@ -29,7 +29,8 @@ if dein#load_state('~/.nvim/dein')
   call dein#add('bronson/vim-trailing-whitespace')
   call dein#add('dag/vim-fish')
   call dein#add('purescript-contrib/purescript-vim')
-  call dein#add('matoruru/psc-ide-vim')
+  call dein#add('vim-scripts/vim-auto-save')
+  call dein#add('w0rp/ale')
   call dein#add('stephpy/vim-yaml')
   call dein#add('vim-ruby/vim-ruby')
   call dein#add('dag/vim2hs')
@@ -86,6 +87,16 @@ let g:airline_powerline_fonts=1
 
 "======================Settings of lexima.vim========================
 let g:lexima_enable_basic_rules = 1
+"====================================================================
+
+"======================Settings of autosave==========================
+let g:auto_save = 1
+let g:auto_save_silent = 1
+"====================================================================
+
+"======================Settings of ale===============================
+let g:ale_completion_enabled = 1
+set omnifunc=ale#completion#OmniFunc
 "====================================================================
 
 "======================Settings of purescript========================
@@ -197,9 +208,12 @@ let &t_SI .= "\e[6 q"
 let &t_EI .= "\e[2 q"
 let &t_SR .= "\e[4 q"
 
-set undodir=~/.nvim/.tmp/undo/
-set backupdir=~/.nvim/.tmp/backup/
-set directory=~/.nvim/.tmp/swp/
+" set undodir=~/.nvim/.tmp/undo/
+" set backupdir=~/.nvim/.tmp/backup/
+" set directory=~/.nvim/.tmp/swp/
+set nobackup
+set noundofile
+set noswapfile
 
 set visualbell t_vb=
 set novisualbell
