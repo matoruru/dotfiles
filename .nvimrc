@@ -40,8 +40,12 @@ let g:lexima_enable_basic_rules = 1
 let g:auto_save = 1
 let g:auto_save_silent = 1
 
+
 " --- ALE
 let g:ale_completion_enabled = 1
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_open_list = 1
 set omnifunc=ale#completion#OmniFunc
 
 
