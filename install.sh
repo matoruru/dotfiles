@@ -57,6 +57,8 @@ mkdir -p ~/.config/nvim
 echo "source ~/.nvimrc" > ~/.config/nvim/init.vim
 ln -srb .nvimrc ~/.nvimrc
 
+ln -srb .config/nvim/coc-settings.json ~/.config/nvim/
+
 sudo mkdir -p /root/.config/nvim
 echo "source ~/.nvimrc" | sudo tee /root/.config/nvim/init.vim > /dev/null
 sudo ln -srb .nvimrc-root /root/.nvimrc

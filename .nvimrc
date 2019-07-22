@@ -11,7 +11,7 @@ Plug 'cohama/lexima.vim'
 
 "  IDE
 Plug 'vim-scripts/vim-auto-save'
-Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "  PureScript
 Plug 'purescript-contrib/purescript-vim'
@@ -32,6 +32,7 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#fugitiveline#enabled=1
 let g:airline_powerline_fonts=1
 let base16colorspace=256
+
 source ~/.vimrc_background
 
 
@@ -44,21 +45,12 @@ let g:auto_save = 1
 let g:auto_save_silent = 1
 
 
-" ALE
-let g:ale_completion_enabled = 1
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-let g:ale_open_list = 1
-set omnifunc=ale#completion#OmniFunc
-
-
 " PureScript
 let purescript_indent_if = 2
 let purescript_indent_case = 2
 let purescript_indent_let = 2
 let purescript_indent_where = 2
 let purescript_indent_do = 2
-let purescript_indent_dot = v:true
 
 
 " Remap keys
@@ -144,12 +136,9 @@ let &t_EI .= "\e[2 q"
 let &t_SR .= "\e[4 q"
 
 set nobackup
+set nowritebackup
 set noundofile
 set noswapfile
-
-set visualbell t_vb=
-set novisualbell
-set noerrorbells
 
 set hidden
 
