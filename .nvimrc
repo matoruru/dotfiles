@@ -16,6 +16,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "  PureScript
 Plug 'purescript-contrib/purescript-vim'
 
+"  Nix
+Plug 'LnL7/vim-nix'
+
 "  Fish
 Plug 'dag/vim-fish'
 
@@ -77,7 +80,8 @@ noremap  <C-k> <C-w>k
 
 nnoremap Q <nop>
 
-noremap : q:i
+noremap  : q:i
+vnoremap : :
 noremap / q/i
 
 nnoremap <C-n> :Ex<CR>
@@ -89,6 +93,9 @@ nnoremap <F8> :set relativenumber! number!<CR>
 nnoremap <F10> :!code %<CR>
 
 nnoremap <silent> <Esc> :noh<CR><Esc>
+
+nnoremap cp "+p
+nnoremap cy "+y
 
 nnoremap + <C-a>
 nnoremap - <C-x>
