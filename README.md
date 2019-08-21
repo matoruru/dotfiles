@@ -22,9 +22,6 @@ my dotfiles repository, on gentoo linux
 ## main editor
 - vim
   - Color scheme              -> Solarized dark
-## web browser
-- qutebrowser
-  - i want to contribute to this...!
 ## pdf viewer
 - qpdfview
   - light weight pdf viewer
