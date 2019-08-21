@@ -16,7 +16,7 @@ if test -d ~/.yarn-global
    set -x PATH /home/matoruru/.yarn-global/bin $PATH
 end
 
-source /opt/miniconda3/etc/fish/conf.d/conda.fish
+#source /opt/miniconda3/etc/fish/conf.d/conda.fish
 
 # Set alias
 alias n='nvim'
@@ -43,17 +43,14 @@ alias んゔぃｍ="nvim"
 # Set tab step
 tabs 3
 
-# Set theme
-set theme 'gruvbox'
-
-. ~/repositories/theme-yimmy/fish_prompt.fish
-
-if      test $theme = 'solarized'
-   set yimmy_solarized true
-else if test $theme = 'gruvbox'
-   set yimmy_solarized false
-   theme_gruvbox dark
+# Base16 Shell
+if status --is-interactive
+   set BASE16_SHELL "$HOME/.config/base16-shell/"
+   source "$BASE16_SHELL/profile_helper.fish"
 end
+
+# Change greeting
+set -g simple_ass_prompt_greeting "Hello matoruru."
 
 # switch apatche server on/off
 function httpon
