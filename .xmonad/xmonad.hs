@@ -9,7 +9,6 @@ import Data.Monoid
 import Data.Maybe
 import Data.Ord
 import System.Directory
-import System.Exit
 import System.Posix.Files
 
 import XMonad
@@ -64,26 +63,17 @@ myLayout = avoidStruts
          $ spacingRaw False border True border True
          $ ResizableTall 1 0.01 0.5 [] ||| Full
 
-myBrowser :: X ()
-myBrowser = spawn "chromium"
-
-appLauncher :: X ()
+myBrowser, appLauncher, screenShot, screenShot', reStart, reCompile :: X ()
+myBrowser   = spawn "chromium"
 appLauncher = spawn "rofi -show run"
-
-screenShot :: X ()
-screenShot = spawn "screenshot.sh 0.7 60"
-
-screenShot' :: X ()
+screenShot  = spawn "screenshot.sh 0.7 60"
 screenShot' = spawn "screenshot.sh 0.7 60 --focused"
+reStart     = spawn "xmonad --restart"
+reCompile   = spawn "xmonad --recompile && xmonad --restart"
 
-bLight :: String -> X ()
+bLight, amixer :: String -> X ()
 bLight = spawn . ("xbacklight " ++) . (++ " -time 1")
-
-amixer :: String -> X ()
 amixer = spawn . ("amixer set Master " ++)
-
-reCompile :: X ()
-reCompile = spawn "xmonad --recompile && xmonad --restart"
 
 myKeysP :: [(String, X ())]
 myKeysP = [ ("M-u"      , spawn myTerminal)
@@ -91,6 +81,7 @@ myKeysP = [ ("M-u"      , spawn myTerminal)
           , ("M-p"      , appLauncher)
           , ("<Print>"  , screenShot)
           , ("S-<Print>", screenShot')
+          , ("M-w"  , setWallpaper >> reStart)
           , ("M-S-m", windows W.swapMaster)
           , ("M-h"  , moveTo Prev NonEmptyWS)
           , ("M-l"  , moveTo Next NonEmptyWS)
@@ -104,8 +95,8 @@ myKeysP = [ ("M-u"      , spawn myTerminal)
           , ("M-<D>", sendMessage MirrorShrink)
           , ("M-0"  , do setScreenSpacing border
                          setWindowSpacing border)
-          , ("M-S-=", decScreenWindowSpacing 4  )
-          , ("M--"  , incScreenWindowSpacing 4  )
+          , ("M-S-=", decScreenWindowSpacing 4)
+          , ("M--"  , incScreenWindowSpacing 4)
           , ("M-<XF86ApplicationRight>" , bLight "+5"  )
           , ("<XF86MonBrightnessUp>"    , bLight "+5"  )
           , ("<XF86MonBrightnessDown>"  , bLight "-5"  )
@@ -117,8 +108,10 @@ myKeysP = [ ("M-u"      , spawn myTerminal)
           , ("M-S-c"       , return ())
           , ("M-<Return>"  , return ())
           , ("M-S-<Return>", return ())
-          , ("M-q"         , reCompile)
-          , ("M-S-q"       , io $ exitSuccess)
+          , ("M-S-r", reCompile)
+          , ("M-r"  , reStart  )
+          , ("M-S-q", return() )
+          , ("M-q"  , return() )
           , ("M-c", kill)
           ]
 
@@ -145,6 +138,11 @@ myManageHook = composeAll
          , isDialog                        --> doCenterFloat
          ]
 
+data WsState
+  = Here
+  | NotEmpty
+  | Empty
+
 getWorkspaceLog :: X String
 getWorkspaceLog = do
       winset <- gets windowset
@@ -153,14 +151,20 @@ getWorkspaceLog = do
           wsIds  = map W.tag   $ wss
           wins   = map W.stack $ wss
           (wsIds', wins') = sortById wsIds wins
-      return . join . map (fmt currWs wins') $ wsIds'
+      return . join . map (wsState . fmt currWs wins') $ wsIds'
       where
-         idx             = flip (-) 1 . read
-         sortById ids xs = unzip $ sortBy (comparing fst) (zip ids xs)
+         idx          = flip (-) 1 . read
+         sortById ids = unzip . sortBy (comparing fst) . zip ids
          fmt cw ws wi
-            | wi == cw              = "\63022"
-            | isJust $ ws !! idx wi = "\61842"
-            | otherwise             = "\63023"
+            | wi == cw              = Here
+            | isJust $ ws !! idx wi = NotEmpty
+            | otherwise             = Empty
+
+wsState :: WsState -> String
+wsState = \case
+  Here     -> "\63022"
+  NotEmpty -> "\61842"
+  Empty    -> "\63023"
 
 writeWorkspaceLog :: FilePath -> X ()
 writeWorkspaceLog filename = io . appendFile filename . (++ "\n") =<< getWorkspaceLog
@@ -185,11 +189,8 @@ setWallpaper = do
 wsLogfile :: FilePath
 wsLogfile = "/tmp/.xmonad-workspace-log"
 
-launchMultimonitor :: X ()
-launchMultimonitor = spawn "bash ~/.screenlayout/main.sh"
-
 myStartupHook :: X ()
-myStartupHook = setDefaultCursor xC_left_ptr >> setWMName "LG3D" >> setWallpaper >> launchMultimonitor
+myStartupHook = setDefaultCursor xC_left_ptr >> setWMName "LG3D" >> setWallpaper
 
 myWorkspaces :: [WorkspaceId]
 myWorkspaces = map show [1 .. 9 :: Int]
