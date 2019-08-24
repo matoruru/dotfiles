@@ -32,7 +32,7 @@ main = do
   where
     wsLogfile = "/tmp/.xmonad-workspace-log"
 
-myConfig :: FilePath -> XConfig (ModifiedLayout AvoidStruts (ModifiedLayout Spacing (Choose ResizableTall Full)))
+myConfig :: FilePath -> XConfig MyLayout
 myConfig filename = def
    { terminal        = myTerminal
    , modMask         = myModMask
@@ -58,7 +58,9 @@ myBorderWidth = 0
 border :: Border
 border = (\x -> Border x x x x) 9
 
-myLayout :: Eq a => ModifiedLayout AvoidStruts (ModifiedLayout Spacing (Choose ResizableTall Full)) a
+type MyLayout = ModifiedLayout AvoidStruts (ModifiedLayout Spacing (Choose ResizableTall Full))
+
+myLayout :: Eq a => MyLayout a
 myLayout = avoidStruts
          $ spacingRaw False border True border True
          $ ResizableTall 1 0.01 0.5 [] ||| Full
