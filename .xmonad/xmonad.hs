@@ -1,13 +1,11 @@
 {-# OPTIONS -Wall -Werror #-}
 {-# LANGUAGE LambdaCase #-}
 
-import Prelude
+import RIO.List
+import RIO.Prelude
 
-import Control.Monad
-import Data.List
 import Data.Monoid
-import Data.Maybe
-import Data.Ord
+
 import System.Directory
 import System.Posix.Files
 
