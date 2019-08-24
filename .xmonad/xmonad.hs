@@ -29,6 +29,8 @@ main = do
          True  -> return ()
          False -> createNamedPipe wsLogfile stdFileMode
       xmonad . ewmh . docks $ myConfig wsLogfile
+  where
+    wsLogfile = "/tmp/.xmonad-workspace-log"
 
 myConfig :: FilePath -> XConfig (ModifiedLayout AvoidStruts (ModifiedLayout Spacing (Choose ResizableTall Full)))
 myConfig filename = def
@@ -79,7 +81,6 @@ myKeysP = [ ("M-u"      , spawn myTerminal)
           , ("M-p"      , appLauncher)
           , ("<Print>"  , screenShot)
           , ("S-<Print>", screenShot')
-          , ("M-w"  , setWallpaper >> reStart)
           , ("M-S-m", windows W.swapMaster)
           , ("M-h"  , moveTo Prev NonEmptyWS)
           , ("M-l"  , moveTo Next NonEmptyWS)
@@ -149,7 +150,7 @@ getWorkspaceLog = do
           wsIds  = map W.tag   $ wss
           wins   = map W.stack $ wss
           (wsIds', wins') = sortById wsIds wins
-      return . join . map (wsState . fmt currWs wins') $ wsIds'
+      return . join . map (stateToSym . fmt currWs wins') $ wsIds'
       where
          idx          = flip (-) 1 . read
          sortById ids = unzip . sortBy (comparing fst) . zip ids
@@ -158,8 +159,8 @@ getWorkspaceLog = do
             | isJust $ ws !! idx wi = NotEmpty
             | otherwise             = Empty
 
-wsState :: WsState -> String
-wsState = \case
+stateToSym :: WsState -> String
+stateToSym = \case
   Here     -> "\63022"
   NotEmpty -> "\61842"
   Empty    -> "\63023"
@@ -170,25 +171,11 @@ writeWorkspaceLog filename = io . appendFile filename . (++ "\n") =<< getWorkspa
 myLogHook :: FilePath -> X ()
 myLogHook filename = writeWorkspaceLog filename
 
-myWallpaperDir :: IO FilePath
-myWallpaperDir = (++ "/Pictures/wallpapers/") <$> getHomeDirectory
-
-myWallpaper :: FilePath
-myWallpaper = "main.jpg"
-
 setWallpaper :: X ()
-setWallpaper = do
-      wallpaperDir <- io $ myWallpaperDir
-      let wplist = WallpaperList $ zip myWorkspaces $ wallpapers'
-          wpconf = (WallpaperConf wallpaperDir) wplist
-      wallpaperSetter wpconf
-          where wallpapers' = repeat $ WallpaperFix myWallpaper
-
-wsLogfile :: FilePath
-wsLogfile = "/tmp/.xmonad-workspace-log"
+setWallpaper = wallpaperSetter defWallpaperConf { wallpapers = WallpaperList [ ("1", WallpaperDir ".") ] }
 
 myStartupHook :: X ()
 myStartupHook = setDefaultCursor xC_left_ptr >> setWMName "LG3D" >> setWallpaper
 
 myWorkspaces :: [WorkspaceId]
-myWorkspaces = map show [1 .. 9 :: Int]
+myWorkspaces = map show [1 .. 7 :: Int]
