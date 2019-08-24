@@ -149,10 +149,8 @@ getWsLog = do
       winset <- gets windowset
       let currWs = W.currentTag winset
           wss    = W.workspaces winset
-          wsIds  = map W.tag   $ wss
-          wins   = map W.stack $ wss
-          (wsIds', wins') = sortById wsIds wins
-      return . join . map (stateToSym . fmt currWs wins') $ wsIds'
+          (wsIds, wins) = sortById (map W.tag wss) (map W.stack wss)
+      return . join . map (stateToSym . fmt currWs wins) $ wsIds
       where
          idx          = flip (-) 1 . read
          sortById ids = unzip . sortBy (comparing fst) . zip ids
