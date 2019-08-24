@@ -167,11 +167,8 @@ stateToSym = \case
   NotEmpty -> "\61842"
   Empty    -> "\63023"
 
-writeWsLog :: FilePath -> X ()
-writeWsLog filename = io . appendFile filename . (++ "\n") =<< getWsLog
-
 myLogHook :: FilePath -> X ()
-myLogHook filename = writeWsLog filename
+myLogHook filename = io . appendFile filename . (++ "\n") =<< getWsLog
 
 myStartupHook :: X ()
 myStartupHook = setDefaultCursor xC_left_ptr >> setWMName "LG3D" >> wallpaperSetter def
