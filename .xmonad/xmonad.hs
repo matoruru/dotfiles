@@ -142,8 +142,8 @@ data WsState
   | NotEmpty
   | Empty
 
-getWorkspaceLog :: X String
-getWorkspaceLog = do
+getWsLog :: X String
+getWsLog = do
       winset <- gets windowset
       let currWs = W.currentTag winset
           wss    = W.workspaces winset
@@ -165,17 +165,14 @@ stateToSym = \case
   NotEmpty -> "\61842"
   Empty    -> "\63023"
 
-writeWorkspaceLog :: FilePath -> X ()
-writeWorkspaceLog filename = io . appendFile filename . (++ "\n") =<< getWorkspaceLog
+writeWsLog :: FilePath -> X ()
+writeWsLog filename = io . appendFile filename . (++ "\n") =<< getWsLog
 
 myLogHook :: FilePath -> X ()
-myLogHook filename = writeWorkspaceLog filename
-
-setWallpaper :: X ()
-setWallpaper = wallpaperSetter defWallpaperConf { wallpapers = WallpaperList [ ("1", WallpaperDir ".") ] }
+myLogHook filename = writeWsLog filename
 
 myStartupHook :: X ()
-myStartupHook = setDefaultCursor xC_left_ptr >> setWMName "LG3D" >> setWallpaper
+myStartupHook = setDefaultCursor xC_left_ptr >> setWMName "LG3D" >> wallpaperSetter def
 
 myWorkspaces :: [WorkspaceId]
 myWorkspaces = map show [1 .. 7 :: Int]
