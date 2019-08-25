@@ -153,7 +153,7 @@ getWsLog = do
       return . join . map (stateToSym . fmt currWs wins) $ wsIds
       where
          idx          = flip (-) 1 . read
-         sortById ids = unzip . sortBy (comparing fst) . zip ids
+         sortById ids = unzip . sortOn fst . zip ids
          fmt cw ws wi
             | wi == cw              = Here
             | isJust $ ws !! idx wi = NotEmpty
