@@ -1,12 +1,15 @@
 {-# OPTIONS -Wall -Werror #-}
-{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE LambdaCase, NoImplicitPrelude #-}
 
+import RIO
 import RIO.List
-import RIO.Prelude
+import RIO.List.Partial
+import RIO.Partial
 
 import Data.Monoid
 
 import System.Directory
+import System.IO (appendFile)
 import System.Posix.Files
 
 import XMonad
