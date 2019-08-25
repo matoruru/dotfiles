@@ -28,18 +28,6 @@ alias scrot="scrot -q 100"
 alias nb="nodebrew"
 alias dvim="nvim -u ~/.vim/myplugin/essential.vim"
 
-alias pulp="yarn run pulp"
-alias purs="yarn run purs"
-alias spago="yarn run spago"
-alias bower="yarn run bower"
-alias parcel="yarn run parcel"
-alias psc-package="yarn run psc-package"
-
-# funny commnad
-alias えぃｔ="exit"
-alias ゔぃｍ="vim"
-alias んゔぃｍ="nvim"
-
 # Set tab step
 tabs 3
 
@@ -50,7 +38,7 @@ if status --is-interactive
 end
 
 # Change greeting
-set -g simple_ass_prompt_greeting "Hello matoruru."
+set -g simple_ass_prompt_greeting "Welcome!"
 
 # switch apatche server on/off
 function httpon
