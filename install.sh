@@ -13,29 +13,25 @@ if [[ "$EUID" = 0 ]]; then
    exit
 fi
 
-# check location of dotfiles repository
-if [[ $(pwd) = $HOME/repositories/matoruru/dotfiles ]]; then
-   echo "location of this repository is correct!"
-else
-   echo "location of this repository is not correct..."
-   echo "move this repository, to ~/repositories/matoruru/"
-   echo 'exit at [2]'
-   exit
-fi
-
 # check connection to internet
 ping www.google.com -i 0.2 -c 5 || exit
 
 (
-   # clone my repositories
-   cd ~/repositories/matoruru
-   git clone git@github.com:matoruru/gentoo-tools.git
-   git clone git@github.com:matoruru/arch-tools.git
-   git clone git@github.com:matoruru/polybar-adapta-theme.git
-   git clone git@github.com:matoruru/imgs.git
-   git clone git@github.com:matoruru/omoshiro-tools.git
-   git clone git@github.com:matoruru/vimtutor-ja
+   mkdir -p ~/repositories/matoruru
+   cd       ~/repositories/matoruru
+
+   git clone git@github.com:matoruru/gentoo-tools.git &
+   git clone git@github.com:matoruru/arch-tools.git &
+   git clone git@github.com:matoruru/polybar-adapta-theme.git &
+   git clone git@github.com:matoruru/imgs.git &
+   git clone git@github.com:matoruru/omoshiro-tools.git &
+   git clone git@github.com:matoruru/vimtutor-ja &
+
+   git clone git@github.com:matoruru/dotfiles.git
 )
+
+# move to the directory
+cd ~/repositories/matoruru/dotfiles
 
 # install rc files
 echo "[ install rc files ]"
