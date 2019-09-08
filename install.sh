@@ -13,8 +13,11 @@ if [[ "$EUID" = 0 ]]; then
    exit
 fi
 
-# check connection to internet
+# check a connection to internet
 ping www.google.com -i 0.2 -c 5 || exit
+
+# check if ssh works
+ssh -o "StrictHostKeyChecking no" -T git@github.com || test $? = 255 && echo "fail"
 
 (
    mkdir -p ~/repositories/matoruru
