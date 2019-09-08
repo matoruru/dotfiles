@@ -119,6 +119,7 @@ nnoremap <silent> <Esc> :noh<CR><Esc>
 
 nnoremap cp "+p
 nnoremap cy "+y
+vnoremap cy "+y
 
 nnoremap + <C-a>
 nnoremap - <C-x>
