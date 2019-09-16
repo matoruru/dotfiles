@@ -42,92 +42,92 @@ fi
 
    # install rc files
    echo "[ install rc files ]"
-   ln -sr .bash_profile ~/
-   ln -sr .bashrc ~/
+   ln -srf .bash_profile ~/
+   ln -srf .bashrc ~/
    mkdir -p                         ~/.config/fish
-   ln -sr .config/fish/config.fish ~/.config/fish/
-   ln -sr .config/fish/config.fish ~/.fishrc
-   ln -sr .npmrc ~/
+   ln -srf .config/fish/config.fish ~/.config/fish/
+   ln -srf .config/fish/config.fish ~/.fishrc
+   ln -srf .npmrc ~/
 
 
    # install vimrc
    echo "[ install vimrc  ]"
-   #ln -sr .vimrc   ~/
+   #ln -srf .vimrc   ~/
    mkdir -p ~/.vim/view
    mkdir -p ~/.local/share/nvim/view
 
    mkdir -p ~/.config/nvim
    echo "source ~/.nvimrc" > ~/.config/nvim/init.vim
-   ln -sr .nvimrc ~/.nvimrc
+   ln -srf .nvimrc ~/.nvimrc
 
-   ln -sr .config/nvim/coc-settings.json ~/.config/nvim/
+   ln -srf .config/nvim/coc-settings.json ~/.config/nvim/
 
    sudo mkdir -p /root/.config/nvim
    echo "source ~/.nvimrc" | sudo tee /root/.config/nvim/init.vim > /dev/null
-   sudo ln -sr .nvimrc-root /root/.nvimrc
+   sudo ln -srf .nvimrc-root /root/.nvimrc
 
 
    # install X files
-   ln -sr .xinitrc ~/
-   ln -sr .Xresources ~/
-   ln -sr .Xmodmap ~/
+   ln -srf .xinitrc ~/
+   ln -srf .Xresources ~/
+   ln -srf .Xmodmap ~/
 
 
    # install xmonad
    echo "[ install xmonad ]"
    mkdir                     ~/.xmonad
-   ln -sr .xmonad/xmonad.hs ~/.xmonad/
+   ln -srf .xmonad/xmonad.hs ~/.xmonad/
 
 
    # install xmobar
    echo "[ install xmobar ]"
-   ln -sr .xmobarrc ~/
+   ln -srf .xmobarrc ~/
 
 
    # install compton
    echo "[ install compton  ]"
-   ln -sr .compton.conf ~/
+   ln -srf .compton.conf ~/
 
 
    # install rofi
    echo "[ install rofi ]"
    mkdir -p ~/.config/rofi
-   ln -sr    .config/rofi/config ~/.config/rofi/
+   ln -srf    .config/rofi/config ~/.config/rofi/
 
 
    # install moc
    echo "[ install moc ]"
    mkdir               ~/.moc
-   ln -sr .moc/themes ~/.moc/
+   ln -srf .moc/themes ~/.moc/
    chmod 755 ~/.moc/themes/changetheme.sh
 
 
    # install ctags
    echo "[ install ctags  ]"
-   ln -sr ./.ctags ~/
+   ln -srf ./.ctags ~/
 
 
    # install kitty
    echo "[ install kitty ]"
    mkdir -p ~/.config/kitty
-   ln -sr    .config/kitty/kitty.conf ~/.config/kitty/
+   ln -srf    .config/kitty/kitty.conf ~/.config/kitty/
 
    # install gtk-2.0
    echo "[ install gtk-2.0  ]"
-   ln -sr .gtkrc-2.0 ~/
+   ln -srf .gtkrc-2.0 ~/
 
    # install gtk-3.0
    echo "[ install gtk-3.0  ]"
    mkdir -p ~/.config/gtk-3.0
-   ln -sr    .config/gtk-3.0/settings.ini ~/.config/gtk-3.0/
+   ln -srf    .config/gtk-3.0/settings.ini ~/.config/gtk-3.0/
 
    # install user locale file (for fcitx)
    echo "[ install locale.conf ]"
-   ln -sr .config/locale.conf ~/.config/
+   ln -srf .config/locale.conf ~/.config/
 
    # install polybar
    echo "[ install polybar ]"
-   ln -sr ../polybar-adapta-theme/polybar ~/.config/
+   ln -srf ../polybar-adapta-theme/polybar ~/.config/
 )
 
 (
