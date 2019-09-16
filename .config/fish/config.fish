@@ -9,11 +9,11 @@ if test -d ~/.npm-global
 end
 
 if test -d ~/.nodebrew
-   set -x PATH $HOME/.nodebrew/current/bin $PATH
+   set -x PATH ~/.nodebrew/current/bin $PATH
 end
 
 if test -d ~/.yarn-global
-   set -x PATH /home/matoruru/.yarn-global/bin $PATH
+   set -x PATH ~/.yarn-global/bin $PATH
 end
 
 #source /opt/miniconda3/etc/fish/conf.d/conda.fish
