@@ -24,11 +24,19 @@ ssh -o "StrictHostKeyChecking no" -T git@github.com || test $? = 255 && echo "fa
    cd       ~/repositories/matoruru
 
    git clone git@github.com:matoruru/arch-tools.git &
-   git clone git@github.com:matoruru/dotfiles.git
+   git clone https://github.com/matoruru/polybar-adapta-theme.git &
+   git clone git@github.com:matoruru/dotfiles.git &
+
+   wait
 )
 
 if [ ! -d ~/repositories/matoruru/arch-tools ]; then
   echo "matoruru/arch-tools does not exist, try again."
+  exit
+fi
+
+if [ ! -d ~/repositories/matoruru/polybar-adapta-theme ]; then
+  echo "matoruru/polybar-adapta-theme does not exist, try again."
   exit
 fi
 
