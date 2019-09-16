@@ -27,6 +27,16 @@ ssh -o "StrictHostKeyChecking no" -T git@github.com || test $? = 255 && echo "fa
    git clone git@github.com:matoruru/dotfiles.git
 )
 
+if [ ! -d ~/repositories/matoruru/arch-tools ]; then
+  echo "matoruru/arch-tools does not exist, try again."
+  exit
+fi
+
+if [ ! -d ~/repositories/matoruru/dotfiles ]; then
+  echo "matoruru/dotfiles does not exist, try again."
+  exit
+fi
+
 (
    cd ~/repositories/matoruru/dotfiles
 
@@ -118,4 +128,10 @@ ssh -o "StrictHostKeyChecking no" -T git@github.com || test $? = 255 && echo "fa
    # install polybar
    echo "[ install polybar ]"
    ln -sr ../polybar-adapta-theme/polybar ~/.config/
+)
+
+(
+   # launch arch-tools installer
+   cd ~/repositories/matoruru/arch-tools
+   bash install.sh
 )
