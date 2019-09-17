@@ -24,7 +24,7 @@ ssh -o "StrictHostKeyChecking no" -T git@github.com || test $? = 255 && echo "fa
    cd       ~/repositories/matoruru
 
    git clone git@github.com:matoruru/arch-tools.git &
-   git clone https://github.com/matoruru/polybar-adapta-theme.git &
+   git clone git@github.com:matoruru/polybar-adapta-theme.git &
    git clone git@github.com:matoruru/dotfiles.git &
 
    wait
