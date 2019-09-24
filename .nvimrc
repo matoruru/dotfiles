@@ -39,7 +39,9 @@ let g:airline#extensions#fugitiveline#enabled=1
 let g:airline_powerline_fonts=1
 let base16colorspace=256
 
-source ~/.vimrc_background
+if filereadable( $HOME . "/.vimrc_background" )
+  source ~/.vimrc_background
+endif
 
 
 " Lexima.vim
