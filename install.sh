@@ -17,7 +17,7 @@ fi
 cd
 
 # check a connection to internet
-ping www.google.com -i 0.2 -c 5 || exit
+ping www.google.com -i 0.2 -c 5 || { echo "Connection is not established..."; exit; }
 
 (
    mkdir -p ~/repositories/matoruru
