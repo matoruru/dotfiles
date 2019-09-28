@@ -13,19 +13,19 @@ if [[ "$EUID" = 0 ]]; then
    exit
 fi
 
+# move to the home directory first
+cd
+
 # check a connection to internet
 ping www.google.com -i 0.2 -c 5 || exit
-
-# check if ssh works
-ssh -o "StrictHostKeyChecking no" -T git@github.com || test $? = 255 && echo "fail"
 
 (
    mkdir -p ~/repositories/matoruru
    cd       ~/repositories/matoruru
 
-   git clone git@github.com:matoruru/arch-tools.git &
-   git clone git@github.com:matoruru/polybar-adapta-theme.git &
-   git clone git@github.com:matoruru/dotfiles.git &
+   git clone https://github.com/matoruru/arch-tools.git &
+   git clone https://github.com/matoruru/polybar-adapta-theme.git &
+   git clone https://github.com/matoruru/dotfiles.git &
 
    wait
 )
