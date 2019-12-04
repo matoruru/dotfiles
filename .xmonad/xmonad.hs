@@ -28,12 +28,11 @@ import qualified XMonad.StackSet as W
 
 main :: IO ()
 main = do
-      doesFileExist wsLogfile >>= \case
-         True  -> return ()
-         False -> createNamedPipe wsLogfile stdFileMode
-      xmonad . ewmh . docks $ myConfig wsLogfile
-  where
-    wsLogfile = "/tmp/.xmonad-workspace-log"
+  let wsLogfile = "/tmp/.xmonad-workspace-log"
+  doesFileExist wsLogfile >>= \case
+    True  -> mempty
+    False -> createNamedPipe wsLogfile stdFileMode
+  xmonad . ewmh . docks $ myConfig wsLogfile
 
 myConfig :: FilePath -> XConfig MyLayout
 myConfig filename = def
@@ -46,8 +45,7 @@ myConfig filename = def
    , logHook         = myLogHook filename
    , handleEventHook = myHandleEventHook
    , startupHook     = myStartupHook
-   } `additionalKeysP`     myKeysP
-     `removeMouseBindings` myKeysToRemove
+   } `additionalKeysP` myKeysP `removeMouseBindings` myKeysToRemove
 
 myTerminal :: String
 myTerminal = "kitty"
@@ -164,13 +162,13 @@ myKeysP = [ ( "M-u"
             , amixer "toggle"
             )
           , ( "M-S-c"
-            , return ()
+            , mempty
             )
           , ( "M-<Return>"
-            , return ()
+            , mempty
             )
           , ( "M-S-<Return>"
-            , return ()
+            , mempty
             )
           , ( "M-S-r"
             , reCompile
@@ -179,10 +177,10 @@ myKeysP = [ ( "M-u"
             , reStart
             )
           , ( "M-S-q"
-            , return()
+            , mempty
             )
           , ( "M-q"
-            , return()
+            , mempty
             )
           , ( "M-c"
             , kill
