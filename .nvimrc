@@ -6,6 +6,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'matoruru/base16-vim'
 
+"  Move
+Plug 'unblevable/quick-scope'
+Plug 'matoruru/vim-hjkl-warning'
+
 "  Input
 Plug 'cohama/lexima.vim'
 
@@ -46,6 +50,16 @@ endif
 
 " Lexima.vim
 let g:lexima_enable_basic_rules = 1
+
+
+" quick-scope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+
+" hjkl-warning
+let g:hjkl_warning_message = ["私は負け犬🐶です", "何度間違えても", "学習しないのです"]
+let g:hjkl_warning_win_height = 4
+let g:hjkl_warning_win_width = 20
 
 
 " Auto save
