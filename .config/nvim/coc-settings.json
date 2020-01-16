@@ -1,4 +1,7 @@
 {
+   "diagnostic": {
+      "maxWindowHeight": 40
+   },
    "languageserver": {
       "purescript": {
          "command": "purescript-language-server",
