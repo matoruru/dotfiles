@@ -57,7 +57,7 @@ myBorderWidth :: Dimension
 myBorderWidth = 0
 
 border :: Border
-border = (\x -> Border x x x x) 9
+border = (\x -> Border x x x x) 4
 
 type MyLayout = ModifiedLayout AvoidStruts (ModifiedLayout Spacing (Choose ResizableTall Full))
 
