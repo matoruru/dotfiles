@@ -1,7 +1,8 @@
 #!/bin/bash
 
 userresources=$HOME/.Xresources
-usermodmap=$HOME/.Xmodmap
+#usermodmap=$HOME/.Xmodmap
+usermodmap_internal=$HOME/.Xmodmap-internal
 sysresources=/etc/X11/xinit/Xresources
 sysmodmap=/etc/X11/xinit/Xmodmap
 
@@ -23,10 +24,6 @@ if [ -f "$userresources" ]; then
 
     xrdb -merge "$userresources"
 
-fi
-
-if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
 fi
 
 # start some nice programs
@@ -78,6 +75,16 @@ if [ -n "$failsafe" ]; then
  xbacklight -set 46 -time 1 &
 
  xset r rate 240 30 &
+
+ if xinput | grep -q "HHKB"; then
+    # Using HHKB
+    xinput -disable "AT Translated Set 2 keyboard"
+ else
+    # Using internal keyboard
+    if [ -f $usermodmap_internal ]; then
+       xmodmap "$usermodmap_internal"
+    fi
+ fi
 
  exec xmonad
 

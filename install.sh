@@ -78,7 +78,7 @@ fi
    # install X files
    ln -srf .xinitrc ~/
    ln -srf .Xresources ~/
-   ln -srf .Xmodmap ~/
+   ln -srf .Xmodmap-internal ~/
 
 
    # install xmonad
