@@ -31,8 +31,16 @@ Plug 'dag/vim-fish'
 "  Utility
 Plug 'simeji/winresizer'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'moll/vim-bbye'
+
+"  File explorer
+Plug 'preservim/nerdtree'
 
 call plug#end()
+
+
+" Set leader key
+let mapleader = "\<Space>"
 
 
 " Theme
@@ -88,6 +96,16 @@ let purescript_indent_where = 2
 let purescript_indent_do = 2
 
 
+" --- NERDTree
+function IsInNERDTreeBuf()
+  return exists('t:NERDTreeBufName') && bufname("%") == t:NERDTreeBufName
+endfunction
+
+
+" --- Bbye
+noremap <silent> <leader>w :Bdelete<CR>
+
+
 " Remap keys
 set backspace=0
 noremap  <BackSpace> <nop>
@@ -105,10 +123,10 @@ noremap! <Left>    <nop>
 noremap  <Right>    <nop>
 noremap! <Right>    <nop>
 
-noremap  <C-h> <C-w>h
-noremap  <C-l> <C-w>l
-noremap  <C-j> <C-w>j
-noremap  <C-k> <C-w>k
+noremap <silent> <C-h> <C-w>h
+noremap <silent> <C-l> <C-w>l
+noremap <silent> <C-j> <C-w>j
+noremap <silent> <C-k> <C-w>k
 
 nnoremap Q <nop>
 
@@ -116,7 +134,9 @@ noremap  : q:i
 vnoremap : :
 noremap / q/i
 
-nnoremap <C-n> :Ex<CR>
+noremap <silent> <leader>s :w<CR>
+
+map <C-n> :NERDTreeToggle<CR>
 
 nnoremap <F6> :<C-u>tabnew ~/.nvimrc<CR>
 nnoremap <F7> :<C-u>source ~/.nvimrc<CR>
@@ -135,25 +155,25 @@ nnoremap - <C-x>
 
 tnoremap <ESC> <C-\><C-n>
 
-nnoremap ]b :bn<CR>
-nnoremap [b :bp<CR>
-nnoremap ]B :bl<CR>
-nnoremap [B :bf<CR>
+nnoremap <silent> <expr> ]b IsInNERDTreeBuf() ? '<C-w>l:bn<CR>' : ':bn<CR>'
+nnoremap <silent> <expr> [b IsInNERDTreeBuf() ? '<C-w>l:bp<CR>' : ':bp<CR>'
+nnoremap <silent> <expr> ]B IsInNERDTreeBuf() ? '<C-w>l:bl<CR>' : ':bl<CR>'
+nnoremap <silent> <expr> [B IsInNERDTreeBuf() ? '<C-w>l:bf<CR>' : ':bf<CR>'
 
-nnoremap ]a :next<CR>
-nnoremap [a :prev<CR>
-nnoremap ]A :last<CR>
-nnoremap [A :first<CR>
+nnoremap <silent> ]a :next<CR>
+nnoremap <silent> [a :prev<CR>
+nnoremap <silent> ]A :last<CR>
+nnoremap <silent> [A :first<CR>
 
-nnoremap ]c :cnext<CR>
-nnoremap [c :cprev<CR>
-nnoremap ]C :clast<CR>
-nnoremap [C :cfirst<CR>
+nnoremap <silent> ]c :cnext<CR>
+nnoremap <silent> [c :cprev<CR>
+nnoremap <silent> ]C :clast<CR>
+nnoremap <silent> [C :cfirst<CR>
 
-nnoremap ]t gt
-nnoremap [t gT
-nnoremap ]T :tabl<CR>
-nnoremap [T :tabfir<CR>
+nnoremap <silent> ]t gt
+nnoremap <silent> [t gT
+nnoremap <silent> ]T :tabl<CR>
+nnoremap <silent> [T :tabfir<CR>
 
 
 " Basic settings
