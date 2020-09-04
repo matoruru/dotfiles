@@ -62,9 +62,13 @@ border = (\x -> Border x x x x) 4
 type MyLayout = ModifiedLayout AvoidStruts (ModifiedLayout Spacing (Choose ResizableTall Full))
 
 myLayout :: Eq a => MyLayout a
-myLayout = avoidStruts
-         $ spacingRaw False border True border True
-         $ ResizableTall 1 0.01 0.5 [] ||| Full
+myLayout = avoidStruts $ spaceSetting layout
+  where
+    spaceSetting = spacingRaw False border True border True
+    layout       = mode1 ||| mode2
+    mode1        = ResizableTall 1 0.01 0.5 []
+    mode2        = Full
+
 
 myBrowser, appLauncher, screenShot, screenShot', reStart, reCompile :: X ()
 myBrowser   = spawn "chromium"
