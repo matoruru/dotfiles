@@ -1,15 +1,10 @@
 # /etc/skel/.bash_profile
 
-if [[ -d ~/.config/pulse ]]; then
-   echo "remove all file in ~/.config/pulse/"
-   rm ~/.config/pulse/*
-fi
-
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
    if type startx; then
       exec startx
    else
-      echo ".bash_profile : startx does not exist"
+      echo ".bash_profile: startx does not exist"
    fi
 fi
 

@@ -67,12 +67,12 @@ if [ -n "$failsafe" ]; then
 
  if type amixer; then
     amixer set Master off &
-    echo ".bash_profile : Master volume was turned off."
+    echo ".xinitrc: Master volume was turned off."
  fi
 
  bash ~/.config/polybar/launch.sh &
 
- xbacklight -set 30 -time 1 &
+ xbacklight -set 25 -time 1 &
 
  xset r rate 240 30 &
 
