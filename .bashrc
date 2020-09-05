@@ -14,22 +14,8 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
-# Put your fun stuff here.
-alias ll="ls -alF"
-alias vim='vim -p'
-alias vi='vim'
-alias mocp='mocp -T mytheme'
-alias showtodo="fish ~/repositories/matoruru/gentoo-tools/showtodo.fish"
-alias edittodo="vim ~/todolist.txt;showtodo"
-
 # what want to do when bash is executed
 tabs 3
-
-if [[ $(tty) = '/dev/pts/0' ]]; then
-   showtodo
-fi
-
-#rm ~/.serverauth.* 1> /dev/null 2>&1
 
 # execute this after loading bash settings
 ISFISHON=true
