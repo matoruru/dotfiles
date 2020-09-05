@@ -1,7 +1,6 @@
 #!/bin/bash
 
 userresources=$HOME/.Xresources
-#usermodmap=$HOME/.Xmodmap
 usermodmap_internal=$HOME/.Xmodmap-internal
 sysresources=/etc/X11/xinit/Xresources
 sysmodmap=/etc/X11/xinit/Xmodmap
@@ -54,8 +53,9 @@ if [ -n "$failsafe" ]; then
  export ANDROID_SDK_ROOT=$ANDROID_HOME/sdk
 
 # for authenticate on sfdx
- eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
- export SSH_AUTH_SOCK
+ eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+ export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+ dbus-update-activation-environment --systemd DISPLAY
 
 # set wallpaper by using feh
 # start quickly if wallpaper doesn't set yet => append &
