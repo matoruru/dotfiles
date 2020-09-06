@@ -136,6 +136,11 @@ fi
    # install polybar
    echo "[ install polybar ]"
    ln -srf ../polybar-adapta-theme/polybar ~/.config/
+
+   # install inkscape
+   echo "[ install inkscape  ]"
+   mkdir -p ~/.config/inkscape
+   ln -srf    .config/inkscape/preferences.xml ~/.config/inkscape/
 )
 
 (
