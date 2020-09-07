@@ -138,9 +138,9 @@ fi
    ln -srf ../polybar-adapta-theme/polybar ~/.config/
 
    # install inkscape
-   echo "[ install inkscape  ]"
+   echo "[ install inkscape ]"
    mkdir -p ~/.config/inkscape
-   ln -srf    .config/inkscape/preferences.xml ~/.config/inkscape/
+   cp         .config/inkscape/preferences.xml ~/.config/inkscape/
 )
 
 (
