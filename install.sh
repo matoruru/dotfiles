@@ -46,6 +46,8 @@ if [ ! -d ~/repositories/matoruru/dotfiles ]; then
 fi
 
 (
+   mkdir -p ~/.config
+
    cd ~/repositories/matoruru/dotfiles
 
    # install rc files
@@ -92,9 +94,9 @@ fi
    ln -srf .xmobarrc ~/
 
 
-   # install compton
-   echo "[ install compton  ]"
-   ln -srf .compton.conf ~/
+   # install picom
+   echo "[ install picom ]"
+   ln -srf .config/picom.conf ~/.config/
 
 
    # install rofi
