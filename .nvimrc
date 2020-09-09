@@ -15,6 +15,7 @@ Plug 'cohama/lexima.vim'
 "  IDE
 Plug 'vim-scripts/vim-auto-save'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 
 "  Haskell
 Plug 'neovimhaskell/haskell-vim'
@@ -103,7 +104,7 @@ endfunction
 
 
 " --- Bbye
-noremap <silent> <leader>w :Bdelete<CR>
+noremap <silent> <C-w> :Bdelete<CR>
 
 
 " Remap keys
@@ -133,8 +134,6 @@ nnoremap Q <nop>
 noremap  : q:i
 vnoremap : :
 noremap / q/i
-
-noremap <silent> <leader>s :w<CR>
 
 map <C-n> :NERDTreeToggle<CR>
 
