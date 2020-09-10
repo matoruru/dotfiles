@@ -72,7 +72,7 @@ if [ -n "$failsafe" ]; then
 
  bash ~/.config/polybar/launch.sh &
 
- xbacklight -set 25 -time 1 &
+ xbacklight -set 20 -time 1 &
 
  xset r rate 240 30 &
 
