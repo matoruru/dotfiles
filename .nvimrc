@@ -34,6 +34,10 @@ Plug 'simeji/winresizer'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'moll/vim-bbye'
 
+"  Git
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
+
 "  File explorer
 Plug 'preservim/nerdtree'
 
