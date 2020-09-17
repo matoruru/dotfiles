@@ -15,6 +15,7 @@ end
 
 # Set alias
 alias su="sudo su - -m"
+alias nvimtutor="nvim -c Tutor"
 
 # Set tab step
 tabs 3
