@@ -107,8 +107,12 @@ function IsInNERDTreeBuf()
 endfunction
 
 
+" --- Nt
+command! Nt :tabnew|term
+
+
 " --- Bbye
-noremap <silent> <C-w> :Bdelete<CR>
+noremap <silent> <leader><C-w> :Bdelete<CR>
 
 
 " Remap keys
