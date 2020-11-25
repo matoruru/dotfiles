@@ -17,6 +17,10 @@ end
 alias su="sudo su - -m"
 alias nvimtutor="nvim -c Tutor"
 
+if ! type -q hostname
+   alias hostname="uname -n"
+end
+
 # Set tab step
 tabs 3
 
