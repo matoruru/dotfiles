@@ -30,5 +30,9 @@ if status --is-interactive
    source "$BASE16_SHELL/profile_helper.fish"
 end
 
+if ! type -q purs
+   echo -e "\e[0;31m[Lacked package] purs: run \"yarn global add purescript\"\e[0m"
+end
+
 # Change greeting
 set -g simple_ass_prompt_greeting "Welcome!"
