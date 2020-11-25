@@ -15,16 +15,12 @@ Plug 'cohama/lexima.vim'
 "  IDE
 Plug 'vim-scripts/vim-auto-save'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 
 "  Haskell
 Plug 'neovimhaskell/haskell-vim'
 
 "  PureScript
 Plug 'purescript-contrib/purescript-vim'
-
-"  Nix
-Plug 'LnL7/vim-nix'
 
 "  Fish
 Plug 'dag/vim-fish'
