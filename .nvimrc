@@ -33,6 +33,7 @@ Plug 'dag/vim-fish'
 Plug 'simeji/winresizer'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'moll/vim-bbye'
+Plug 'machakann/vim-highlightedyank'
 
 "  Git
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -114,6 +115,9 @@ command! Nt :tabnew|term
 " --- Bbye
 noremap <silent> <leader><C-w> :Bdelete<CR>
 
+
+" --- vim-highlightedyank
+let g:highlightedyank_highlight_duration = 500
 
 " Remap keys
 set backspace=0
