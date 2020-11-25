@@ -8,6 +8,12 @@
          "args": ["--stdio"],
          "filetypes": ["purescript"],
          "rootPatterns": ["bower.json", "psc-package.json", "spago.dhall"]
+      },
+      "haskell": {
+         "command": "haskell-language-server-wrapper",
+         "args": ["--lsp"],
+         "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+         "filetypes": ["haskell", "lhaskell"]
       }
    }
 }
