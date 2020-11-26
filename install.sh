@@ -148,5 +148,5 @@ fi
 (
    # launch arch-tools installer
    cd ~/repositories/matoruru/arch-tools
-   #bash install.sh
+   bash install.sh
 )
