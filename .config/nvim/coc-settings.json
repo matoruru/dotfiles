@@ -3,6 +3,29 @@
       "maxWindowHeight": 40
    },
    "languageserver": {
+     "vimls": {
+         "module": "~/.config/yarn/global/node_modules/vim-language-server/bin/index.js",
+         "args": ["--node-ipc"],
+         "initializationOptions": {
+           "iskeyword": "@,48-57,_,192-255,-#",
+           "vimruntime": "",
+           "runtimepath": "",
+           "diagnostic": {
+             "enable": true
+           },
+           "indexes": {
+             "runtimepath": true,
+             "gap": 100,
+             "count": 3,
+             "projectRootPatterns" : ["strange-root-pattern", ".git", "autoload", "plugin"]
+           },
+           "suggest": {
+             "fromVimruntime": true,
+             "fromRuntimepath": false
+           }
+         },
+         "filetypes": [ "vim" ]
+       },
       "purescript": {
          "command": "purescript-language-server",
          "args": ["--stdio"],
@@ -14,6 +37,12 @@
          "args": ["--lsp"],
          "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
          "filetypes": ["haskell", "lhaskell"]
+      },
+      "bash": {
+        "command": "bash-language-server",
+        "args": ["start"],
+        "filetypes": ["sh"],
+        "ignoredRootPaths": ["~"]
       }
    }
 }

@@ -19,6 +19,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " HTML
 Plug 'mattn/emmet-vim'
 
+" JavaScript
+Plug 'pangloss/vim-javascript'
+
 "  Haskell
 Plug 'neovimhaskell/haskell-vim'
 
