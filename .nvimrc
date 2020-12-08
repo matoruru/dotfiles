@@ -16,6 +16,9 @@ Plug 'cohama/lexima.vim'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" HTML
+Plug 'mattn/emmet-vim'
+
 "  Haskell
 Plug 'neovimhaskell/haskell-vim'
 
@@ -139,10 +142,6 @@ noremap <silent> <C-k> <C-w>k
 
 nnoremap Q <nop>
 
-noremap  : q:i
-vnoremap : :
-noremap / q/i
-
 map <C-n> :NERDTreeToggle<CR>
 
 nnoremap <F6> :<C-u>tabnew ~/.nvimrc<CR>
@@ -182,10 +181,17 @@ nnoremap <silent> [t gT
 nnoremap <silent> ]T :tabl<CR>
 nnoremap <silent> [T :tabfir<CR>
 
+cnoremap <silent> <C-t>h :vs\|term<CR>
+cnoremap <silent> <C-t>j :sp<CR><C-w>j:term<CR>
+cnoremap <silent> <C-t>k :sp\|term<CR>
+cnoremap <silent> <C-t>l :vs<CR><C-w>l:term<CR>
+
 
 " Basic settings
 set cursorline
 set relativenumber number
+
+highlight Comment cterm=italic gui=italic
 
 set mouse=
 set hlsearch
