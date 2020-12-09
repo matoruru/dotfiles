@@ -1,5 +1,8 @@
 {-# OPTIONS -Wall -Werror #-}
-{-# LANGUAGE LambdaCase, NoImplicitPrelude #-}
+{-# LANGUAGE BlockArguments #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE TupleSections #-}
 
 import RIO
 import RIO.List
@@ -9,6 +12,7 @@ import RIO.Partial
 import Data.Monoid
 
 import System.Directory
+import System.FilePath ((</>))
 import System.IO (appendFile)
 import System.Posix.Files
 
@@ -29,13 +33,14 @@ import qualified XMonad.StackSet as W
 main :: IO ()
 main = do
   let wsLogfile = "/tmp/.xmonad-workspace-log"
+  homeDir <- getHomeDirectory
   doesFileExist wsLogfile >>= \case
     True  -> mempty
     False -> createNamedPipe wsLogfile stdFileMode
-  xmonad . ewmh . docks $ myConfig wsLogfile
+  xmonad . ewmh . docks $ myConfig homeDir wsLogfile
 
-myConfig :: FilePath -> XConfig MyLayout
-myConfig filename = def
+myConfig :: FilePath -> FilePath -> XConfig MyLayout
+myConfig homeDir filename = def
    { terminal        = myTerminal
    , modMask         = myModMask
    , workspaces      = myWorkspaces
@@ -44,7 +49,7 @@ myConfig filename = def
    , manageHook      = myManageHook
    , logHook         = myLogHook filename
    , handleEventHook = myHandleEventHook
-   , startupHook     = myStartupHook
+   , startupHook     = myStartupHook homeDir
    } `additionalKeysP` myKeysP `removeMouseBindings` myKeysToRemove
 
 myTerminal :: String
@@ -68,7 +73,6 @@ myLayout = avoidStruts $ spaceSetting layout
     layout       = mode1 ||| mode2
     mode1        = ResizableTall 1 0.01 0.5 []
     mode2        = Full
-
 
 myBrowser, appLauncher, screenShot, screenShot', reStart, reCompile :: X ()
 myBrowser   = spawn "chromium"
@@ -227,24 +231,36 @@ getWsLog = do
           (wsIds, wins) = sortById (map W.tag wss) (map W.stack wss)
       return . join . map (stateToSym . fmt currWs wins) $ wsIds
       where
-         idx          = flip (-) 1 . read
+         idx = flip (-) 1 . read
+
          sortById ids = unzip . sortOn fst . zip ids
+
          fmt cw ws wi
             | wi == cw              = Current
             | isJust $ ws !! idx wi = NotEmpty
             | otherwise             = Empty
 
-stateToSym :: WsState -> String
-stateToSym = \case
-  Current  -> "\63022"
-  NotEmpty -> "\61842"
-  Empty    -> "\63023"
+         stateToSym = \case
+           Current  -> "\63022"
+           NotEmpty -> "\61842"
+           Empty    -> "\63023"
 
 myLogHook :: FilePath -> X ()
 myLogHook filename = io . appendFile filename . (++ "\n") =<< getWsLog
 
-myStartupHook :: X ()
-myStartupHook = setDefaultCursor xC_left_ptr >> setWMName "LG3D" >> wallpaperSetter def
+myStartupHook :: FilePath -> X ()
+myStartupHook homeDir = do
+  setDefaultCursor xC_left_ptr
+  setWMName "LG3D"
+  wallpaperSetter $ mkWallpaperConf homeDir
+
+mkWallpaperConf :: FilePath -> WallpaperConf
+mkWallpaperConf homeDir = WallpaperConf
+  { wallpaperBaseDir = baseDir
+  , wallpapers = WallpaperList $ map ( , WallpaperFix name ) myWorkspaces
+  } where
+    baseDir = homeDir </> "Pictures"
+    name = ".xmonad-wallpaper"
 
 myWorkspaces :: [WorkspaceId]
 myWorkspaces = map show [1 .. 7 :: Int]
