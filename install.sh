@@ -122,6 +122,12 @@ fi
    mkdir -p ~/.config/kitty
    ln -srf    .config/kitty/kitty.conf ~/.config/kitty/
 
+
+   # install alacritty
+   echo "[ install alacritty ]"
+   mkdir -p ~/.config/alacritty
+   ln -srf    .config/alacritty/alacritty.yml ~/.config/alacritty/
+
    # install gtk-2.0
    echo "[ install gtk-2.0  ]"
    ln -srf .gtkrc-2.0 ~/

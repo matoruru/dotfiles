@@ -53,7 +53,7 @@ myConfig homeDir filename = def
    } `additionalKeysP` myKeysP `removeMouseBindings` myKeysToRemove
 
 myTerminal :: String
-myTerminal = "kitty"
+myTerminal = "alacritty"
 
 myModMask :: KeyMask
 myModMask = mod4Mask
