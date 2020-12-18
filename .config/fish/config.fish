@@ -16,17 +16,10 @@ if test -d ~/.yarn-global
 end
 
 # Set alias
-alias su="sudo su - -m"
 alias nvimtutor="nvim -c Tutor"
 
 # Set tab step
 tabs 3
-
-# Base16 Shell
-if status --is-interactive
-   set BASE16_SHELL "$HOME/.config/base16-shell/"
-   source "$BASE16_SHELL/profile_helper.fish"
-end
 
 # https://github.com/starship/starship#fish
 starship init fish | source
