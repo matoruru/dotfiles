@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
 "  Theme
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'matoruru/base16-vim'
+Plug 'altercation/vim-colors-solarized'
 
 "  Move
 Plug 'unblevable/quick-scope'
@@ -58,9 +58,9 @@ let g:airline#extensions#fugitiveline#enabled=1
 let g:airline_powerline_fonts=1
 let base16colorspace=256
 
-if filereadable( $HOME . "/.vimrc_background" )
-  source ~/.vimrc_background
-endif
+syntax enable
+set background=dark
+colorscheme solarized
 
 
 " Lexima.vim
