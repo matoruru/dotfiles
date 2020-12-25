@@ -78,8 +78,6 @@ if [ -n "$failsafe" ]; then
     fi
  fi
 
- [ ! -f ~/.local/bin/xmonad-stack ] && chromium & alacritty --command bash ~/.xmonad/build
-
  bash ~/.config/polybar/launch.sh &
 
  exec ~/.local/bin/xmonad-stack
