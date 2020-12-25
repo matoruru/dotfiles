@@ -57,12 +57,6 @@ if [ -n "$failsafe" ]; then
  export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
  dbus-update-activation-environment --systemd DISPLAY
 
-# set wallpaper by using feh
-# start quickly if wallpaper doesn't set yet => append &
-
-# start urxvt as a daemon, after this, use urxvtc to start urxvt
- urxvtd --quiet --fork --opendisplay &
-
  picom -b
 
  if type amixer; then
