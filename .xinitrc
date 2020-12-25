@@ -64,8 +64,6 @@ if [ -n "$failsafe" ]; then
     echo ".xinitrc: Master volume was turned off."
  fi
 
- bash ~/.config/polybar/launch.sh &
-
  xbacklight -set 20 -time 1 &
 
  xset r rate 240 30 &
@@ -80,7 +78,11 @@ if [ -n "$failsafe" ]; then
     fi
  fi
 
- exec xmonad
+ [ ! -f ~/.local/bin/xmonad-stack ] && chromium & alacritty --command bash ~/.xmonad/build
+
+ bash ~/.config/polybar/launch.sh &
+
+ exec ~/.local/bin/xmonad-stack
 
 else
  exec $command
