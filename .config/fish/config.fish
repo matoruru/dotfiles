@@ -2,18 +2,13 @@
 
 set fish_greeting
 
-# To use 'npm i -g' wituout sudo
-if test -d ~/.npm-global
-   set -x PATH ~/.npm-global/bin $PATH
-end
-
-if test -d ~/.nodebrew
-   set -x PATH ~/.nodebrew/current/bin $PATH
-end
-
-if test -d ~/.yarn-global
-   set -x PATH ~/.yarn-global/bin $PATH
-end
+set -x PATH \
+  ~/.npm-global/bin \
+  ~/.nodebrew/current/bin \
+  ~/.yarn-global/bin \
+  ~/.local/bin \
+  ~/.ghcup/bin \
+  $PATH
 
 # Set alias
 alias nvimtutor="nvim -c Tutor"
