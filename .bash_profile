@@ -1,5 +1,7 @@
 # /etc/skel/.bash_profile
 
+export PATH="$PATH:$HOME/.local/bin"
+
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
    if type startx; then
       exec startx

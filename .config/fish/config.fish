@@ -6,7 +6,6 @@ set -x PATH \
   ~/.npm-global/bin \
   ~/.nodebrew/current/bin \
   ~/.yarn-global/bin \
-  ~/.local/bin \
   ~/.ghcup/bin \
   $PATH
 

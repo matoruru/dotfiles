@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 sudo echo "  Authentication succeeded"
 
@@ -26,7 +26,7 @@ ping www.google.com -i 0.2 -c 5 || { echo "Connection is not established..."; ex
    git clone https://github.com/matoruru/arch-tools.git &
    git clone https://github.com/matoruru/polybar-adapta-theme.git &
    git clone https://github.com/matoruru/dotfiles.git &
-   git clone https://github.com/matoruru/.xmonad.git &
+   git clone https://github.com/matoruru/.xmonad.git ~/.xmonad &
 
    wait
 )
@@ -46,7 +46,7 @@ if [ ! -d ~/repositories/matoruru/dotfiles ]; then
   exit
 fi
 
-if [ ! -d ~/repositories/matoruru/.xmonad ]; then
+if [ ! -d ~/.xmonad ]; then
   echo "matoruru/.xmonad does not exist, try again."
   exit
 fi
@@ -145,14 +145,6 @@ fi
    echo "[ install inkscape ]"
    mkdir -p ~/.config/inkscape
    cp         .config/inkscape/preferences.xml ~/.config/inkscape/
-)
-
-# .xmonad
-(
-   # install xmonad
-   echo "[ install xmonad ]"
-   cd ~/repositories/matoruru/.xmonad
-   bash install.sh
 )
 
 (

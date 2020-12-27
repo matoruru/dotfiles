@@ -80,7 +80,7 @@ if [ -n "$failsafe" ]; then
 
  bash ~/.config/polybar/launch.sh &
 
- exec ~/.local/bin/xmonad-stack
+ exec xmonad
 
 else
  exec $command
