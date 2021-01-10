@@ -13,7 +13,6 @@ Plug 'unblevable/quick-scope'
 Plug 'cohama/lexima.vim'
 
 "  IDE
-Plug 'vim-scripts/vim-auto-save'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " HTML
@@ -36,6 +35,7 @@ Plug 'simeji/winresizer'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'moll/vim-bbye'
 Plug 'machakann/vim-highlightedyank'
+Plug 'sbdchd/neoformat'
 
 "  Git
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -72,8 +72,35 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 
 " Auto save
-let g:auto_save = 1
-let g:auto_save_silent = 1
+augroup vimrc-auto-save
+  autocmd!
+  autocmd InsertLeave * silent! w
+augroup END
+
+
+" coc
+nnoremap <leader>sd :call <SID>show_documentation()<CR>
+nnoremap <leader>ca :CocAction<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+
+" neoformat
+let g:neoformat_enabled_haskell = ['ormolu']
+
+" see: https://github.com/sbdchd/neoformat/issues/134#issuecomment-347180213
+augroup fmt
+  autocmd!
+  au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
+augroup END
 
 
 " Haskell
@@ -218,4 +245,7 @@ set noswapfile
 
 set hidden
 
-autocmd TermOpen * startinsert
+augroup termopen-startinsert
+  autocmd!
+  autocmd TermOpen * startinsert
+augroup END
