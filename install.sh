@@ -124,6 +124,10 @@ fi
    mkdir -p ~/.config/alacritty
    ln -srf    .config/alacritty/alacritty.yml ~/.config/alacritty/
 
+   # install starship
+   echo "[ install starship ]"
+   ln -srf .config/starship.toml ~/.config/
+
    # install gtk-2.0
    echo "[ install gtk-2.0  ]"
    ln -srf .gtkrc-2.0 ~/
