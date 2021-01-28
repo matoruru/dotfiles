@@ -233,6 +233,7 @@ set shiftwidth=2
 set expandtab
 
 set incsearch
+set inccommand=split
 
 let &t_SI .= "\e[6 q"
 let &t_EI .= "\e[2 q"
