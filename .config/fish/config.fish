@@ -3,11 +3,11 @@
 set fish_greeting
 
 set -x PATH \
-  ~/.npm-global/bin \
-  ~/.nodebrew/current/bin \
-  ~/.yarn-global/bin \
-  ~/.ghcup/bin \
-  $PATH
+    ~/.npm-global/bin \
+    ~/.nodebrew/current/bin \
+    ~/.yarn-global/bin \
+    ~/.ghcup/bin \
+    $PATH
 
 bash ~/repositories/matoruru/arch-tools/checktools.sh
 

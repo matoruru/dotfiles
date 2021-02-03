@@ -66,11 +66,9 @@ if [ -n "$failsafe" ]; then
 
  xbacklight -set 20 -time 1 &
 
- xset r rate 240 30 &
-
  if xinput | grep -q "HHKB"; then
     # Using HHKB
-    xinput -disable "AT Translated Set 2 keyboard"
+    :
  else
     # Using internal keyboard
     if [ -f $usermodmap_internal ]; then

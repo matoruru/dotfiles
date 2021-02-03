@@ -11,6 +11,7 @@ Plug 'unblevable/quick-scope'
 
 "  Input
 Plug 'cohama/lexima.vim'
+Plug 'gyim/vim-boxdraw'
 
 "  IDE
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
