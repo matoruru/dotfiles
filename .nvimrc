@@ -37,6 +37,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'moll/vim-bbye'
 Plug 'machakann/vim-highlightedyank'
 Plug 'sbdchd/neoformat'
+Plug 'vim-scripts/vim-auto-save'
 
 "  Git
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -72,11 +73,10 @@ let g:lexima_enable_basic_rules = 1
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 
-" Auto save
-augroup vimrc-auto-save
-  autocmd!
-  autocmd InsertLeave * silent! w
-augroup END
+" vim-auto-save
+let g:auto_save = 1
+let g:auto_save_silent = 1
+let g:auto_save_in_insert_mode = 0
 
 
 " coc
@@ -191,6 +191,23 @@ nnoremap + <C-a>
 nnoremap - <C-x>
 
 tnoremap <ESC> <C-\><C-n>
+
+" Use the pattern to serach the history
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+" Use the command-line mode with emacs keybindings
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-e> <End>
+cnoremap <C-a> <Home>
+
+" Open the command line window
+cnoremap <C-g> <C-f>
+
+" Highlight without jumping
+noremap * *``
+noremap # #``
 
 nnoremap <silent> <expr> ]b IsInNERDTreeBuf() ? '<C-w>l:bn<CR>' : ':bn<CR>'
 nnoremap <silent> <expr> [b IsInNERDTreeBuf() ? '<C-w>l:bp<CR>' : ':bp<CR>'
