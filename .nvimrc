@@ -242,6 +242,7 @@ set relativenumber number
 highlight Comment cterm=italic gui=italic
 
 set mouse=
+set nowrapscan
 set hlsearch
 set ai
 set showmatch
