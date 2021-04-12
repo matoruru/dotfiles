@@ -76,10 +76,10 @@ fi
    mkdir -p ~/.local/share/nvim/view
 
    mkdir -p ~/.config/nvim
-   echo "source ~/.nvimrc" > ~/.config/nvim/init.vim
    ln -srf .nvimrc ~/.nvimrc
 
    ln -srf .config/nvim/coc-settings.json ~/.config/nvim/
+   ln -srf .config/nvim/init.vim ~/.config/nvim/
 
    sudo mkdir -p /root/.config/nvim
    echo "source ~/.nvimrc" | sudo tee /root/.config/nvim/init.vim > /dev/null
