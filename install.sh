@@ -66,6 +66,8 @@ fi
    ln -srf .config/fish/config.fish ~/.fishrc
    ln -srf .npmrc ~/
 
+   # install docker config
+   ln -srf ./.docker ~/
 
    # install vimrc
    echo "[ install vimrc  ]"
