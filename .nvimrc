@@ -224,6 +224,11 @@ nnoremap <silent> [c :cprev<CR>
 nnoremap <silent> ]C :clast<CR>
 nnoremap <silent> [C :cfirst<CR>
 
+nnoremap <silent> ]e :call CocAction('diagnosticNext')<CR>
+nnoremap <silent> [e :call CocAction('diagnosticPrevious')<CR>
+nnoremap <silent> ]E :<CR>
+nnoremap <silent> [E :<CR>
+
 nnoremap <silent> ]t gt
 nnoremap <silent> [t gT
 nnoremap <silent> ]T :tabl<CR>
