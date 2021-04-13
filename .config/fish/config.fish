@@ -9,8 +9,6 @@ set -x PATH \
     ~/.ghcup/bin \
     $PATH
 
-bash ~/repositories/matoruru/arch-tools/checktools.sh
-
 # Set alias
 alias nvimtutor="nvim -c Tutor"
 

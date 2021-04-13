@@ -71,7 +71,6 @@ fi
 
    # install vimrc
    echo "[ install vimrc  ]"
-   #ln -srf .vimrc   ~/
    mkdir -p ~/.vim/view
    mkdir -p ~/.local/share/nvim/view
 
@@ -80,10 +79,6 @@ fi
 
    ln -srf .config/nvim/coc-settings.json ~/.config/nvim/
    ln -srf .config/nvim/init.vim ~/.config/nvim/
-
-   sudo mkdir -p /root/.config/nvim
-   echo "source ~/.nvimrc" | sudo tee /root/.config/nvim/init.vim > /dev/null
-   sudo ln -srf .nvimrc-root /root/.nvimrc
 
 
    # install X files
@@ -101,25 +96,6 @@ fi
    echo "[ install rofi ]"
    mkdir -p ~/.config/rofi
    ln -srf    .config/rofi/config ~/.config/rofi/
-
-
-   # install moc
-   echo "[ install moc ]"
-   mkdir               ~/.moc
-   ln -srf .moc/themes ~/.moc/
-   chmod 755 ~/.moc/themes/changetheme.sh
-
-
-   # install ctags
-   echo "[ install ctags  ]"
-   ln -srf ./.ctags ~/
-
-
-   # install kitty
-   echo "[ install kitty ]"
-   mkdir -p ~/.config/kitty
-   ln -srf    .config/kitty/kitty.conf ~/.config/kitty/
-
 
    # install alacritty
    echo "[ install alacritty ]"
