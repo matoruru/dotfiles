@@ -80,6 +80,9 @@ fi
    ln -srf .config/nvim/coc-settings.json ~/.config/nvim/
    ln -srf .config/nvim/init.vim ~/.config/nvim/
 
+   # install .gitconfig
+   ln -srf .gitconfig ~/
+
 
    # install X files
    ln -srf .xinitrc ~/

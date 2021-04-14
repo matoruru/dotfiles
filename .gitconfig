@@ -1,0 +1,21 @@
+[user]
+  email = matoruru@shgt.jp
+  name = matoruru
+
+[core]
+  editor = nvim
+
+[log]
+  date = iso-local
+
+[alias]
+  # Shorten common commands
+  a = add
+  s = status
+  b = branch
+  cm = commit -m
+  d = diff
+  dc = diff --cached
+  l = log
+  lo = log --oneline
+  los = log --oneline --stat
