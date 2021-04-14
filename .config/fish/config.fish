@@ -11,6 +11,7 @@ set -x PATH \
 
 # Set alias
 alias nvimtutor="nvim -c Tutor"
+alias runuseful="docker run --rm -it -e TZ=/Asia/Tokyo -v $HOME:$HOME useful"
 
 function dls
     set -l green (tput setaf 2)
@@ -34,6 +35,3 @@ end
 
 # Set tab step
 tabs 3
-
-# https://github.com/starship/starship#fish
-starship init fish | source
