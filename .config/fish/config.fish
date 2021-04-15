@@ -11,7 +11,7 @@ set -x PATH \
 
 # Set alias
 alias nvimtutor="nvim -c Tutor"
-alias runuseful="docker run --rm -it -e TZ=/Asia/Tokyo -v $HOME:$HOME useful"
+alias runuseful="docker run --rm -it -v $HOME:$HOME useful"
 
 function dls
     set -l green (tput setaf 2)
