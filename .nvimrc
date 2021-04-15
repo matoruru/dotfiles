@@ -36,7 +36,6 @@ Plug 'simeji/winresizer'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'moll/vim-bbye'
 Plug 'machakann/vim-highlightedyank'
-Plug 'sbdchd/neoformat'
 Plug 'vim-scripts/vim-auto-save'
 
 "  Git
@@ -92,16 +91,6 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
-
-
-" neoformat
-let g:neoformat_enabled_haskell = ['ormolu']
-
-" see: https://github.com/sbdchd/neoformat/issues/134#issuecomment-347180213
-augroup fmt
-  autocmd!
-  au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
-augroup END
 
 
 " Haskell

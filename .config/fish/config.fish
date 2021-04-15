@@ -35,3 +35,6 @@ end
 
 # Set tab step
 tabs 3
+
+# https://starship.rs/#fish
+starship init fish | source
