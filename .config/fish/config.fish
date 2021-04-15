@@ -11,30 +11,35 @@ set -x PATH \
 
 # Set alias
 alias nvimtutor="nvim -c Tutor"
-alias runuseful="docker run --rm -it -v $HOME:$HOME useful"
 
-function dls
-    set -l green (tput setaf 2)
-    set -l default (tput sgr0)
-    echo $green"[Images]"$default
-    docker image ls
-    echo
-    echo $green"[Running containers]"$default
-    docker container ls
-end
+if command -sq docker
+  alias runuseful="docker run --rm -it -v $HOME:$HOME useful"
 
-function dla
-    set -l green (tput setaf 2)
-    set -l default (tput sgr0)
-    echo $green"[All images (including intermediates)]"$default
-    docker image ls --all
-    echo
-    echo $green"[All containers]"$default
-    docker container ls --all
+  function dls
+      set -l green (tput setaf 2)
+      set -l default (tput sgr0)
+      echo $green"[Images]"$default
+      docker image ls
+      echo
+      echo $green"[Running containers]"$default
+      docker container ls
+  end
+
+  function dla
+      set -l green (tput setaf 2)
+      set -l default (tput sgr0)
+      echo $green"[All images (including intermediates)]"$default
+      docker image ls --all
+      echo
+      echo $green"[All containers]"$default
+      docker container ls --all
+  end
 end
 
 # Set tab step
 tabs 3
 
-# https://starship.rs/#fish
-starship init fish | source
+if command -sq starship
+  # https://starship.rs/#fish
+  starship init fish | source
+end
