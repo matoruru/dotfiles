@@ -79,8 +79,12 @@ let g:auto_save_in_insert_mode = 0
 
 
 " coc
-nnoremap <leader>sd :call <SID>show_documentation()<CR>
-nnoremap <leader>ca :CocAction<CR>
+nmap <silent> <leader>sd :call <SID>show_documentation()<CR>
+nmap <silent> <leader>ca :CocAction<CR>
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
