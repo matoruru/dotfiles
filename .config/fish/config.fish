@@ -13,8 +13,15 @@ set -x PATH \
 alias nvimtutor="nvim -c Tutor"
 
 if command -sq docker
-  alias runu="docker run --rm -itd -v $HOME:$HOME useful"
+  set -x GITHUB_USER_NAME matoruru
 
+  # Run the `useful` image as a single-use container.
+  alias runuo="docker run --rm -it -v $HOME:$HOME useful"
+
+  # Run the `useful` image as a daemon.
+  alias runud="docker run --rm -itd -v $HOME:$HOME useful"
+
+  # Enter the container with its ID.
   function econ
     set -l container_id $argv[1]
     if echo $container_id | grep -qE '^ *+$'
@@ -24,6 +31,7 @@ if command -sq docker
     end
   end
 
+  # List active docker containers and images.
   function dls
       set -l green (tput setaf 2)
       set -l default (tput sgr0)
