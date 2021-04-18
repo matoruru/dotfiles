@@ -13,7 +13,16 @@ set -x PATH \
 alias nvimtutor="nvim -c Tutor"
 
 if command -sq docker
-  alias runuseful="docker run --rm -it -v $HOME:$HOME useful"
+  alias runu="docker run --rm -itd -v $HOME:$HOME useful"
+
+  function econ
+    set -l container_id $argv[1]
+    if echo $container_id | grep -qE '^ *+$'
+      echo Specify the container ID that you want to enter!
+    else
+      docker exec -it $container_id bash
+    end
+  end
 
   function dls
       set -l green (tput setaf 2)
