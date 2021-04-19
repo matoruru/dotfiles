@@ -24,7 +24,7 @@ if command -sq docker
   # Enter the container with its ID.
   function econ
     set -l container_id $argv[1]
-    if echo $container_id | grep -qE '^ *+$'
+    if echo $container_id | string match -r '^ *+$' >/dev/null
       echo Specify the container ID that you want to enter!
     else
       docker exec -it $container_id bash
