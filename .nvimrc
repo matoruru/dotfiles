@@ -28,6 +28,10 @@ Plug 'neovimhaskell/haskell-vim'
 "  PureScript
 Plug 'purescript-contrib/purescript-vim'
 
+" --- --- TypeScript
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+
 "  Fish
 Plug 'dag/vim-fish'
 
