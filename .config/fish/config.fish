@@ -33,23 +33,23 @@ if command -sq docker
 
   # List active docker containers and images.
   function dls
-      set -l green (tput setaf 2)
-      set -l default (tput sgr0)
-      echo $green"[Images]"$default
-      docker image ls
-      echo
-      echo $green"[Running containers]"$default
-      docker container ls
+    set -l green (tput setaf 2)
+    set -l default (tput sgr0)
+    echo $green"[Images]"$default
+    docker image ls
+    echo
+    echo $green"[Running containers]"$default
+    docker container ls
   end
 
   function dla
-      set -l green (tput setaf 2)
-      set -l default (tput sgr0)
-      echo $green"[All images (including intermediates)]"$default
-      docker image ls --all
-      echo
-      echo $green"[All containers]"$default
-      docker container ls --all
+    set -l green (tput setaf 2)
+    set -l default (tput sgr0)
+    echo $green"[All images (including intermediates)]"$default
+    docker image ls --all
+    echo
+    echo $green"[All containers]"$default
+    docker container ls --all
   end
 end
 
