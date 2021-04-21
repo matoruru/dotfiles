@@ -15,6 +15,10 @@ Plug 'gyim/vim-boxdraw'
 
 "  IDE
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'branch': 'release/0.x'
+  \ }
 
 " HTML
 Plug 'mattn/emmet-vim'
