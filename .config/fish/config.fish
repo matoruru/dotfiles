@@ -53,9 +53,6 @@ if command -sq docker
   end
 end
 
-# Set tab step
-tabs 3
-
 if command -sq starship
   # https://starship.rs/#fish
   starship init fish | source
