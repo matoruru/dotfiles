@@ -23,19 +23,6 @@ Plug 'prettier/vim-prettier', {
 " HTML
 Plug 'mattn/emmet-vim'
 
-" JavaScript
-Plug 'pangloss/vim-javascript'
-
-"  Haskell
-Plug 'neovimhaskell/haskell-vim'
-
-"  PureScript
-Plug 'purescript-contrib/purescript-vim'
-
-" --- --- TypeScript
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-
 "  Fish
 Plug 'dag/vim-fish'
 
@@ -103,35 +90,6 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
-
-
-" Haskell
-let g:haskell_enable_quantification = 1
-let g:haskell_enable_recursivedo = 1
-let g:haskell_enable_arrowsyntax = 1
-let g:haskell_enable_pattern_synonyms = 1
-let g:haskell_enable_typeroles = 1
-let g:haskell_enable_static_pointers = 1
-let g:haskell_backpack = 1
-
-let g:haskell_indent_if = 2
-let g:haskell_indent_case = 2
-let g:haskell_indent_let = 2
-let g:haskell_indent_where = 2
-let g:haskell_indent_before_where = 2
-let g:haskell_indent_after_bare_where = 2
-let g:haskell_indent_do = 2
-let g:haskell_indent_in = 2
-let g:haskell_indent_guard = 2
-
-
-" PureScript
-let purescript_indent_if = 2
-let purescript_indent_case = 2
-let purescript_indent_let = 2
-let purescript_indent_where = 2
-let purescript_indent_do = 2
-
 
 " --- NERDTree
 function IsInNERDTreeBuf()

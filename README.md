@@ -1,30 +1,16 @@
 # dotfiles
 my dotfiles repository, on gentoo linux
-## shell
-- bash (default)
-- fish (always use)
-## display manager
-- cdm
-## window manager
-- xmonad
-  - rofi (press mod + p to call)
-    - Solarized
-  - xmobar
-    - Solarized
-## composite manager
-- compton (for transparency and shadow)
-## terminal emulator
-- rxvt-unicode
-  - Color scheme              -> Solarized
-## image viewer
-- feh
-  - it is used to set wallpaper
-## main editor
-- vim
-  - Color scheme              -> Solarized dark
-## pdf viewer
-- qpdfview
-  - light weight pdf viewer
-## music player
-- moc
-  - Solarized
+
+## For WSL/Orbstack
+
+1. Clone this repository at `~/GitHub/matoruru/`
+
+    ```bash
+    cd
+    ln -srf ~/GitHub/matoruru/dotfiles/.config ~/
+    ln -srf ~/GitHub/matoruru/dotfiles/.gitignore ~/
+    ln -srf ~/GitHub/matoruru/dotfiles/.npmrc ~/
+    ln -srf ~/GitHub/matoruru/dotfiles/.nvimrc ~/
+    cp ~/GitHub/matoruru/dotfiles/.gitconfig ~/
+
+    ```
