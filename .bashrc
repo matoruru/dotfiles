@@ -23,3 +23,7 @@ tabs 3
 if [[ -f /bin/fish ]]; then
    exec fish
 fi
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH

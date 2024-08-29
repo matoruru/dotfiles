@@ -7,3 +7,6 @@ error_symbol = "[❯](bold red)"
 
 [status]
 disabled = false
+
+[kubernetes]
+disabled = false

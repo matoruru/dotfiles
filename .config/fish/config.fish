@@ -7,10 +7,18 @@ set -x PATH \
     ~/.nodebrew/current/bin \
     ~/.yarn-global/bin \
     ~/.ghcup/bin \
+    ~/.bun/bin \
+    (go env GOPATH)/bin \
+    ~/bin \
+    ~/.krew/bin \
+    ~/.istioctl/bin \
     $PATH
+
+eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # Set alias
 alias nvimtutor="nvim -c Tutor"
+alias k="kubectl"
 
 if command -sq docker
   set -x GITHUB_USER_NAME matoruru
@@ -52,6 +60,31 @@ if command -sq docker
     docker container ls --all
   end
 end
+
+function helm-diff
+  set -x file1 (mktemp)
+  set -x file2 (mktemp)
+  git stash > /dev/null
+  helm template $argv > $file1
+  git stash pop > /dev/null
+  helm template $argv > $file2
+  diff -u $file1 $file2 | git-split-diffs --color
+  rm $file1 $file2
+end
+
+function kustomize-diff
+  set -x file1 (mktemp)
+  set -x file2 (mktemp)
+  git stash > /dev/null
+  kubectl kustomize $argv > $file1
+  git stash pop > /dev/null
+  kubectl kustomize $argv > $file2
+  diff -u $file1 $file2 | git-split-diffs --color
+  rm $file1 $file2
+end
+
+# Set tab step
+tabs 3
 
 if command -sq starship
   # https://starship.rs/#fish

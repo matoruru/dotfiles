@@ -1,9 +1,11 @@
 [user]
   email = matoruru@shgt.jp
   name = matoruru
+  signingkey =
 
 [core]
   editor = nvim
+  pager = git-split-diffs --color | less -+LFX
 
 [log]
   date = iso-local
@@ -19,3 +21,5 @@
   l = log
   lo = log --oneline
   los = log --oneline --stat
+[commit]
+  gpgsign = true
