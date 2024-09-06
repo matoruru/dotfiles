@@ -1,5 +1,4 @@
 # dotfiles
-my dotfiles repository, on gentoo linux
 
 ## For WSL/Orbstack
 
