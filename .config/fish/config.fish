@@ -6,7 +6,6 @@ set -x PATH \
     ~/.npm-global/bin \
     ~/.nodebrew/current/bin \
     ~/.yarn-global/bin \
-    ~/.ghcup/bin \
     ~/.bun/bin \
     (go env GOPATH)/bin \
     ~/bin \
@@ -81,6 +80,10 @@ function kustomize-diff
   kubectl kustomize $argv > $file2
   diff -u $file1 $file2 | git-split-diffs --color
   rm $file1 $file2
+end
+
+function decode-secrets
+  cat - | yq '.data | map_values(@base64d)'
 end
 
 # Set tab step
