@@ -17,9 +17,9 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
-# what want to do when bash is executed
 tabs 3
 
-if [[ -f /bin/fish ]]; then
-   exec fish
+# NIX_GCROOT condition is needed for `nix develop`.
+if [[ -f /bin/fish && -z "$NIX_GCROOT" ]]; then
+  exec fish
 fi
