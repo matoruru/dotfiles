@@ -3,15 +3,14 @@
 set fish_greeting
 
 set -x PATH \
+    $PATH \
     ~/.npm-global/bin \
     ~/.nodebrew/current/bin \
     ~/.yarn-global/bin \
     ~/.bun/bin \
-    (go env GOPATH)/bin \
     ~/bin \
     ~/.krew/bin \
-    ~/.istioctl/bin \
-    $PATH
+    ~/.istioctl/bin
 
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
